@@ -320,6 +320,48 @@
       "&body=" + encodeURIComponent(body);
   }
 
+  function setCornwood() {
+    var a = el("cornwood-mail");
+    if (!a) return;
+    var body = [
+      "Dear Environment Agency,",
+      "",
+      "I am writing about a permitted discharge in the parish of Aldercar and Langley",
+      "Mill, Derbyshire.",
+      "",
+      "Permit T/61/09188/O, held by Severn Trent Water, was issued on 18 November 1983",
+      "and carries no revocation date on your public register of Consented Discharges to",
+      "Controlled Waters. It permits a discharge described as SEWAGE DISCHARGES -",
+      "PUMPING STATION - WATER COMPANY at CORNWOOD MEADOWS INDUSTRIALSITE PS, grid",
+      "reference SK4527047850, into the River Erewash.",
+      "",
+      "I can find no record of this asset in the Event Duration Monitoring Storm Overflow",
+      "Annual Return for any year from 2021 to 2025. Storm discharges at pumping stations",
+      "do appear in those returns in large numbers, so the category itself is clearly in",
+      "scope.",
+      "",
+      "Please could you tell me:",
+      "",
+      "1. Is this permit still in use, or does it relate to an asset that no longer",
+      "   exists? If the latter, why has it not been revoked?",
+      "2. If it is in use, is an Event Duration Monitor fitted to it? If so, under what",
+      "   reference is it reported, since I cannot locate it?",
+      "3. If no monitor is fitted, why not, and when will one be?",
+      "4. How many hours has this outfall discharged into the River Erewash in each of",
+      "   the last five years?",
+      "",
+      "I am asking as a resident. I am not alleging any breach; I am asking because the",
+      "published data does not let me answer these questions myself.",
+      "",
+      "Yours faithfully,",
+      "",
+      "[your name and address]",
+    ].join("\n");
+    a.href = "mailto:enquiries@environment-agency.gov.uk?subject=" +
+      encodeURIComponent("Permit T/61/09188/O - Cornwood Meadows PS, River Erewash") +
+      "&body=" + encodeURIComponent(body);
+  }
+
   function render(d, live) {
     setFacts(d, live);
     setLive(d, live);
@@ -330,6 +372,7 @@
     setTrend(d);
     setCurrent(d, live);
     setMailto(d);
+    setCornwood();
   }
 
   fetch(DATA)
