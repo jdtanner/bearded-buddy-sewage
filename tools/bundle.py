@@ -29,6 +29,14 @@ def main():
         current = load("current.json")
     except FileNotFoundError:
         current = None
+    try:
+        catchment = load("catchment.json")
+    except FileNotFoundError:
+        catchment = None
+    try:
+        consents = load("consents.json")
+    except FileNotFoundError:
+        consents = None
 
     by_svt = {o["id"]: o for o in hist["outfalls"]}
     years = hist["years"]
@@ -110,6 +118,15 @@ def main():
         # The year in progress, from the live feed. Provisional, and kept out of
         # "totals" on purpose: those are the official returns only.
         "current": current,
+        "catchment": catchment,
+        # The EA public register: every permitted discharge here, not only the
+        # ones with a monitor on them. Individual permit holders are not
+        # published - one is a private septic tank and is nobody's business.
+        "consents": None if not consents else {
+            "points": consents["points"],
+            "permits": consents["permits"],
+            "byEffluent": sorted({d["effluent"] for d in consents["discharges"] if d["effluent"]}),
+        },
         "sources": {
             "annualReturn": "https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns",
             "detailed": "https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data",

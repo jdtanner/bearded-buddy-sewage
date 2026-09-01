@@ -1,0 +1,116 @@
+{
+ "permits": 7,
+ "points": 9,
+ "rows": 10,
+ "discharges": [
+  {
+   "permit": "private",
+   "holder": "a private permit holder",
+   "site": "private discharge",
+   "siteType": "Domestic property (multiple) (incl farm houses)",
+   "effluent": "SEWAGE & TRADE COMBINED - UNSPECIFIED",
+   "outlet": "Sewage - not water company",
+   "receiving": "GROUND WATERS VIA SOAKAWAY",
+   "environment": "Into land / infiltration system",
+   "lat": null,
+   "lon": null
+  },
+  {
+   "permit": "T/61/09188/O",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "CORNWOOD MEADOWS INDUSTRIALSITE PS",
+   "siteType": "Storm Tank/CSO on Sewerage Network (water company)",
+   "effluent": "SEWAGE DISCHARGES - PUMPING STATION - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.026032,
+   "lon": -1.326499
+  },
+  {
+   "permit": "T/61/12266/O",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "CROMFORD ROAD - CSO NO 3",
+   "siteType": "Storm Tank/CSO on Sewerage Network (water company)",
+   "effluent": "SEWAGE DISCHARGES - SEWER STORM OVERFLOW - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.023572,
+   "lon": -1.32864
+  },
+  {
+   "permit": "T/61/45098/R",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "HEANOR-MILNHAY STW",
+   "siteType": "WwTW/Sewage Treatment Works (water company)",
+   "effluent": "SEWAGE DISCHARGES - FINAL/TREATED EFFLUENT - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.011737,
+   "lon": -1.321356
+  },
+  {
+   "permit": "T/61/45098/R",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "HEANOR-MILNHAY STW",
+   "siteType": "WwTW/Sewage Treatment Works (water company)",
+   "effluent": "SEWAGE DISCHARGES - STW STORM OVERFLOW/STORM TANK - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.013184,
+   "lon": -1.321333
+  },
+  {
+   "permit": "T/61/45098/R",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "HEANOR-MILNHAY STW",
+   "siteType": "WwTW/Sewage Treatment Works (water company)",
+   "effluent": "SEWAGE DISCHARGES - STW STORM OVERFLOW/STORM TANK - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.014218,
+   "lon": -1.319677
+  },
+  {
+   "permit": "T/61/21599/O",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "LANGLEY MILL - CROMFORD ROAD CSO",
+   "siteType": "Storm Tank/CSO on Sewerage Network (water company)",
+   "effluent": "SEWAGE DISCHARGES - SEWER STORM OVERFLOW - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "TRIBUTARY OF RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.028893,
+   "lon": -1.351072
+  },
+  {
+   "permit": "T/61/12268/O",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "LANGLEY MILL - MILNHAY ROAD CSO",
+   "siteType": "Storm Tank/CSO on Sewerage Network (water company)",
+   "effluent": "SEWAGE DISCHARGES - SEWER STORM OVERFLOW - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "TRIBUTARY OF RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.014468,
+   "lon": -1.324145
+  },
+  {
+   "permit": "T/61/12267/O",
+   "holder": "SEVERN TRENT WATER LIMITED",
+   "site": "LANGLEY MILL - STATION ROAD CSO",
+   "siteType": "Storm Tank/CSO on Sewerage Network (water company)",
+   "effluent": "SEWAGE DISCHARGES - SEWER STORM OVERFLOW - WATER COMPANY",
+   "outlet": "Sewage - water company",
+   "receiving": "RIVER EREWASH",
+   "environment": "Freshwater river",
+   "lat": 53.019611,
+   "lon": -1.327508
+  }
+ ],
+ "source": "Environment Agency public register, Consented Discharges to Controlled Waters with Conditions"
+}

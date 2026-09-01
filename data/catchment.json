@@ -1,0 +1,20 @@
+{
+ "river": "River Erewash",
+ "riverLengthKm": 37.0,
+ "parishFromKm": 9.1,
+ "parishToKm": 17.4,
+ "parishFrontageKm": 8.3,
+ "upstream": 37,
+ "inside": 6,
+ "below": 40,
+ "total": 83,
+ "upstreamByWater": {
+  "Erewash from Source to Nethergreen Brook": 19,
+  "Bailey Brook Catchment (trib of Erewash)": 14,
+  "Nethergreen Brook Catchment (trib of Erewash)": 4
+ },
+ "excluded": {
+  "not in the live feed": 1
+ },
+ "method": "EA WFD waterbody per outfall, positioned along the river network from OpenStreetMap"
+}

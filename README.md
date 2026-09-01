@@ -168,6 +168,41 @@ Worth re-running if the argument ever leans harder on it, since the receiving
 water names in the feed are free text: RIVER EREWASH, TRIB OF RIVER EREWASH,
 TRIBUTARY OF THE RIVER EREWASH and River Erewash all appear as separate spellings.
 
+## Discharges that are not storm overflows
+
+`tools/build_consents.py` reads the EA's public register, Consented Discharges to
+Controlled Waters with Conditions, and clips it to the parish. Nine permitted
+discharge points across seven permits, and two of them appear nowhere else on
+this site:
+
+- **Milnhay works final/treated effluent**, permit T/61/45098/R. Continuous,
+  properly permitted, not a spill, and no hours are counted for it anywhere
+  because it is not meant to stop. The storm-tank hours sit on top of it.
+- **Cornwood Meadows industrial site pumping station**, permit T/61/09188/O,
+  discharging sewage to the Erewash inside the parish. It appears in **no** EDM
+  annual return for 2021-2025. Unmonitored, so no figure exists for it.
+
+The rest are the CSOs already covered, plus one private septic tank discharging
+to ground through a soakaway. **The permit holder is a private individual and is
+not named on the site or in the published data** - bundle.py deliberately passes
+through only counts and effluent types.
+
+Two things checked before believing any of it. A "Cornwood Pumping Station" does
+appear in the return, with spill hours - it is South West Water's, in Devon, on
+the River Yealm, and nothing to do with ours. And Lee Lane's permitted discharge
+point falls a few metres outside the boundary while its monitor is inside; it is
+counted as ours throughout, and the page says so.
+
+This is the only script needing the virtualenv. The register ships as a Microsoft
+Access database and grid references need a real projection:
+
+    python3 -m venv .venv && .venv/bin/pip install access-parser pyproj
+    .venv/bin/python tools/build_consents.py
+
+The National Grid converter is checked against Milnhay works, whose grid
+reference SK4572046380 must come back as 53.01278, -1.32000. An earlier version
+had the northing 800 km out and put the parish in Shetland.
+
 ## Things that will bite you
 
 **The annual return changes shape every year.** Only 2024 and 2025 have a
