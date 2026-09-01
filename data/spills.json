@@ -1,5 +1,32 @@
 {
  "threshold_mm": 0.25,
+ "agreement": 0.75,
+ "gauges": [
+  {
+   "name": "Watnall",
+   "km": 5.7
+  },
+  {
+   "name": "Denby Pottery",
+   "km": 5.8
+  },
+  {
+   "name": "Newstead Abbey",
+   "km": 11.0
+  },
+  {
+   "name": "Sutton-in-Ashfield",
+   "km": 13.2
+  },
+  {
+   "name": "Ogston",
+   "km": 14.0
+  },
+  {
+   "name": "Draycott",
+   "km": 14.2
+  }
+ ],
  "years": {
   "2024": {
    "SVT01315": {
@@ -55,8 +82,8 @@
    "SVT00684": {
     "events": 106,
     "hours": 242.95,
-    "dry": 0,
-    "dry_hours": 0.0
+    "dry": 1,
+    "dry_hours": 0.59
    },
    "SVT01317": {
     "events": 43,
@@ -96,10 +123,79 @@
    "name": "Milnhay works (storm tank)",
    "start": "2024-11-08T17:19:55+00:00",
    "hours": 0.41,
-   "rain_day": 0.0,
-   "rain_prev": 0.0,
-   "year": 2024
+   "year": 2024,
+   "gauges_dry": 6,
+   "gauges_total": 6,
+   "rain": {
+    "Watnall": [
+     0.0,
+     0.0
+    ],
+    "Denby Pottery": [
+     0.0,
+     0.0
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.0
+    ],
+    "Sutton-in-Ashfield": [
+     0.0,
+     0.0
+    ],
+    "Ogston": [
+     0.0,
+     0.0
+    ],
+    "Draycott": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "id": "SVT00684",
+   "name": "Cromford Road No 3",
+   "start": "2025-07-02T04:56:51+00:00",
+   "hours": 0.59,
+   "year": 2025,
+   "gauges_dry": 5,
+   "gauges_total": 6,
+   "rain": {
+    "Watnall": [
+     0.0,
+     0.0
+    ],
+    "Denby Pottery": [
+     0.0,
+     0.2
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.2
+    ],
+    "Sutton-in-Ashfield": [
+     0.0,
+     2.0
+    ],
+    "Ogston": [
+     0.0,
+     0.0
+    ],
+    "Draycott": [
+     0.0,
+     0.0
+    ]
+   }
   }
  ],
- "rainfall_source": "Open-Meteo historical archive, daily total at 53.0246,-1.33"
+ "rainfall_source": "Environment Agency rain gauges, daily totals",
+ "annual_rain": {
+  "2020": 774,
+  "2021": 748,
+  "2022": 691,
+  "2023": 1078,
+  "2024": 901,
+  "2025": 702
+ }
 }

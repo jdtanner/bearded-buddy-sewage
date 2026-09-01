@@ -89,16 +89,23 @@ def main():
         },
         "dry": {
             "threshold_mm": spills["threshold_mm"],
+            "agreement": spills["agreement"],
+            "gauges": spills["gauges"],
             "yearsTested": tested,
             "count": dry_total,
             "spills": spills["dry_spills"],
             "rainfallSource": spills["rainfall_source"],
+            # Total discharges the test was actually applied to, so the page can
+            # say "2 of 693" rather than a bare 2.
+            "tested": sum(p["events"] for y in tested
+                          for p in spills["years"][y].values()),
         },
+        "rain": spills["annual_rain"],
         "sources": {
             "annualReturn": "https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns",
             "detailed": "https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data",
             "live": "https://www.streamwaterdata.co.uk/datasets/stwmaps::severn-trent-water-storm-overflow-activity/about",
-            "rainfall": "https://open-meteo.com/",
+            "rainfall": "https://environment.data.gov.uk/hydrology/landing",
             "boundary": "Aldercar and Langley Mill parish boundary, council boundary record 58602",
             "dryDayDefinition": "https://environmentagency.blog.gov.uk/2024/08/28/what-are-dry-day-spills",
         },

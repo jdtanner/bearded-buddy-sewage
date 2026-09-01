@@ -37,8 +37,12 @@ machine and committed; the Worker only adds live status on top.
 |---|---|---|
 | Spill hours and counts, 2020–2025 | EA [EDM Storm Overflow Annual Return](https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns) | once a year, late March |
 | Every individual discharge, 2024– | EA [EDM Start/Stop Detailed Data](https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data) | once a year |
-| Historic rainfall | Open-Meteo archive, at the parish | once a year |
+| Historic rainfall | EA hydrology API, six rain gauges | once a year |
 | Live status, recent rainfall | Severn Trent ArcGIS feed, Open-Meteo forecast | daily cron |
+
+The daily cron still uses Open-Meteo for the *recent* rainfall behind the live
+indicator, because it is fast and the live figure is indicative. Nothing
+published as a finding depends on it.
 
 To rebuild the historic figures after the EA publishes a new year:
 
@@ -72,19 +76,41 @@ number because it is the one in the official return; the page says so.
 `n/r`. A missing monitor is not a clean river, and rendering it as 0 would flatter
 the company.
 
-**The Environment Agency's own rainfall API cannot answer this question.** It
-keeps roughly a month of readings, and the nearest gauges are 5.5 km and 5.9 km
-away. Historic rainfall comes from Open-Meteo instead, at the parish. During
-development the EA API returned 503 on two requests out of three, which is why
+**Use the gauges, not a weather model.** The first version of this used
+Open-Meteo's gridded archive for historic rainfall. That was wrong, and worth
+recording: it ran about 9% wetter than the gauges over 2024-25, and at the
+0.25 mm threshold the dry-day test uses, that difference decides the answer. It
+reported one dry-day discharge where the gauges report two. Two Open-Meteo
+models disagreed by a factor of 3.6 on one of the dates that mattered.
+
+Historic rainfall now comes from the EA **hydrology** API, which keeps decades of
+daily gauge totals. Do not confuse it with the EA **flood-monitoring** API, which
+keeps about a month and cannot answer a question about last year. Flood-monitoring
+also returned 503 on two requests out of three during development, which is why
 nothing the page renders depends on a live fetch.
+
+**One gauge is not enough.** The nearest is 5.7 km away, and the two nearest
+disagree about whether a given day was dry roughly one day in twelve. Over
+2024-25 the wettest of the six gauges recorded 1,878 mm and the driest 1,429 mm.
+`rainfall.py` polls six and requires 75% agreement; every flagged discharge
+records how many gauges agreed, so a marginal call stays visible as one.
 
 ## The dry-day test
 
 `tools/build_spills.py` applies the Environment Agency's published definition:
 no rainfall above 0.25 mm on the day of the discharge or the day before.
 
-Across 2024 and 2025 — the only two years with per-discharge data — exactly one
-of 693 discharges met it: Milnhay works storm tank, 8 November 2024, 25 minutes.
+Across 2024 and 2025 — the only two years with per-discharge data — two of 693
+discharges met it, totalling one hour:
+
+- Milnhay works storm tank, 8 November 2024, 25 minutes. All six gauges dry.
+- Cromford Road No 3, 2 July 2025, 35 minutes. Five of six; the sixth had 0.2 mm.
+
+Two more candidates were tested and rejected: 19 February 2024 (three discharges
+at Milnhay totalling 11.3 hours) was dry at only one gauge of six, and 27 August
+2025 at only two of six. Both are excluded. The 19 February one matters most,
+because it is by far the longest, and a single-gauge method would have published
+it.
 
 The EA treats a dry-day spill as a **potential** permit breach until it has been
 investigated, and allows that a large catchment can still be draining down long
@@ -102,6 +128,19 @@ published files. If a change breaks that agreement, something is wrong.
 for 2020. Fewer means the matching has broken, and it will fail quietly by
 showing a lower total rather than by throwing.
 
+The two gaps in the table are real and explained, not missing data:
+
+- **2020** has five outfalls because both Milnhay monitors were installed in
+  2021 ("Data start - calendar year" in the return).
+- **2025** has six because the Milnhay works inlet overflow was decommissioned
+  that January — the return says "no longer operational as an overflow, permit
+  revoked or to be revoked" and "no longer spilling to environment". That is a
+  genuine improvement and the page says so.
+
+Also in that row, and worth keeping in the argument: Severn Trent give the cause
+of the storm tank's spill frequency as "hydraulic capacity", with UWWTR and Storm
+Overflow Discharge Reduction Plan investigations ongoing.
+
 ## Before it goes public
 
 - Fill in the imprint in the footer of `public/index.html` — `[NAME]` and
@@ -112,4 +151,10 @@ showing a lower total rather than by throwing.
 - Add `public/assets/img/og-card.png` at 1200×630 — the meta tags already point
   at it.
 - Check the complaint links still resolve, particularly the MP.
+- The page deliberately does **not** claim sewage reaches the canal. The pump
+  house at Langley Mill Basin back-pumps water from the Erewash *Canal* below
+  Langley Bridge Lock into the basin above it; the basin is fed from the
+  Nottingham Canal feeder off Moorgreen reservoir, not from the river. River and
+  canal run side by side here and are very easy to conflate. Do not add that
+  claim back without a source.
 - Bump `?v=` on the CSS and JS in `index.html` whenever you edit them.

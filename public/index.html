@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/logo-256.png">
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=5">
+<link rel="stylesheet" href="/assets/css/site.css?v=6">
 </head>
 <body>
 
@@ -68,8 +68,9 @@
       <p>That is the part worth sitting with. A storm overflow is allowed to discharge
         when heavy rain would otherwise back sewage up into people&rsquo;s homes. We tested
         every one of the 693 individual discharges recorded in 2024 and 2025 against the
-        Environment Agency&rsquo;s own dry-day test, and exactly <b>one</b> of them happened in
-        dry weather. It lasted 25 minutes.</p>
+        Environment Agency&rsquo;s own dry-day test, using six of the Agency&rsquo;s own rain
+        gauges, and <b>two</b> of them happened in dry weather. Together they lasted
+        exactly an hour.</p>
       <p>So Severn Trent can point at almost every one of those 7,464 hours and say it
         was permitted. They would be right. <b>The system is not failing. This is the
         system working as designed</b> &mdash; and it is designed to let raw sewage into
@@ -120,25 +121,43 @@
       <div class="profile"><div data-trend-svg></div></div>
       <p class="fine-note" id="trend-note">&nbsp;</p>
       <div class="col stack" style="margin-top:1.2rem">
+        <h3>The two gaps, and what they actually are</h3>
+        <p>Two years show fewer than seven outfalls reporting, and neither gap is a
+          hidden number. Both Milnhay monitors were installed in <b>2021</b>, so 2020 has
+          five outfalls simply because the other two were not yet being measured.</p>
+        <p>2025 is better news. The inlet overflow at Milnhay works &mdash; on its own
+          responsible for 1,757 hours of discharge since 2021 &mdash; was
+          <b>decommissioned in January 2025</b>. Severn Trent&rsquo;s return records it as
+          &ldquo;no longer operational as an overflow, permit revoked or to be revoked&rdquo;
+          and &ldquo;no longer spilling to environment&rdquo;. That outfall is gone, and the
+          river is better for it. It is worth saying so plainly: when something is fixed,
+          this page will say it was fixed.</p>
+        <p>Which leaves the storm tank next to it, still discharging for 305 hours in
+          2025, and still the largest single source in the parish.</p>
+      </div>
+      <div class="col stack" style="margin-top:1.2rem">
         <h3>&ldquo;It was just a wet year&rdquo;</h3>
         <p>That is the first thing you will be told, so it is worth checking. Rainfall
-          over the parish, against discharge, year by year:</p>
+          measured at six Environment Agency gauges around the parish, averaged, against
+          discharge, year by year:</p>
         <div class="tw"><table>
           <thead><tr><th>Year</th><th>Rainfall</th><th>Discharge</th></tr></thead>
           <tbody>
-            <tr><td>2020</td><td>820 mm</td><td>384 h</td></tr>
-            <tr><td>2021</td><td>802 mm</td><td>2,357 h</td></tr>
-            <tr><td>2022</td><td>710 mm</td><td>720 h</td></tr>
-            <tr><td>2023</td><td>992 mm</td><td>2,185 h</td></tr>
-            <tr><td>2024</td><td>911 mm</td><td>1,119 h</td></tr>
-            <tr><td>2025</td><td>743 mm</td><td>700 h</td></tr>
+            <tr><td>2020</td><td>774 mm</td><td>384 h</td></tr>
+            <tr><td>2021</td><td>748 mm</td><td>2,357 h</td></tr>
+            <tr><td>2022</td><td>691 mm</td><td>720 h</td></tr>
+            <tr><td>2023</td><td>1,078 mm</td><td>2,185 h</td></tr>
+            <tr><td>2024</td><td>901 mm</td><td>1,119 h</td></tr>
+            <tr><td>2025</td><td>702 mm</td><td>700 h</td></tr>
           </tbody>
         </table></div>
         <p>Rain explains some of it: 2023 was the wettest year and one of the worst. But
           it does not explain most of it. <b>2021 was drier than 2020 and produced six
           times as much discharge.</b> The correlation across the six years is 0.52 &mdash;
           real, but far from the whole story. The rest is what condition the network is
-          in and how much is being asked of it.</p>
+          in and how much is being asked of it. Severn Trent&rsquo;s own return names the
+          cause at Milnhay: <b>&ldquo;hydraulic capacity&rdquo;</b>. The works cannot take
+          what is being put into it.</p>
       </div>
     </div>
   </section>
@@ -161,10 +180,23 @@
         2025 &mdash; the only two years for which they publish the start and stop time of
         each one. The result:</p>
 
+      <p class="fine-note">How: rainfall comes from six Environment Agency rain gauges
+        between 5.7 km and 14.2 km away (Watnall, Denby Pottery, Newstead Abbey,
+        Sutton-in-Ashfield, Ogston and Draycott), and a discharge is only counted when
+        at least three quarters of them agree both days were dry. That matters more than
+        it sounds: over these two years the wettest of the six recorded 1,878 mm and the
+        driest 1,429 mm, and the two nearest gauges disagree about whether a given day
+        was dry roughly one day in twelve. A single gauge, or a weather model, gives a
+        different answer.</p>
+
       <div class="notice" id="dry-notice">
-        <h3>One dry-day discharge in two years</h3>
-        <p>Milnhay works storm tank, 8 November 2024, 5.19pm, lasting 25 minutes, with
-          no recorded rainfall that day or the day before.</p>
+        <h3>Two dry-day discharges in two years</h3>
+        <ul class="drylist">
+          <li><b>Milnhay works storm tank</b>, 8 November 2024, 5.19pm, 25 minutes.
+            All six gauges recorded no rain that day or the day before.</li>
+          <li><b>Cromford Road No 3</b>, 2 July 2025, 4.56am, 35 minutes.
+            Five of the six gauges agreed; the sixth recorded 0.2 mm.</li>
+        </ul>
         <p>The Environment Agency treats a dry-day spill as a <b>potential permit
           breach</b> until it has been investigated, not as proof of one. There are
           legitimate explanations &mdash; a large catchment can still be draining down
@@ -189,9 +221,18 @@
         <p>Six of the seven outfalls discharge into the <b>River Erewash</b>. The seventh,
           at Lee Lane, goes into <b>Bailey Brook</b>, which joins the Erewash a little
           downstream. The Erewash is the county boundary here, and it runs the length of
-          the parish before reaching the Great Northern Basin at Langley Mill, where the
-          Erewash, Cromford and Nottingham canals meet.</p>
+          the parish, past the Great Northern Basin at Langley Mill where the Erewash,
+          Cromford and Nottingham canals meet.</p>
         <p>This is water people walk their dogs beside, fish in, and moor boats on.</p>
+        <p class="fine-note">One thing this page does <i>not</i> claim: that the sewage
+          gets into the canal. The pump house at Langley Mill Basin does back-pump, but
+          it lifts water from the Erewash <i>Canal</i> below Langley Bridge Lock up into
+          the basin above it &mdash; canal water, recirculated round a lock, not water
+          taken from the river. The basin above is fed from the Nottingham Canal feeder
+          off Moorgreen reservoir. The river and the canal run side by side here and are
+          easy to conflate, which is exactly why it is worth being precise about it.
+          (The pump house itself is a Victorian sewage pumping station that Severn Trent
+          were going to demolish; canal volunteers hold it on a 99-year lease.)</p>
       </div>
 
       <div class="shots">
@@ -324,23 +365,30 @@
         <li><b>Live status</b> &mdash;
           <a href="https://www.streamwaterdata.co.uk/datasets/stwmaps::severn-trent-water-storm-overflow-activity/about">Severn
           Trent Storm Overflow Activity</a>, refreshed daily.</li>
-        <li><b>Rainfall</b> &mdash; <a href="https://open-meteo.com/">Open-Meteo</a> daily
-          totals for the parish. The nearest Environment Agency rain gauges are 5.5 km and
-          5.9 km away and their API keeps only about a month of readings, so it cannot
-          answer a question about last year.</li>
+        <li><b>Rainfall</b> &mdash; daily totals from six
+          <a href="https://environment.data.gov.uk/hydrology/landing">Environment Agency
+          rain gauges</a> between 5.7 km and 14.2 km away. (The Agency&rsquo;s other API,
+          flood-monitoring, keeps only about a month of readings and cannot answer a
+          question about last year.)</li>
         <li><b>Parish boundary</b> &mdash; the published boundary record for Aldercar and
           Langley Mill.</li>
         <li><b>Dry-day definition</b> &mdash;
           <a href="https://environmentagency.blog.gov.uk/2024/08/28/what-are-dry-day-spills">Environment
           Agency</a>.</li>
       </ul>
-      <p class="fine-note">Two checks worth knowing about. The hours derived from the
+      <p class="fine-note">Checks worth knowing about. The hours derived from the
         individual discharge records match the annual return exactly for both 2024 and
-        2025, from two separately published files. And where an outfall filed no figure
-        for a year, that year is shown as &ldquo;not reported&rdquo; rather than as zero
-        &mdash; a missing monitor is not a clean river. Monitors here were operational
-        between 65% and 100% of the time, so the true totals are higher than these,
-        not lower.</p>
+        2025, from two separately published files &mdash; 1,118.8 and 699.7 hours from
+        each. Where an outfall filed no figure for a year it is shown as &ldquo;not
+        reported&rdquo; rather than as zero, and the two cases here are explained above
+        rather than left hanging. Monitors ran between 65% and 100% of the reporting
+        period, so the totals are floors, not ceilings.</p>
+      <p class="fine-note">An earlier version of this page put the dry-day count at one
+        rather than two. It used a gridded weather model for rainfall instead of the
+        Environment Agency&rsquo;s gauges; the model ran about 9% wetter than the gauges,
+        which is enough to hide a dry day at a 0.25 mm threshold. The figures on this
+        page now come from measured rainfall. If you find something else wrong, please
+        say so.</p>
     </div>
     </div>
   </section>
@@ -365,7 +413,7 @@
 </footer>
 
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script src="/assets/js/sewage-map.js?v=5"></script>
-<script src="/assets/js/page.js?v=5"></script>
+<script src="/assets/js/sewage-map.js?v=6"></script>
+<script src="/assets/js/page.js?v=6"></script>
 </body>
 </html>
