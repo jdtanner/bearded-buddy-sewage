@@ -137,11 +137,45 @@
     var note = el("trend-note");
     var partials = years.filter(function (y) { return d.perYear[y].reporting < d.perYear[y].of; });
     if (note) {
+      // Deliberately does not say "so the real total is higher". It is for 2020,
+      // where monitors were not yet installed, but not for 2025, where an
+      // outfall was decommissioned. Both are explained just below.
       note.innerHTML = partials.length
-        ? "Paler bars (" + partials.join(", ") + ") are years where only " +
-          partials.map(function (y) { return d.perYear[y].reporting; }).join(" and ") +
-          " of the seven outfalls filed a figure, so the real total for those years is higher."
+        ? "Paler bars (" + partials.join(", ") + ") are years when fewer than all " +
+          d.outfalls.length + " outfalls filed a figure, for the reasons below."
         : "";
+    }
+  }
+
+  /* The year in progress. Provisional live-feed figures, deliberately separate
+     from the headline totals, which are the official returns only. */
+  function setCurrent(d) {
+    var c = d.current;
+    if (!c) return;
+    var full = d.perYear[d.totals.to];
+    var set = function (id, text) { var e = el(id); if (e) e.textContent = text; };
+    set("cur-hours", fmt(Math.round(c.hours)) + " hours");
+    set("cur-events", fmt(c.events));
+    set("cur-pct", Math.round((c.hours / full.hours) * 100) + "%");
+
+    var note = el("cur-note");
+    if (note) {
+      var asOf = new Date(c.asOf).toLocaleDateString("en-GB",
+        { day: "numeric", month: "long", year: "numeric" });
+      note.innerHTML =
+        "Provisional, to " + asOf + ". These come from Severn Trent's live feed " +
+        "rather than the audited annual return, so treat them as indicative. " +
+        "Checked against the official return for December 2025 \u2014 the first " +
+        "month both sources cover completely \u2014 the live feed gave 136.5 hours " +
+        "against an official 130.3, about 5% over. They are shown separately from " +
+        "the six-year totals above, which use published returns only.";
+    }
+
+    var m = c.outfalls && c.outfalls.SVT01571;
+    if (m && m.last) {
+      var last = new Date(m.last);
+      set("milnhay-last", "on " + last.toLocaleDateString("en-GB",
+        { day: "numeric", month: "long", year: "numeric" }));
     }
   }
 
@@ -188,6 +222,7 @@
     setBars(d);
     setTable(d);
     setTrend(d);
+    setCurrent(d);
     setMailto(d);
   }
 

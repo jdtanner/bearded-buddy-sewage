@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "data": "python3 tools/build_history.py && python3 tools/build_spills.py && python3 tools/bundle.py"
+    "data": "python3 tools/build_history.py && python3 tools/build_spills.py && python3 tools/build_current.py && python3 tools/bundle.py"
   },
   "devDependencies": {
     "wrangler": "^4"

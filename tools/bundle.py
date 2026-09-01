@@ -25,6 +25,10 @@ def main():
     outfalls = load("outfalls.json")
     hist = load("history.json")
     spills = load("spills.json")
+    try:
+        current = load("current.json")
+    except FileNotFoundError:
+        current = None
 
     by_svt = {o["id"]: o for o in hist["outfalls"]}
     years = hist["years"]
@@ -101,6 +105,9 @@ def main():
                           for p in spills["years"][y].values()),
         },
         "rain": spills["annual_rain"],
+        # The year in progress, from the live feed. Provisional, and kept out of
+        # "totals" on purpose: those are the official returns only.
+        "current": current,
         "sources": {
             "annualReturn": "https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns",
             "detailed": "https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data",

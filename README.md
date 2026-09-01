@@ -38,6 +38,7 @@ machine and committed; the Worker only adds live status on top.
 | Spill hours and counts, 2020–2025 | EA [EDM Storm Overflow Annual Return](https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns) | once a year, late March |
 | Every individual discharge, 2024– | EA [EDM Start/Stop Detailed Data](https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data) | once a year |
 | Historic rainfall | EA hydrology API, six rain gauges | once a year |
+| The year in progress | Severn Trent live feed, history via Top of the Poops | rerun as needed |
 | Live status, recent rainfall | Severn Trent ArcGIS feed, Open-Meteo forecast | daily cron |
 
 The daily cron still uses Open-Meteo for the *recent* rainfall behind the live
@@ -53,6 +54,28 @@ npm run data          # build_history.py, then build_spills.py, then bundle.py
 Add the new year to `YEARS` in `tools/build_history.py` and to `FILES` in
 `tools/build_spills.py` first. Downloads are cached in `.cache/`, which is
 gitignored; pass `--download` to refetch.
+
+## The year in progress
+
+The EA return for a year lands around the following March, so from January to
+March the newest official figure is fifteen months old. `build_current.py` fills
+that gap from the live feed and writes `data/current.json`, which the page shows
+in its own section, clearly labelled provisional and kept out of the headline
+totals.
+
+Severn Trent's live feed reports only the *latest* event per outfall, so it
+cannot be asked what happened in March. Top of the Poops polls it and keeps the
+history, so `build_current.py` reads their per-overflow pages. Each row there is
+one poll rather than one event, and the reported start of an event gets revised
+while it runs, so events are grouped by their END time with the earliest start
+kept.
+
+**Only use it for the current year.** Top of the Poops began polling these
+outfalls on 15 November 2025. Run the same method over 2025 and it returns 231
+hours against an official 700, because it cannot see the first ten months.
+Checked on December 2025, the first month both sources cover in full, it gives
+136.5 hours against an official 130.3 — about 5% over, from events being split
+or merged differently rather than missed.
 
 ## Things that will bite you
 

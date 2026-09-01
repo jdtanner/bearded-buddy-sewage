@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/logo-256.png">
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=6">
+<link rel="stylesheet" href="/assets/css/site.css?v=7">
 </head>
 <body>
 
@@ -58,6 +58,23 @@
         <div class="fact"><div class="n" id="fact-live">&ndash;</div><div class="l">discharging right now</div></div>
       </div>
       <p class="fine-note" id="updated">&nbsp;</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="col stack">
+        <h2>And this year is worse</h2>
+        <p>Those six years are the Environment Agency&rsquo;s published returns, and the
+          most recent one covers 2025. The return for 2026 will not be published until
+          around March 2027.</p>
+        <p>So we counted this year from the live feed instead. Since 1 January 2026 the
+          outfalls in this parish have discharged <b id="cur-hours">&mdash;</b> across
+          <b id="cur-events">&mdash;</b> discharges &mdash; already
+          <b id="cur-pct">&mdash;</b> of the whole of 2025, with four months of the year
+          still to run, and the wettest of them still to come.</p>
+        <p class="fine-note" id="cur-note">&nbsp;</p>
+      </div>
     </div>
   </section>
 
@@ -132,8 +149,13 @@
           and &ldquo;no longer spilling to environment&rdquo;. That outfall is gone, and the
           river is better for it. It is worth saying so plainly: when something is fixed,
           this page will say it was fixed.</p>
-        <p>Which leaves the storm tank next to it, still discharging for 305 hours in
-          2025, and still the largest single source in the parish.</p>
+        <p>Which leaves the storm tank next to it. That one has <i>not</i> stopped. It
+          discharged for 305 hours in 2025, it is still the largest single source in the
+          parish, and it is still going: the live feed records it discharging into the
+          Erewash <b id="milnhay-last">most recently in the last few days</b>. It is
+          absent from Severn Trent&rsquo;s live map only in the sense that the
+          <i>other</i> Milnhay outfall is &mdash; that one no longer appears at all,
+          which is the clearest confirmation that it really is gone.</p>
       </div>
       <div class="col stack" style="margin-top:1.2rem">
         <h3>&ldquo;It was just a wet year&rdquo;</h3>
@@ -413,7 +435,7 @@
 </footer>
 
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script src="/assets/js/sewage-map.js?v=6"></script>
-<script src="/assets/js/page.js?v=6"></script>
+<script src="/assets/js/sewage-map.js?v=7"></script>
+<script src="/assets/js/page.js?v=7"></script>
 </body>
 </html>
