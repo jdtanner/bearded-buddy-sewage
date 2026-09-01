@@ -391,3 +391,10 @@ section:first-of-type{border-top:none}
 .k-brook{background:#8E4A78}
 .k-size{background:#c62828;width:22px;height:22px}
 .k-line{width:26px;height:0;border-top:2px dashed var(--primary);flex:none}
+
+/* Permitted-discharge popups on the map. */
+.pop-note{font-size:.78rem;color:var(--subtext);margin:.35rem 0 0;line-height:1.45}
+.pop-note.warn{color:var(--danger)}
+.k-ring{width:14px;height:14px;border-radius:50%;border:2px solid var(--primary);
+  background:rgba(40,54,83,.15);box-shadow:none;flex:none}
+.k-ring.k-unmon{border-color:#B4802A;background:rgba(180,128,42,.55);border-style:dashed}

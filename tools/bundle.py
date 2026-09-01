@@ -17,6 +17,14 @@ D = os.path.join(HERE, "data")
 OUT = os.path.join(HERE, "public", "data")
 
 
+# Permits that appear in the EDM annual return, so have published spill hours.
+# Everything else on the public register discharges here uncounted.
+MONITORED_PERMITS = {
+    "T/61/21599/O", "T/61/12266/O", "T/61/12267/O",
+    "T/61/12268/O", "T/61/02160/O", "T/61/45098/R",
+}
+
+
 def load(name):
     return json.load(open(os.path.join(D, name)))
 
@@ -126,6 +134,22 @@ def main():
             "points": consents["points"],
             "permits": consents["permits"],
             "byEffluent": sorted({d["effluent"] for d in consents["discharges"] if d["effluent"]}),
+            # Locations, for the map. Water-company permits only: the one private
+            # permit here is a septic tank discharging to ground rather than to
+            # the river, and plotting it would identify a private household.
+            "sites": [
+                {
+                    "permit": d["permit"],
+                    "site": (d["site"] or "").title(),
+                    "effluent": d["effluent"],
+                    "receiving": d["receiving"],
+                    "lat": d["lat"], "lon": d["lon"],
+                    # Does it have an Event Duration Monitor reporting hours?
+                    "monitored": d["permit"] in MONITORED_PERMITS,
+                }
+                for d in consents["discharges"]
+                if "LIMITED" in (d["holder"] or "").upper()
+            ],
         },
         "sources": {
             "annualReturn": "https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns",

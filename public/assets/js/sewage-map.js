@@ -130,9 +130,41 @@
       dashArray: "7 6", interactive: false,
     }).addTo(map);
 
-    L.control
-      .layers(b, { "Parish boundary": ring }, { position: "topright" })
-      .addTo(map);
+    // Every permitted discharge point on the Environment Agency's register, as a
+    // layer you can turn on. Most coincide with an outfall above; the point of
+    // showing them is the ones that do not, which discharge here with a permit
+    // and no monitor and therefore no published hours.
+    var consents = L.layerGroup();
+    var sites = (data.consents && data.consents.sites) || [];
+    sites.forEach(function (c) {
+      L.circleMarker([c.lat, c.lon], {
+        radius: 7,
+        color: c.monitored ? "#283653" : "#B4802A",
+        weight: 2,
+        fillColor: c.monitored ? "#283653" : "#B4802A",
+        fillOpacity: c.monitored ? 0.15 : 0.55,
+        dashArray: c.monitored ? null : "3 3",
+      })
+        .bindPopup(
+          '<div class="pop"><h4>' + esc(c.site) + "</h4>" +
+          '<p class="pop-sub">' + esc(c.effluent || "") + "</p>" +
+          '<p class="pop-big">Permitted to discharge into ' + esc(c.receiving || "") +
+          "</p>" +
+          '<p class="pop-note' + (c.monitored ? "" : " warn") + '">' +
+          (c.monitored
+            ? "Has an event duration monitor. Its hours are in the figures above."
+            : "<b>No event duration monitor.</b> Nothing on this page counts it, " +
+              "because no hours are published for it anywhere.") +
+          "</p>" +
+          '<p class="pop-fine">Permit ' + esc(c.permit) + "</p></div>",
+          { maxWidth: 320 }
+        )
+        .addTo(consents);
+    });
+
+    var overlays = { "Parish boundary": ring };
+    if (sites.length) overlays["Every permitted discharge"] = consents;
+    L.control.layers(b, overlays, { position: "topright" }).addTo(map);
 
     var live = liveData && liveData.live ? liveData.live : {};
     var max = Math.max.apply(null, data.outfalls.map(function (o) { return o.totalHours; }));
