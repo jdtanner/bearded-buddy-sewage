@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/logo-256.png">
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=16">
+<link rel="stylesheet" href="/assets/css/site.css?v=17">
 </head>
 <body>
 
@@ -115,10 +115,16 @@
     <div class="wrap stack">
       <div class="sechead">
         <h2>Where it goes in</h2>
-        <p class="lede">Dot size is total discharge since 2020. Red goes into the River
-          Erewash, purple into Bailey Brook. Click one for its year-by-year record.</p>
+        <p class="lede">The seven outfalls inside the parish boundary. Click one for
+          its year-by-year record.</p>
       </div>
       <div class="mapwrap"><div id="map"></div></div>
+      <ul class="mapkey">
+        <li><span class="k-dot k-ere"></span>Discharges into the River Erewash</li>
+        <li><span class="k-dot k-brook"></span>Discharges into Bailey Brook</li>
+        <li><span class="k-dot k-size"></span>Bigger dot, more sewage since 2020</li>
+        <li><span class="k-line"></span>Parish boundary</li>
+      </ul>
       <div class="map-actions">
         <a class="btn ghost" href="#" data-map-reset>Reset the map</a>
         <span class="maphint">Click the map before scrolling to zoom with the wheel.</span>
@@ -315,6 +321,28 @@
           were going to demolish; canal volunteers hold it on a 99-year lease.)</p>
       </div>
 
+      <div class="col stack">
+        <h3>And it does not start at our boundary</h3>
+        <p>These seven are the outfalls inside the parish. They are not the only ones on
+          this water. Severn Trent&rsquo;s own live map shows <b>66 monitored storm
+          overflows</b> discharging into the River Erewash, Bailey Brook and their
+          tributaries. Six of them are ours.</p>
+        <p><b>Thirty-one of the other sixty are upstream of us</b> &mdash; eighteen on the
+          Erewash to the north, thirteen on Bailey Brook to the west. Everything they
+          release flows down through this parish before it goes anywhere else. The water
+          arriving at Langley Mill has already been through Heanor, Eastwood, Codnor and
+          Ripley.</p>
+        <p>That cuts both ways, and both ways are worth saying. We are not only producing
+          this: we are receiving a good deal of it. And what leaves here does not stop at
+          the boundary either &mdash; it carries on down the Erewash to the Trent, through
+          everybody downstream of us.</p>
+        <p class="fine-note">Counted from Severn Trent&rsquo;s live feed by receiving
+          watercourse. Upstream is taken as north of the parish on the Erewash, which runs
+          roughly north to south here, and west of Lee Lane on Bailey Brook, which joins
+          the Erewash at Langley Mill. It counts monitored storm overflows only, so it is
+          a floor.</p>
+      </div>
+
       <div class="shots">
         <figure class="shot">
           <div class="ph" data-photo="erewash">Photograph slot &mdash; the Erewash</div>
@@ -501,7 +529,7 @@
 </footer>
 
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script src="/assets/js/sewage-map.js?v=16"></script>
-<script src="/assets/js/page.js?v=16"></script>
+<script src="/assets/js/sewage-map.js?v=17"></script>
+<script src="/assets/js/page.js?v=17"></script>
 </body>
 </html>

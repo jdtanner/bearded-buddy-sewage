@@ -149,6 +149,25 @@ Two things that would change the picture:
   because it changes on every poll and storing it would turn every one of the 288
   daily runs into a write. Do not add it.
 
+## The wider catchment
+
+The page states that 66 monitored Severn Trent storm overflows discharge into the
+Erewash, Bailey Brook and their tributaries, six of them in the parish, and that
+31 of the rest are upstream. Counted from the live feed by receiving watercourse:
+
+    where=UPPER(ReceivingWaterCourse) LIKE '%EREWASH%'
+       OR UPPER(ReceivingWaterCourse) LIKE '%BAILEY BROOK%'
+
+Upstream is geometric, not hydrological: north of the parish on the Erewash,
+which runs roughly north-south here, and west of Lee Lane on Bailey Brook, which
+joins the Erewash at Langley Mill. Good enough for the claim being made, and the
+page says so. It counts monitored storm overflows only, so it is a floor - not
+unmonitored assets, not other companies, not agricultural or highway runoff.
+
+Worth re-running if the argument ever leans harder on it, since the receiving
+water names in the feed are free text: RIVER EREWASH, TRIB OF RIVER EREWASH,
+TRIBUTARY OF THE RIVER EREWASH and River Erewash all appear as separate spellings.
+
 ## Things that will bite you
 
 **The annual return changes shape every year.** Only 2024 and 2025 have a

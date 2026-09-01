@@ -379,3 +379,15 @@ section:first-of-type{border-top:none}
 /* Highlight the Environment Agency's own threshold in the sweep. */
 #sweep-table tr.here td{background:var(--primary-soft)}
 #sweep-table td:first-child,#near-table td:first-child{white-space:nowrap}
+
+/* Map key. The layer control names the boundary but only once you open it, and
+   nothing on screen said what a dashed navy line or a purple dot meant. */
+.mapkey{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-wrap:wrap;
+  gap:.5rem 1.4rem;font-size:.82rem;color:var(--subtext)}
+.mapkey li{display:flex;align-items:center;gap:.45rem}
+.k-dot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;
+  box-shadow:0 0 0 1px rgba(0,0,0,.35);flex:none}
+.k-ere{background:#c62828}
+.k-brook{background:#8E4A78}
+.k-size{background:#c62828;width:22px;height:22px}
+.k-line{width:26px;height:0;border-top:2px dashed var(--primary);flex:none}
