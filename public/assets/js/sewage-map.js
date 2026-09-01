@@ -8,18 +8,22 @@
   "use strict";
 
   function bases() {
+    // Street first: it is the default, and the layer control lists these in key
+    // order. The walks site leads with Outdoor because contours matter on a
+    // walk; here the job is finding a street corner and a river, so plain OSM
+    // reads better and goes two zoom levels deeper.
     // These attribution strings are a licence condition. Do not remove them.
     return {
+      Street: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }),
       Outdoor: L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
         maxZoom: 17,
         attribution:
           'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
           'contributors, <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
-      }),
-      Street: L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }),
       Satellite: L.tileLayer(
         "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -118,7 +122,7 @@
 
   function draw(mapEl, data, boundary, liveData, opts) {
     var b = bases();
-    var map = L.map(mapEl, { layers: [b.Outdoor], scrollWheelZoom: false });
+    var map = L.map(mapEl, { layers: [b.Street], scrollWheelZoom: false });
     L.control.scale({ imperial: true, metric: true }).addTo(map);
 
     var ring = L.polyline(boundary, {
