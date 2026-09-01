@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/logo-256.png">
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=13">
+<link rel="stylesheet" href="/assets/css/site.css?v=15">
 </head>
 <body>
 
@@ -211,18 +211,20 @@
         <cite><a href="https://environmentagency.blog.gov.uk/2024/08/28/what-are-dry-day-spills">Environment
           Agency, August 2024</a></cite>
       </blockquote>
-      <p>Nought point two five of a millimetre sounds like almost nothing, and it is.
-        Spread over a square metre it is <b>a quarter of a litre &mdash; about a mugful
-        &mdash; and that is the whole day&rsquo;s rain</b>. It is a tenth of what falls on
-        an ordinary wet day here, and one part in three thousand of a year&rsquo;s
-        rainfall. You would not put the wipers on for it. A heavy dew leaves about as
-        much.</p>
-      <p>There is a neater way to say it. These gauges are tipping buckets that record
-        in steps of <b>0.2 mm</b> &mdash; every one of the 13,164 daily readings behind
-        this page is an exact multiple of it, and below 1.2 mm the only readings that
-        exist are 0.0, 0.2, 0.4, 0.6, 0.8 and 1.0. So the Agency&rsquo;s threshold sits in
-        the gap between one tip of the bucket and two. <b>A dry day is a day the rain
-        gauge tipped once, or not at all.</b></p>
+      <p>0.25 mm sounds like almost nothing, and it is. Spread over a square metre it
+        comes to <b>a quarter of a litre &mdash; about a mugful &mdash; and that is the
+        whole day&rsquo;s rain</b>. It is a tenth of what falls on an ordinary wet day
+        here, and one part in three thousand of a year&rsquo;s rainfall. You would not put
+        the wipers on for it. A heavy dew leaves about as much.</p>
+      <p>There is a neater way to picture it. A rain gauge is not a measuring jug. It is
+        a funnel feeding a tiny see-saw with a bucket on each end: rain fills the raised
+        bucket until it overbalances, tips out, and swings the other one up to take over.
+        Every tip is counted, and on these gauges <b>one tip is 0.2 mm</b>.</p>
+      <p>So the gauge cannot report anything finer than a single tip, and it doesn&rsquo;t.
+        All 13,164 daily readings behind this page are exact multiples of 0.2 mm, and
+        below 1.2 mm the only readings that exist anywhere in the data are 0.0, 0.2, 0.4,
+        0.6, 0.8 and 1.0. The Agency&rsquo;s threshold falls in the gap between one tip and
+        two. <b>A dry day is a day the rain gauge tipped once, or not at all.</b></p>
       <p>We applied that test to every discharge Severn Trent recorded here in 2024 and
         2025 &mdash; the only two years for which they publish the start and stop time of
         each one. The result:</p>
@@ -262,10 +264,10 @@
         same two discharges</b> &mdash; the count is flat across a band either side of
         the Environment Agency&rsquo;s figure rather than balanced on it. It only starts
         to climb at 1 mm, which is no longer a dry day by any reasonable reading.</p>
-      <p>Part of the reason is the buckets. Because they tip in steps of 0.2 mm, there
-        are no readings between one tip and two for a threshold to land on, so moving the
-        line anywhere inside that gap changes nothing at all. The test is more robust
-        than a decimal place suggests.</p>
+      <p>Part of the reason is those tipping buckets. Because the gauges only ever
+        report in steps of 0.2 mm, there are no readings between one tip and two for a
+        threshold to land on &mdash; so moving the line anywhere inside that gap changes
+        nothing at all. The test is more robust than a decimal place makes it look.</p>
 
       <h3>The ones that only just fail</h3>
       <p>Five discharges would count if the line were drawn at 1 mm instead. They are
@@ -414,9 +416,13 @@
     <div class="wrap">
       <div class="col stack">
       <h2>Why I am doing this</h2>
-      <p>I live here and I walk this parish. I spent a while last year mapping its
-        boundary on foot, which meant walking the Erewash from end to end. You cannot do
-        that and not notice the state of it.</p>
+      <p>I run a dog walking business here. That means I am out in this parish
+        <b>every day</b>, in all weathers, along the Erewash and Bailey Brook and round
+        the Great Northern Basin &mdash; not occasionally, not on a nice afternoon in
+        June, but every day of the year. I also spent a good while mapping the parish
+        boundary on foot, which meant walking the length of the river.</p>
+      <p>You do not do that for long without noticing the state of it. And the dogs I
+        walk go in that water.</p>
       <p>I am standing for Aldercar and Langley Mill Parish Council. I am not asking you
         to vote for me on this page. I am asking you to complain, because a hundred
         complaints will do more than one councillor will.</p>
@@ -440,9 +446,11 @@
           <a href="https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data">EDM
           Start/Stop Detailed Data</a>, Environment Agency. Published for 2024 onwards
           only, which is why the dry-day test covers those years and not earlier ones.</li>
-        <li><b>Live status</b> &mdash;
+        <li><b>Live status, and this year&rsquo;s running total</b> &mdash;
           <a href="https://www.streamwaterdata.co.uk/datasets/stwmaps::severn-trent-water-storm-overflow-activity/about">Severn
-          Trent Storm Overflow Activity</a>, refreshed daily.</li>
+          Trent Storm Overflow Activity</a>, checked every five minutes. That feed only
+          reports the most recent discharge at each outfall, so this site keeps its own
+          record of every one rather than relying on anybody else&rsquo;s.</li>
         <li><b>Rainfall</b> &mdash; daily totals from six
           <a href="https://environment.data.gov.uk/hydrology/landing">Environment Agency
           rain gauges</a> between 5.7 km and 14.2 km away. (The Agency&rsquo;s other API,
@@ -491,7 +499,7 @@
 </footer>
 
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script src="/assets/js/sewage-map.js?v=13"></script>
-<script src="/assets/js/page.js?v=13"></script>
+<script src="/assets/js/sewage-map.js?v=15"></script>
+<script src="/assets/js/page.js?v=15"></script>
 </body>
 </html>
