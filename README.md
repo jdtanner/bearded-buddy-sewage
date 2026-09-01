@@ -38,8 +38,8 @@ machine and committed; the Worker only adds live status on top.
 | Spill hours and counts, 2020–2025 | EA [EDM Storm Overflow Annual Return](https://www.data.gov.uk/dataset/19f6064d-7356-466f-844e-d20ea10ae9fd/event-duration-monitoring-storm-overflows-annual-returns) | once a year, late March |
 | Every individual discharge, 2024– | EA [EDM Start/Stop Detailed Data](https://www.data.gov.uk/dataset/event-duration-monitoring-storm-overflow-start-stop-detailed-data) | once a year |
 | Historic rainfall | EA hydrology API, six rain gauges | once a year |
-| The year in progress | Severn Trent live feed, history via Top of the Poops | rerun as needed |
-| Live status, recent rainfall | Severn Trent ArcGIS feed, Open-Meteo forecast | daily cron |
+| The year in progress | the Worker's own record of the live feed | every 5 minutes |
+| Live status, recent rainfall | Severn Trent ArcGIS feed, Open-Meteo forecast | every 5 minutes |
 
 The daily cron still uses Open-Meteo for the *recent* rainfall behind the live
 indicator, because it is fast and the live figure is indicative. Nothing
@@ -55,27 +55,61 @@ Add the new year to `YEARS` in `tools/build_history.py` and to `FILES` in
 `tools/build_spills.py` first. Downloads are cached in `.cache/`, which is
 gitignored; pass `--download` to refetch.
 
-## The year in progress
+## The year in progress, and why this site keeps its own record
 
-The EA return for a year lands around the following March, so from January to
-March the newest official figure is fifteen months old. `build_current.py` fills
-that gap from the live feed and writes `data/current.json`, which the page shows
-in its own section, clearly labelled provisional and kept out of the headline
-totals.
+The EA return for a year lands around the following March, so for fifteen months
+the newest official figure is out of date. The Worker fills that gap itself.
 
-Severn Trent's live feed reports only the *latest* event per outfall, so it
-cannot be asked what happened in March. Top of the Poops polls it and keeps the
-history, so `build_current.py` reads their per-overflow pages. Each row there is
-one poll rather than one event, and the reported start of an event gets revised
-while it runs, so events are grouped by their END time with the earliest start
-kept.
+Severn Trent's live feed reports only the **latest** event per outfall. It cannot
+be asked what happened in March, so the only way to have a running total is to
+watch it and write down what it says. The cron does that every five minutes and
+keeps the result in KV under `events:<year>`. Nothing about the current year
+depends on anyone else's archive.
 
-**Only use it for the current year.** Top of the Poops began polling these
-outfalls on 15 November 2025. Run the same method over 2025 and it returns 231
-hours against an official 700, because it cannot see the first ten months.
-Checked on December 2025, the first month both sources cover in full, it gives
-136.5 hours against an official 130.3 — about 5% over, from events being split
-or merged differently rather than missed.
+Five minutes is not about being live. Anything that starts and finishes between
+two polls is lost for good, and plenty of these discharges last twenty minutes.
+
+**Keys.** An event is stored as `"<id>|<end minute>" -> [start ms, end ms]`. Keyed
+on the end rather than the start because the company revises the reported start
+while a discharge is running, so one discharge otherwise becomes several. Rounded
+to the minute because it revises the seconds too — the same discharge has been
+seen ending at :23 and then :41 one poll later.
+
+**Writes are conditional.** The cron runs 288 times a day; it writes only when
+something changed, plus a heartbeat every 30 minutes so "last checked" stays
+honest. A quiet day costs about 50 writes.
+
+`GET /api/events?year=2026` dumps everything recorded, so the numbers can be
+checked and the record exported if it ever needs rebuilding elsewhere.
+
+### The one-time seed
+
+The Worker cannot remember a year that began before it was deployed. Severn Trent
+publish a per-year EDM feature service but only after the year ends (`STW_Edm_2025`
+exists, `STW_Edm_2026` does not), and the EA return is a year further off still.
+For the already-elapsed months of the current year there is exactly one public
+record: Top of the Poops, who poll the same feed and keep the history.
+
+`tools/seed_events.py` reads that **once** and writes it into KV in the Worker's
+own format. That is the entire extent of the dependency and it ends there. Delete
+the script once the EA has published the return for that year.
+
+Two traps it has to handle, both of which silently double-count:
+
+- **Top of the Poops displays British local time**, the feed and the EA returns
+  are UTC. In summer that is an hour out, which does not change a duration but
+  does change which day a discharge falls on and stops a seeded event matching
+  the same event seen live.
+- **That page shows minutes; the feed reports seconds.** Hence the minute-rounded
+  key.
+
+Checked after seeding: 219 events and 606 hours from the seed, still 219 and 606
+after repeated live polls, with no near-duplicate pairs an hour apart.
+
+**Do not seed a year the EA has already published.** Top of the Poops only began
+polling these outfalls on 15 November 2025, so the same method over 2025 returns
+231 hours against an official 700. Over December 2025, the first month both cover
+in full, it gives 136.5 against an official 130.3 — about 5% over.
 
 ## Things that will bite you
 

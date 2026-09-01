@@ -38,6 +38,7 @@ import re
 import sys
 import time
 import urllib.request
+from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -68,13 +69,24 @@ def fetch(url, tries=5):
     return None
 
 
+LONDON = ZoneInfo("Europe/London")
+
+
 def events(uid, year):
-    """Distinct discharges as (start, stop).
+    """Distinct discharges as timezone-aware UTC (start, stop).
 
     Each table row is one poll of the water-industry API, not one event, and the
     reported start of an event gets revised as it runs. So group by the event's
     END time and keep the earliest start seen for it: distinct ends are distinct
     events, and a revised start collapses back to the true one.
+
+    Times on that page are British local, not UTC. In summer that is an hour
+    ahead of the Environment Agency's returns and of Severn Trent's own feed,
+    which are both UTC. It does not affect a duration, since both ends move
+    together, but it does decide which calendar day a discharge is attributed to
+    - and therefore whether it is tested against the right day's rainfall - and
+    it makes a seeded event fail to match the same event seen live, which would
+    quietly count one discharge twice.
     """
     page = fetch(f"https://top-of-the-poops.org/overflow/{uid}?year={year}")
     if page is None:
@@ -87,8 +99,10 @@ def events(uid, year):
         if len(cells) < 5 or not re.match(r"\d\d/\d\d/\d{4}", cells[0]):
             continue
         try:
-            start = datetime.datetime.strptime(cells[3], "%d/%m/%Y, %H:%M")
-            stop = datetime.datetime.strptime(cells[4], "%d/%m/%Y, %H:%M")
+            start = (datetime.datetime.strptime(cells[3], "%d/%m/%Y, %H:%M")
+                     .replace(tzinfo=LONDON).astimezone(datetime.timezone.utc))
+            stop = (datetime.datetime.strptime(cells[4], "%d/%m/%Y, %H:%M")
+                    .replace(tzinfo=LONDON).astimezone(datetime.timezone.utc))
         except ValueError:
             continue
         if stop <= start or start.year != year:

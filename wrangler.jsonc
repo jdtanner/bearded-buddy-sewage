@@ -13,10 +13,13 @@
   },
 
   // Created with:  npx wrangler kv namespace create DATA
-  // then paste the id it prints below. Holds one key, parish:aldercar - the live
-  // status and recent rainfall. The historical figures are NOT in here: they are
-  // committed JSON in ./public/data, because a closed year never changes and
-  // nothing should be able to make last year's numbers disappear at runtime.
+  // then paste the id it prints below. Holds:
+  //   parish:status  the latest poll - live status, recent rainfall
+  //   events:<year>  every discharge we have recorded ourselves, keyed
+  //                  "<id>|<end ms>" with the start ms as the value
+  // The published annual returns are NOT in here. They are committed JSON in
+  // ./public/data, because a closed year never changes and nothing should be
+  // able to make last year's figures disappear at runtime.
   "kv_namespaces": [
     {
       "binding": "DATA",
@@ -24,11 +27,13 @@
     }
   ],
 
-  // Once a day, early. Severn Trent's feed updates within an hour of an overflow
-  // operating, but the page is about a six-year pattern, not a live alarm, and a
-  // daily read is polite to a free ArcGIS endpoint.
+  // Every five minutes, like the track Worker. This is not about being live: the
+  // feed reports only the LATEST event per outfall, so anything that starts and
+  // finishes between two polls is lost for good. Five minutes is what it takes to
+  // keep our own record of the year complete enough to publish.
+  // Writes are conditional, so a quiet day costs a couple of KV writes, not 288.
   "triggers": {
-    "crons": ["0 5 * * *"]
+    "crons": ["*/5 * * * *"]
   },
 
   // Custom domain on the zone registered with Cloudflare Registrar, so

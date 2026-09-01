@@ -149,9 +149,13 @@
 
   /* The year in progress. Provisional live-feed figures, deliberately separate
      from the headline totals, which are the official returns only. */
-  function setCurrent(d) {
-    var c = d.current;
+  function setCurrent(d, live) {
+    // Prefer the Worker's own record over the file built on the last data run:
+    // it is this site's own count, and it is up to the last five minutes.
+    // The committed file is the fallback for when the API is unreachable.
+    var c = (live && live.current && live.current.events) ? live.current : d.current;
     if (!c) return;
+    if (!c.asOf) c.asOf = (live && live.updated) ? live.updated.slice(0, 10) : null;
     var full = d.perYear[d.totals.to];
     var set = function (id, text) { var e = el(id); if (e) e.textContent = text; };
     set("cur-hours", fmt(Math.round(c.hours)) + " hours");
@@ -160,8 +164,10 @@
 
     var note = el("cur-note");
     if (note) {
-      var asOf = new Date(c.asOf).toLocaleDateString("en-GB",
-        { day: "numeric", month: "long", year: "numeric" });
+      var asOf = c.asOf
+        ? new Date(c.asOf).toLocaleDateString("en-GB",
+            { day: "numeric", month: "long", year: "numeric" })
+        : "today";
       note.innerHTML =
         "Provisional, to " + asOf + ". These come from Severn Trent's live feed " +
         "rather than the audited annual return, so treat them as indicative. " +
@@ -222,7 +228,7 @@
     setBars(d);
     setTable(d);
     setTrend(d);
-    setCurrent(d);
+    setCurrent(d, live);
     setMailto(d);
   }
 

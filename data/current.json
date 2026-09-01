@@ -1,7 +1,7 @@
 {
  "year": 2026,
  "asOf": "2026-09-01",
- "latestDischarge": "2026-08-31T08:48:00",
+ "latestDischarge": "2026-08-31T07:48:00+00:00",
  "events": 219,
  "hours": 605.9,
  "outfalls": {
@@ -9,37 +9,37 @@
    "name": "Milnhay works (storm tank)",
    "events": 50,
    "hours": 265.6,
-   "last": "2026-08-31T05:50:00"
+   "last": "2026-08-31T04:50:00+00:00"
   },
   "SVT00684": {
    "name": "Cromford Road No 3",
    "events": 99,
    "hours": 286.1,
-   "last": "2026-08-31T08:48:00"
+   "last": "2026-08-31T07:48:00+00:00"
   },
   "SVT01317": {
    "name": "Station Road",
    "events": 27,
    "hours": 28.6,
-   "last": "2026-08-30T23:03:00"
+   "last": "2026-08-30T22:03:00+00:00"
   },
   "SVT01316": {
    "name": "Milnhay Road",
    "events": 2,
    "hours": 0.6,
-   "last": "2026-08-30T23:41:00"
+   "last": "2026-08-30T22:41:00+00:00"
   },
   "SVT01338": {
    "name": "Lee Lane",
    "events": 39,
    "hours": 24.3,
-   "last": "2026-08-30T23:50:00"
+   "last": "2026-08-30T22:50:00+00:00"
   },
   "SVT01315": {
    "name": "Cromford Road",
    "events": 2,
    "hours": 0.7,
-   "last": "2026-08-27T22:08:00"
+   "last": "2026-08-27T21:08:00+00:00"
   }
  },
  "provisional": true,
