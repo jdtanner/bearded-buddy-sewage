@@ -111,6 +111,44 @@ polling these outfalls on 15 November 2025, so the same method over 2025 returns
 231 hours against an official 700. Over December 2025, the first month both cover
 in full, it gives 136.5 against an official 130.3 — about 5% over.
 
+## What it costs
+
+Nothing, and on the Free plan it cannot: going over a limit there returns 429s,
+it does not generate a bill. Paid usage would only start on the $5/month Workers
+plan, and this site would use a rounding error of what that includes.
+
+The binding constraint is KV **writes**, capped at 1,000 a day on Free. Measured
+against the 219 discharges actually recorded in 2026:
+
+| | writes/day | of the limit |
+|---|---|---|
+| Heartbeat, every day regardless | 48 | 5% |
+| Typical day (about 1 discharge) | 51 | 5% |
+| Busiest day of 2026 so far (17) | 99 | 10% |
+| An absurd day (60 discharges) | 228 | 23% |
+| Ceiling if every single poll changed something | 576 | 58% |
+
+Everything else is far away from its limit: 288 cron invocations and 576 KV
+reads a day, against 100,000 of each. A year of stored events is 11 KB against
+1 GB, so a decade is still a rounding error.
+
+**Page traffic is free.** Static assets served through the assets binding are
+free and unlimited on every plan. Only `/api/parish` invokes the Worker, and it
+is edge-cached for five minutes, so even a page that gets shared widely adds very
+little. It would take roughly 100,000 uncached visits in a day to reach the
+Workers request limit.
+
+Two things that would change the picture:
+
+- **More parishes.** The daily KV limits are almost certainly per account rather
+  than per namespace — the docs do not say outright — so budget on the account
+  total. At about 100 writes a day each, eight or so parishes would still fit;
+  beyond that, either lengthen the cron or move to the $5 plan.
+- **A churning field in the feed.** The stored status deliberately holds only
+  `status`, `since`, `start` and `end`. `LastUpdated` is fetched but not stored,
+  because it changes on every poll and storing it would turn every one of the 288
+  daily runs into a write. Do not add it.
+
 ## Things that will bite you
 
 **The annual return changes shape every year.** Only 2024 and 2025 have a
