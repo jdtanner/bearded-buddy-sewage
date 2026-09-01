@@ -316,7 +316,11 @@ section:first-of-type{border-top:none}
 
 /* "not reported" is not the same as zero and must not look like it. */
 .tw .nr{color:var(--subtext);font-style:italic;cursor:help}
-.tw tbody tr:last-child td{border-top:2px solid var(--border);background:var(--light)}
+
+/* The totals row of the outfall table. Scoped to that one table on purpose:
+   as `.tw tbody tr:last-child` it greyed the last row of every table on the
+   page, which read as though that row meant something special. */
+#table tbody tr:last-child td{border-top:2px solid var(--border);background:var(--light)}
 
 .bar span a{color:var(--primary);text-decoration:none;border-bottom:1px dotted var(--border)}
 .bar span a:hover{border-bottom-color:var(--primary)}
