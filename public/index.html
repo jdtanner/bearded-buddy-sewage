@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/logo-256.png">
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=8">
+<link rel="stylesheet" href="/assets/css/site.css?v=9">
 </head>
 <body>
 
@@ -58,6 +58,15 @@
         <div class="fact"><div class="n" id="fact-live">&ndash;</div><div class="l">discharging right now</div></div>
       </div>
       <p class="fine-note" id="updated">&nbsp;</p>
+
+      <div class="livebox">
+        <div class="livehead">
+          <h3>Right now</h3>
+          <span class="livedot" id="live-dot"></span>
+        </div>
+        <div class="tw"><table id="live-table"></table></div>
+        <p class="fine-note" id="live-note">Checking Severn Trent&rsquo;s feed&hellip;</p>
+      </div>
     </div>
   </section>
 
@@ -229,9 +238,33 @@
           law here, and this page should not be read as saying so.</p>
       </div>
 
-      <p>We are publishing this even though it is a small number, because the honest
-        finding matters more than a convenient one. The case against what is happening
-        in this parish does not need a scandal. <b>7,464 lawful hours is the
+      <h3>Did we pick a convenient threshold?</h3>
+      <p>It is the obvious objection to any test with a number in it, so here is every
+        other number we could have picked, run over the same 693 discharges:</p>
+      <div class="tw"><table id="sweep-table"></table></div>
+      <p>The answer does not move. <b>Anywhere between 0.2 mm and 0.5 mm you get the
+        same two discharges</b> &mdash; the count is flat across a band either side of
+        the Environment Agency&rsquo;s figure rather than balanced on it. It only starts
+        to climb at 1 mm, which is no longer a dry day by any reasonable reading.</p>
+
+      <h3>The ones that only just fail</h3>
+      <p>Five discharges would count if the line were drawn at 1 mm instead. They are
+        worth looking at, because of <i>how</i> they fail:</p>
+      <div class="tw"><table id="near-table"></table></div>
+      <p>Look at which column disqualifies them. On four of the five, <b>the day of the
+        discharge was itself dry by the Agency&rsquo;s own measure</b> &mdash; at or below
+        0.25 mm across the gauges. What rules them out is a trace on the day
+        <i>before</i>: two tenths of a millimetre, in one case one and a half.</p>
+      <p>The Environment Agency includes the preceding 24 hours deliberately, because a
+        catchment goes on draining long after rain stops. Excluding these is the correct
+        call and we have excluded them. It is still worth knowing that across
+        <b>19 February 2024, a day on which the gauges recorded at most two tenths of a
+        millimetre, Milnhay works discharged into the Erewash three times for more than
+        eleven hours in total.</b></p>
+
+      <p>We are publishing all of this even though the headline number is small, because
+        the honest finding matters more than a convenient one. The case against what is
+        happening in this parish does not need a scandal. <b>7,464 lawful hours is the
         scandal.</b></p>
     </div>
     </div>
@@ -438,7 +471,7 @@
 </footer>
 
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script src="/assets/js/sewage-map.js?v=8"></script>
-<script src="/assets/js/page.js?v=8"></script>
+<script src="/assets/js/sewage-map.js?v=9"></script>
+<script src="/assets/js/page.js?v=9"></script>
 </body>
 </html>

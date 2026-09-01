@@ -51,6 +51,103 @@
     }
   }
 
+  /* The live panel. This is the only part of the page that is about right now
+     rather than about the record, so it says plainly when each outfall last
+     discharged rather than hiding a single count in a stat tile. */
+  function setLive(d, live) {
+    var t = el("live-table"), note = el("live-note"), dot = el("live-dot");
+    if (!t) return;
+
+    if (!live || !live.live || !Object.keys(live.live).length) {
+      var box = t.closest(".livebox");
+      if (box) box.hidden = true;
+      return;
+    }
+
+    var order = d.outfalls
+      .filter(function (o) { return live.live[o.id]; })
+      .sort(function (a, b) { return b.totalHours - a.totalHours; });
+
+    var now = Date.now();
+    function ago(ms) {
+      if (!ms) return "not since we started watching";
+      var m = Math.round((now - ms) / 60000);
+      if (m < 60) return m + " minutes ago";
+      var h = Math.round(m / 60);
+      if (h < 48) return h + " hours ago";
+      return Math.round(h / 24) + " days ago";
+    }
+
+    var on = 0;
+    var rows = order.map(function (o) {
+      var s = live.live[o.id];
+      var cur = (live.current && live.current.outfalls && live.current.outfalls[o.id]) || null;
+      if (s.status === "discharging") on++;
+      var badge = s.status === "discharging"
+        ? '<span class="pop-live on">Discharging</span>'
+        : s.status === "offline"
+        ? '<span class="pop-live off">Monitor offline</span>'
+        : '<span class="pop-live">Quiet</span>';
+      return "<tr><td>" + o.name + "</td><td>" + badge + "</td>" +
+        "<td>" + ago(s.lastStart || s.start) + "</td>" +
+        "<td>" + (cur ? cur.events + " / " + Math.round(cur.hours) + " h" : "&ndash;") +
+        "</td></tr>";
+    }).join("");
+
+    t.innerHTML =
+      "<thead><tr><th>Outfall</th><th>Now</th><th>Last discharged</th>" +
+      "<th>This year</th></tr></thead><tbody>" + rows + "</tbody>";
+
+    if (dot) {
+      dot.className = "livedot" + (on ? " on" : "");
+      dot.title = on ? on + " discharging" : "none discharging";
+    }
+    if (note) {
+      var when = live.updated ? new Date(live.updated) : null;
+      note.innerHTML =
+        (on
+          ? "<b>" + on + " of these is discharging into the river as you read this.</b> "
+          : "None of them is discharging at this moment. ") +
+        "This site checks Severn Trent's feed every five minutes and keeps its own " +
+        "record, because the feed only ever reports the most recent discharge and " +
+        "forgets the rest." +
+        (when ? " Last checked " + when.toLocaleTimeString("en-GB",
+          { hour: "2-digit", minute: "2-digit" }) + " on " +
+          when.toLocaleDateString("en-GB", { day: "numeric", month: "long" }) + "." : "");
+    }
+  }
+
+  function setSweep(d) {
+    var t = el("sweep-table");
+    if (!t || !d.dry.sweep) return;
+    t.innerHTML =
+      "<thead><tr><th>If the threshold were</th><th>Discharges</th><th>Hours</th></tr></thead>" +
+      "<tbody>" + d.dry.sweep.map(function (r) {
+        var here = r.threshold === d.dry.threshold_mm;
+        return "<tr" + (here ? ' class="here"' : "") + "><td>" +
+          r.threshold.toFixed(2) + " mm" +
+          (here ? " <b>&larr; the Environment Agency&rsquo;s test</b>" : "") +
+          "</td><td>" + r.spills + "</td><td>" + r.hours.toFixed(1) + " h</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
+  function setNear(d) {
+    var t = el("near-table");
+    if (!t || !d.dry.nearMisses || !d.dry.nearMisses.length) return;
+    t.innerHTML =
+      "<thead><tr><th>Date</th><th>Outfall</th><th>Length</th>" +
+      "<th>Rain that day</th><th>Day before</th></tr></thead><tbody>" +
+      d.dry.nearMisses.map(function (r) {
+        var d2 = new Date(r.day).toLocaleDateString("en-GB",
+          { day: "numeric", month: "short", year: "numeric" });
+        return "<tr><td>" + d2 + "</td><td>" + r.name + "</td><td>" +
+          (r.hours >= 1 ? r.hours.toFixed(1) + " h"
+                        : Math.round(r.hours * 60) + " min") + "</td><td>" +
+          r.maxOnDay.toFixed(1) + " mm</td><td>" +
+          r.maxDayBefore.toFixed(1) + " mm</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
   function setBars(d) {
     var wrap = el("bars");
     if (!wrap) return;
@@ -225,6 +322,9 @@
 
   function render(d, live) {
     setFacts(d, live);
+    setLive(d, live);
+    setSweep(d);
+    setNear(d);
     setBars(d);
     setTable(d);
     setTrend(d);

@@ -207,6 +207,24 @@ at Milnhay totalling 11.3 hours) was dry at only one gauge of six, and 27 August
 because it is by far the longest, and a single-gauge method would have published
 it.
 
+### Is 0.25 mm a convenient threshold?
+
+`build_spills.py` sweeps it, and the page publishes the sweep, because it is the
+obvious objection. The count is **flat at 2 from 0.20 mm through to 0.50 mm** —
+it sits on a plateau either side of the EA's figure rather than balanced on it —
+and only starts climbing at 1.0 mm (7 discharges, 14.6 h), which is not a dry day
+by any reading.
+
+The five discharges between those two lines are published as near misses, because
+of *how* they fail. On four of the five the day of the discharge was itself dry
+by the EA's measure; what rules them out is a trace on the day before. The
+biggest is 19 February 2024, when the gauges recorded at most 0.2 mm and Milnhay
+works discharged three times for 11.3 hours in total.
+
+Excluding them is right — the preceding 24 hours are in the test because
+catchments drain down — but it is the sort of thing that should be shown rather
+than quietly dropped.
+
 The EA treats a dry-day spill as a **potential** permit breach until it has been
 investigated, and allows that a large catchment can still be draining down long
 after rain stops. The page says "dry-day spill" and "potential permit breach",

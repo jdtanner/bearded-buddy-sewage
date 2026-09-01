@@ -352,3 +352,26 @@ section:first-of-type{border-top:none}
 /* The dry-day list inside the red callout. */
 .drylist{margin:.2rem 0 0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.5rem}
 .drylist li{line-height:1.5}
+
+/* The live panel. The only part of the page about right now rather than about
+   the record, so it gets its own frame rather than being another stat tile. */
+.livebox{border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--light);padding:1rem;margin-top:1.2rem}
+.livehead{display:flex;align-items:center;gap:.55rem;margin-bottom:.7rem}
+.livehead h3{margin:0}
+.livedot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+.livedot.on{background:var(--danger);box-shadow:0 0 0 4px var(--danger-soft)}
+@media(prefers-reduced-motion:no-preference){
+  .livedot.on{animation:livepulse 2.4s ease-in-out infinite}
+}
+@keyframes livepulse{0%,100%{box-shadow:0 0 0 3px var(--danger-soft)}
+  50%{box-shadow:0 0 0 7px var(--danger-soft)}}
+.livebox .tw{background:var(--bg)}
+.livebox table{min-width:30rem}
+.livebox .pop-live{font-size:.6rem}
+.pop-live.off{background:var(--primary-soft);color:var(--subtext)}
+.livebox .fine-note{margin-top:.6rem}
+
+/* Highlight the Environment Agency's own threshold in the sweep. */
+#sweep-table tr.here td{background:var(--primary-soft)}
+#sweep-table td:first-child,#near-table td:first-child{white-space:nowrap}

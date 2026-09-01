@@ -96,6 +96,70 @@ def events(year):
                 yield (r["A"], *parse(r["C"], r["D"]))
 
 
+def sweep(rain, all_events, thresholds=(0.0, 0.1, 0.2, 0.25, 0.3, 0.4, 0.5,
+                                       0.75, 1.0, 1.5, 2.0, 3.0)):
+    """How the count moves as the threshold moves.
+
+    The obvious objection to any threshold is that it was chosen to give a
+    convenient answer. This shows what every other choice would have given, so
+    the reader can see the count is flat across a wide band around the
+    Environment Agency's 0.25 mm rather than balanced on it.
+    """
+    out = []
+    for th in thresholds:
+        hits = [(uid, day, hours) for uid, day, hours in all_events
+                if is_dry_at(rain, day, th)]
+        out.append({
+            "threshold": th,
+            "spills": len(hits),
+            "hours": round(sum(h for _, _, h in hits), 2),
+        })
+    return out
+
+
+def is_dry_at(rain, day, threshold):
+    """The EA test at an arbitrary threshold, same agreement rule."""
+    prev = (datetime.date.fromisoformat(day)
+            - datetime.timedelta(days=1)).isoformat()
+    yes = total = 0
+    for g in rain.values():
+        a, b = g.get(day), g.get(prev)
+        if a is None or b is None:
+            continue
+        total += 1
+        if a <= threshold and b <= threshold:
+            yes += 1
+    return bool(total) and yes / total >= rainfall.AGREEMENT
+
+
+def near_misses(rain, all_events, lo=0.25, hi=1.0):
+    """Discharges that would count at `hi` but do not at `lo`.
+
+    Worth publishing because every one of them so far fails on the day BEFORE
+    the discharge rather than the day of it, which is a real thing about the
+    test rather than a quirk of the data.
+    """
+    out = []
+    for uid, day, hours in all_events:
+        if is_dry_at(rain, day, lo) or not is_dry_at(rain, day, hi):
+            continue
+        prev = (datetime.date.fromisoformat(day)
+                - datetime.timedelta(days=1)).isoformat()
+        gauges = {n: [g.get(day), g.get(prev)] for n, g in rain.items()}
+        day_vals = [v[0] for v in gauges.values() if v[0] is not None]
+        prev_vals = [v[1] for v in gauges.values() if v[1] is not None]
+        out.append({
+            "id": uid, "name": NAMES[uid], "day": day, "hours": round(hours, 2),
+            "maxOnDay": max(day_vals) if day_vals else None,
+            "maxDayBefore": max(prev_vals) if prev_vals else None,
+            "failsOn": "the day before" if (day_vals and max(day_vals) <= lo)
+                       else "both days",
+            "gauges": gauges,
+        })
+    out.sort(key=lambda r: -r["hours"])
+    return out
+
+
 def annual_rain(rain):
     """Mean annual rainfall across the gauges, for the wet-year comparison.
 
@@ -141,6 +205,7 @@ def main():
         "annual_rain": annual_rain(rain),
     }
     untested = 0
+    all_events = []
     for year in years:
         per = {uid: {"events": 0, "hours": 0.0, "dry": 0, "dry_hours": 0.0}
                for uid in NAMES}
@@ -151,6 +216,7 @@ def main():
             p = per[uid]
             p["events"] += 1
             p["hours"] += hours
+            all_events.append((uid, day, hours))
 
             verdict = rainfall.is_dry(rain, day, prev)
             if verdict is None:
@@ -172,6 +238,9 @@ def main():
             p["dry_hours"] = round(p["dry_hours"], 2)
         out["years"][str(year)] = per
 
+    out["sweep"] = sweep(rain, all_events)
+    out["near_misses"] = near_misses(rain, all_events)
+
     dest = os.path.join(HERE, "data", "spills.json")
     json.dump(out, open(dest, "w"), indent=1)
     print(f"\nwrote {dest}")
@@ -189,6 +258,18 @@ def main():
             if p["events"]:
                 print("   %-28s %4d discharges %7.1f h  dry: %d"
                       % (name, p["events"], p["hours"], p["dry"]))
+
+    print("\nThreshold sweep - how the count moves if the threshold moves:")
+    for r in out["sweep"]:
+        mark = "  <- the EA's test" if r["threshold"] == rainfall.THRESHOLD_MM else ""
+        print("   <= %4.2f mm  %3d spills %7.1f h%s"
+              % (r["threshold"], r["spills"], r["hours"], mark))
+    if out["near_misses"]:
+        print("\nNear misses (would count at 1.0 mm, do not at %.2f):"
+              % rainfall.THRESHOLD_MM)
+        for r in out["near_misses"]:
+            print("   %s  %-28s %5.2f h   fails on %s"
+                  % (r["day"], r["name"], r["hours"], r["failsOn"]))
 
     print("\nDry-day discharges (EA test: <=%.2f mm that day and the day before,"
           "\nagreed by at least %.0f%% of gauges):"

@@ -197,5 +197,244 @@
   "2023": 1078,
   "2024": 901,
   "2025": 702
- }
+ },
+ "sweep": [
+  {
+   "threshold": 0.0,
+   "spills": 1,
+   "hours": 0.41
+  },
+  {
+   "threshold": 0.1,
+   "spills": 1,
+   "hours": 0.41
+  },
+  {
+   "threshold": 0.2,
+   "spills": 2,
+   "hours": 1.0
+  },
+  {
+   "threshold": 0.25,
+   "spills": 2,
+   "hours": 1.0
+  },
+  {
+   "threshold": 0.3,
+   "spills": 2,
+   "hours": 1.0
+  },
+  {
+   "threshold": 0.4,
+   "spills": 2,
+   "hours": 1.0
+  },
+  {
+   "threshold": 0.5,
+   "spills": 2,
+   "hours": 1.0
+  },
+  {
+   "threshold": 0.75,
+   "spills": 3,
+   "hours": 1.04
+  },
+  {
+   "threshold": 1.0,
+   "spills": 7,
+   "hours": 14.56
+  },
+  {
+   "threshold": 1.5,
+   "spills": 8,
+   "hours": 14.89
+  },
+  {
+   "threshold": 2.0,
+   "spills": 11,
+   "hours": 23.97
+  },
+  {
+   "threshold": 3.0,
+   "spills": 25,
+   "hours": 36.04
+  }
+ ],
+ "near_misses": [
+  {
+   "id": "SVT01571",
+   "name": "Milnhay works (storm tank)",
+   "day": "2024-02-19",
+   "hours": 9.42,
+   "maxOnDay": 0.2,
+   "maxDayBefore": 1.0,
+   "failsOn": "the day before",
+   "gauges": {
+    "Watnall": [
+     0.0,
+     0.2
+    ],
+    "Denby Pottery": [
+     0.0,
+     0.4
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.4
+    ],
+    "Sutton-in-Ashfield": [
+     0.0,
+     1.0
+    ],
+    "Ogston": [
+     0.2,
+     0.8
+    ],
+    "Draycott": [
+     0.0,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "SVT01571",
+   "name": "Milnhay works (storm tank)",
+   "day": "2024-03-18",
+   "hours": 2.27,
+   "maxOnDay": 0.6,
+   "maxDayBefore": 0.8,
+   "failsOn": "both days",
+   "gauges": {
+    "Watnall": [
+     0.0,
+     0.8
+    ],
+    "Denby Pottery": [
+     0.0,
+     0.8
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.6
+    ],
+    "Sutton-in-Ashfield": [
+     0.6,
+     0.6
+    ],
+    "Ogston": [
+     0.6,
+     0.6
+    ],
+    "Draycott": [
+     0.4,
+     0.8
+    ]
+   }
+  },
+  {
+   "id": "SVT01571",
+   "name": "Milnhay works (storm tank)",
+   "day": "2024-02-19",
+   "hours": 1.42,
+   "maxOnDay": 0.2,
+   "maxDayBefore": 1.0,
+   "failsOn": "the day before",
+   "gauges": {
+    "Watnall": [
+     0.0,
+     0.2
+    ],
+    "Denby Pottery": [
+     0.0,
+     0.4
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.4
+    ],
+    "Sutton-in-Ashfield": [
+     0.0,
+     1.0
+    ],
+    "Ogston": [
+     0.2,
+     0.8
+    ],
+    "Draycott": [
+     0.0,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "SVT01571",
+   "name": "Milnhay works (storm tank)",
+   "day": "2024-02-19",
+   "hours": 0.42,
+   "maxOnDay": 0.2,
+   "maxDayBefore": 1.0,
+   "failsOn": "the day before",
+   "gauges": {
+    "Watnall": [
+     0.0,
+     0.2
+    ],
+    "Denby Pottery": [
+     0.0,
+     0.4
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.4
+    ],
+    "Sutton-in-Ashfield": [
+     0.0,
+     1.0
+    ],
+    "Ogston": [
+     0.2,
+     0.8
+    ],
+    "Draycott": [
+     0.0,
+     0.4
+    ]
+   }
+  },
+  {
+   "id": "SVT01338",
+   "name": "Lee Lane",
+   "day": "2025-08-26",
+   "hours": 0.04,
+   "maxOnDay": 0.0,
+   "maxDayBefore": 1.6,
+   "failsOn": "the day before",
+   "gauges": {
+    "Watnall": [
+     0.0,
+     0.4
+    ],
+    "Denby Pottery": [
+     0.0,
+     1.6
+    ],
+    "Newstead Abbey": [
+     0.0,
+     0.6
+    ],
+    "Sutton-in-Ashfield": [
+     0.0,
+     0.6
+    ],
+    "Ogston": [
+     0.0,
+     0.6
+    ],
+    "Draycott": [
+     0.0,
+     0.6
+    ]
+   }
+  }
+ ]
 }

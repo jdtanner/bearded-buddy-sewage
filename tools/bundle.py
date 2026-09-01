@@ -99,6 +99,8 @@ def main():
             "count": dry_total,
             "spills": spills["dry_spills"],
             "rainfallSource": spills["rainfall_source"],
+            "sweep": spills.get("sweep"),
+            "nearMisses": spills.get("near_misses"),
             # Total discharges the test was actually applied to, so the page can
             # say "2 of 693" rather than a bare 2.
             "tested": sum(p["events"] for y in tested
