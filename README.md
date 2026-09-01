@@ -207,6 +207,22 @@ at Milnhay totalling 11.3 hours) was dry at only one gauge of six, and 27 August
 because it is by far the longest, and a single-gauge method would have published
 it.
 
+### What 0.25 mm actually is
+
+Worth knowing because it sounds arbitrary and turns out not to be. Every one of
+the 13,164 daily readings behind this page is an exact multiple of **0.2 mm** —
+these are tipping buckets, and below 1.2 mm the only values that exist are 0.0,
+0.2, 0.4, 0.6, 0.8, 1.0.
+
+So the Agency's threshold sits in the gap between one tip and two: a dry day is a
+day the gauge tipped once or not at all. That is also why the sweep below is flat
+across a band — there are no readings inside the gap for a moved threshold to
+land on.
+
+In physical terms 0.25 mm is a quarter of a litre over a square metre, for a
+whole day: a tenth of an ordinary wet day here (median 2.6 mm), and one part in
+three thousand of the 816 mm this parish gets in a year.
+
 ### Is 0.25 mm a convenient threshold?
 
 `build_spills.py` sweeps it, and the page publishes the sweep, because it is the
