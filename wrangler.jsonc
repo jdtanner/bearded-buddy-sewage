@@ -1,0 +1,45 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "bearded-buddy-sewage",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+
+  // The Worker serves the page as well as the API. As with the track app, a git
+  // push deploys NOTHING on Cloudflare: only `wrangler deploy` does, and it ships
+  // ./public with it.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+
+  // Created with:  npx wrangler kv namespace create DATA
+  // then paste the id it prints below. Holds one key, parish:aldercar - the live
+  // status and recent rainfall. The historical figures are NOT in here: they are
+  // committed JSON in ./public/data, because a closed year never changes and
+  // nothing should be able to make last year's numbers disappear at runtime.
+  "kv_namespaces": [
+    {
+      "binding": "DATA",
+      "id": "0000000000000000000000000000dead"
+    }
+  ],
+
+  // Once a day, early. Severn Trent's feed updates within an hour of an overflow
+  // operating, but the page is about a six-year pattern, not a live alarm, and a
+  // daily read is polite to a free ArcGIS endpoint.
+  "triggers": {
+    "crons": ["0 5 * * *"]
+  },
+
+  // Custom domain on the zone registered with Cloudflare Registrar, so
+  // `wrangler deploy` creates the DNS record and provisions the certificate.
+  // Do not add a manual DNS record for it. This is how track.beardedbuddy.com
+  // works; the walks site is Pages and needs its domain added in the dashboard.
+  "routes": [
+    { "pattern": "sewage.beardedbuddy.com", "custom_domain": true }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+}

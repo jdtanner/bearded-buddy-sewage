@@ -1,0 +1,350 @@
+/* Bearded Buddy Walks: shared styles.
+   Tokens lifted from bearded-buddy-money so the two sites read as one business. */
+:root{
+  --primary:#283653; --primary-soft:#eef1f6;
+  --accent:#74914E;  --accent-soft:#eef3e7;
+  --text:#1c2333;    --subtext:#6b7385;
+  --border:#e2e5ec;  --light:#f6f7fa;  --bg:#ffffff;
+  --danger:#c62828;  --danger-soft:#fce4ec;
+  --radius:12px;     --r-btn:10px;
+  --wrap:50rem;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:1.25rem;padding-right:1.25rem}
+@media(max-width:520px){.wrap{padding-left:1.1rem;padding-right:1.1rem}}
+.col{max-width:none}
+h1,h2,h3{margin:0;color:var(--primary);line-height:1.2;text-wrap:balance}
+h1{font-size:clamp(1.9rem,5vw,2.7rem);letter-spacing:-.02em}
+h2{font-size:1.4rem;letter-spacing:-.01em}
+h3{font-size:1.05rem}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
+.stack{display:flex;flex-direction:column;gap:1rem}
+
+/* header */
+.site-head{border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:500}
+.site-head .wrap{display:flex;align-items:center;gap:.8rem;min-height:64px;padding-top:.5rem;padding-bottom:.5rem}
+.site-head img{width:40px;height:40px;border-radius:50%;flex:none}
+.brand{display:flex;flex-direction:row;align-items:center;gap:.7rem;line-height:1.15;text-decoration:none;min-width:0}
+.brand b{color:var(--primary);font-size:1rem}
+.brand span{color:var(--subtext);font-size:.76rem}
+.site-head nav{margin-left:auto;display:flex;gap:1rem;font-size:.9rem}
+.site-head nav a{color:var(--subtext);text-decoration:none}
+.site-head nav a:hover{color:var(--primary)}
+
+/* page furniture */
+main{padding-bottom:3rem}
+.lede{font-size:1.12rem;color:var(--subtext);margin-top:.75rem}
+section{padding:2.2rem 0;border-top:1px solid var(--border)}
+section:first-of-type{border-top:none}
+.eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--subtext);font-weight:600}
+.sechead{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem}
+.page-top{padding-top:2.4rem;padding-bottom:1.6rem}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.fact{background:var(--bg);padding:1rem .95rem}
+.fact .n{font-size:1.5rem;font-weight:700;color:var(--primary);line-height:1.1}
+.fact .n small{font-size:.85rem;font-weight:600;color:var(--subtext)}
+.fact .l{font-size:.78rem;color:var(--subtext);margin-top:.25rem;line-height:1.35}
+
+/* map */
+.mapwrap{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative}
+#map{height:clamp(24rem,70vh,44rem);width:100%;background:var(--light)}
+@media(max-width:640px){#map{height:26rem}}
+.maphint{font-size:.83rem;color:var(--subtext);margin-top:.6rem}
+.leaflet-container{font:inherit}
+.map-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:.9rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--primary);color:#fff;
+  border:1px solid var(--primary);border-radius:var(--r-btn);padding:.6rem 1rem;font:inherit;
+  font-size:.92rem;font-weight:600;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:var(--bg);color:var(--primary)}
+.btn.ghost:hover{background:var(--primary-soft);filter:none}
+.btn small{font-weight:400;opacity:.8}
+
+/* elevation */
+.profile{border:1px solid var(--border);border-radius:var(--radius);padding:1rem;background:var(--bg)}
+.profile svg{display:block;width:100%;height:auto}
+.profile .pk{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.82rem;color:var(--subtext);margin-top:.6rem}
+.profile .pk b{color:var(--primary)}
+
+/* bars */
+.bars{display:flex;flex-direction:column;gap:.55rem}
+.bar{display:grid;grid-template-columns:11rem 1fr 5.4rem;gap:.9rem;align-items:center;font-size:.92rem}
+@media(max-width:600px){.bar{grid-template-columns:1fr;gap:.2rem}}
+.track{height:10px;background:var(--light);border-radius:5px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--accent);border-radius:5px}
+.bar.road .track i{background:var(--danger)}
+.bar .v{font-size:.82rem;color:var(--subtext);text-align:right;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.bar .v{text-align:left}}
+
+/* notices */
+.notice{border:1px solid var(--border);border-left:4px solid var(--danger);background:var(--danger-soft);
+  border-radius:var(--r-btn);padding:1rem 1.15rem;display:flex;flex-direction:column;gap:.4rem}
+.notice h3{color:var(--danger)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.4rem}
+.note h3{margin-bottom:.3rem}
+.note p{font-size:.94rem}
+
+/* footer */
+.site-foot{background:var(--primary);color:#dfe4ee;margin-top:1rem}
+.site-foot .wrap{padding-top:2.4rem;padding-bottom:2.4rem;display:flex;flex-direction:column;gap:1.6rem}
+.site-foot h2{color:#fff;font-size:1.2rem}
+.plug{display:flex;gap:1.1rem;align-items:flex-start;flex-wrap:wrap}
+.plug img{width:64px;height:64px;border-radius:50%;flex:none;background:#fff}
+.plug .body{flex:1;min-width:16rem;display:flex;flex-direction:column;gap:.5rem}
+.plug .tag{color:#aebbd2;font-size:.92rem}
+.plug ul{margin:0;padding-left:1.1rem;font-size:.92rem;display:flex;flex-direction:column;gap:.2rem;color:#cfd7e6}
+/* NOT .cta. That class is the green button further down this file, and because the button
+   rule is declared later it was painting this whole group green: a green slab behind the
+   footer contact links, with the phone number in a white pill inside it, on top of navy.
+   The container and the button are different things and must not share a name. */
+.plug .contact{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem}
+.plug .contact a{background:#fff;color:var(--primary);border-radius:var(--r-btn);padding:.5rem .9rem;
+  text-decoration:none;font-weight:600;font-size:.9rem}
+.plug .contact a.alt{background:transparent;color:#fff;border:1px solid #56658a}
+/* On a phone the three never fit on one line, and where they broke depended on the text size,
+   so the number sometimes sat on its own and sometimes shared with WhatsApp. Fixed
+   deliberately instead: the number takes the full width, since it is the thing most people
+   want, and the other two split the line under it. */
+@media(max-width:560px){
+  .plug .contact a{flex:1 1 0;text-align:center}
+  .plug .contact a[href^="tel:"]{flex:1 0 100%}
+}
+.fine{border-top:1px solid #3b4a6b;padding-top:1.2rem;font-size:.78rem;color:#9fabc4;
+  display:flex;flex-direction:column;gap:.45rem}
+.fine a{color:#c3cee2}
+
+/* archive index */
+.walklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.1rem;list-style:none;padding:0;margin:0}
+.walkcard{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--bg);
+  display:flex;flex-direction:column}
+.walkcard a{text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%}
+.walkcard .thumb{background:var(--accent-soft);border-bottom:1px solid var(--border);padding:0}
+.walkcard .thumb svg{display:block;width:100%;height:auto}
+.walkcard .body{padding:1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.walkcard h3{color:var(--primary)}
+.walkcard p{font-size:.9rem;color:var(--subtext)}
+.walkcard .meta{margin-top:auto;font-size:.8rem;color:var(--subtext);display:flex;gap:.8rem;flex-wrap:wrap;padding-top:.5rem}
+.walkcard:hover{border-color:var(--accent)}
+
+
+/* ============================================================
+   Home page.
+   Built from the visual language of the Bearded Buddy walk cards: a map that
+   dominates, navy bars carrying the type, big stat blocks with small-caps
+   labels, and a green stripe. No hairline boxes.
+   ============================================================ */
+:root{
+  --wm-foot:#E8B21E; --wm-bridle:#3F7BC4; --wm-byway:#8E4A78;
+  --display:Archivo,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --lift:0 1px 2px rgba(28,35,51,.06),0 12px 32px -14px rgba(28,35,51,.28);
+}
+
+/* dark header, matching the cards */
+.site-head{background:var(--primary);border-bottom:none;position:static}
+.site-head .brand b{color:#fff;font-family:var(--display);font-weight:700;letter-spacing:-.01em}
+.site-head .brand span span{color:#9fb0cd}
+.site-head nav a{color:#c3cee2}
+.site-head nav a:hover{color:#fff}
+.site-head img{background:#fff}
+
+/* hero */
+.hero{position:relative;background:var(--primary);overflow:hidden}
+.hero picture,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero .veil{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(24,33,52,.14) 0%,rgba(24,33,52,.38) 40%,rgba(24,33,52,.86) 100%)}
+.hero .inner{position:relative;padding-top:clamp(4rem,16vw,9rem);padding-bottom:2.4rem}
+.hero .place{font-family:var(--display);font-weight:600;font-size:.76rem;letter-spacing:.18em;
+  text-transform:uppercase;color:#d9edc0;text-shadow:0 1px 3px rgba(16,22,36,.9),0 1px 14px rgba(16,22,36,.7)}
+.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;color:#fff;
+  font-size:clamp(2.3rem,6.4vw,4.1rem);line-height:1.02;margin:.6rem 0 0;max-width:16ch;
+  text-shadow:0 2px 18px rgba(16,22,36,.55)}
+.hero p{color:#e2e8f2;max-width:34rem;margin-top:1rem;font-size:clamp(1rem,2.2vw,1.14rem);
+  text-shadow:0 1px 10px rgba(16,22,36,.6)}
+.hero .credit{position:absolute;right:.6rem;bottom:.4rem;font-size:.62rem;color:rgba(255,255,255,.7)}
+.hero .credit a{color:rgba(255,255,255,.85)}
+.stripe{height:6px;background:var(--accent)}
+
+/* section rhythm */
+.band{padding-top:3.2rem;padding-bottom:3.2rem}
+.band + .band{padding-top:0}
+.kicker{font-family:var(--display);font-weight:600;font-size:.74rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--subtext)}
+.band h2{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.5rem,3.4vw,2rem);
+  margin-top:.4rem}
+
+/* the walk card */
+.walk{display:grid;grid-template-columns:16.5rem 1fr;background:var(--bg);border-radius:16px;
+  overflow:hidden;box-shadow:var(--lift);margin-top:1.5rem}
+@media(max-width:760px){.walk{grid-template-columns:1fr}}
+.walk .shot{position:relative;background:var(--light);min-height:100%}
+.walk .shot img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.walk .shot{max-height:14rem}}
+.walk .body{padding:1.75rem 1.9rem 0;display:flex;flex-direction:column;gap:.9rem}
+@media(max-width:520px){.walk .body{padding:1.35rem 1.25rem 0}}
+.walk .eyebrow2{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent)}
+.walk h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.35rem,3vw,1.8rem);
+  line-height:1.1;color:var(--primary)}
+.walk h3 a{color:inherit;text-decoration:none}
+.walk h3 a:hover{color:var(--accent)}
+.walk .blurb{color:var(--subtext);font-size:1rem}
+
+/* stat bar, straight off the walk cards.
+   Order matters here: the narrow-screen overrides must come after the base rules, because
+   a media query adds no specificity and a later rule of equal weight simply wins. */
+.statbar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--primary);
+  margin:auto -1.9rem 0}
+.statbar div{padding:.95rem 1.1rem;border-right:1px solid rgba(255,255,255,.13)}
+.statbar div:last-child{border-right:none}
+.statbar div:first-child{padding-left:1.9rem}
+.statbar div:last-child{padding-right:1.9rem}
+
+@media(max-width:520px){
+  .statbar{margin-left:-1.25rem;margin-right:-1.25rem}
+  .statbar div:first-child{padding-left:1.25rem}
+  .statbar div:last-child{padding-right:1.25rem}
+}
+@media(max-width:420px){
+  .statbar{grid-template-columns:repeat(2,1fr)}
+  .statbar div:nth-child(2){border-right:none}
+  /* two columns: left-hand cells line up with the body text, right-hand cells with its edge */
+  .statbar div:nth-child(odd){padding-left:1.25rem}
+  .statbar div:nth-child(even){padding-right:1.25rem}
+}
+.statbar span{display:block;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:#93a4c1}
+.statbar b{display:block;font-family:var(--display);font-weight:800;font-size:1.3rem;color:#fff;
+  letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:.15rem}
+
+/* waymarker discs: real rights-of-way signage colours, carrying real information */
+.ways{display:flex;flex-wrap:wrap;gap:.45rem .85rem;align-items:center;font-size:.82rem;color:var(--subtext)}
+.way{display:inline-flex;align-items:center;gap:.38rem;white-space:nowrap}
+.way i{width:12px;height:12px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.2)}
+.way.foot i{background:var(--wm-foot)} .way.bridle i{background:var(--wm-bridle)}
+.way.byway i{background:var(--wm-byway)}
+.wayhead{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--subtext);font-weight:700}
+@media(max-width:560px){
+  .ways{gap:.4rem .7rem}
+  .wayhead{flex:0 0 100%}
+}
+
+.cta{align-self:flex-start;display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);
+  color:#fff;border-radius:8px;padding:.7rem 1.2rem;text-decoration:none;font-weight:700;font-size:.96rem;
+  font-family:var(--display);margin-bottom:1.6rem}
+.cta:hover{filter:brightness(1.08)}
+.cta svg{transition:transform .18s ease}
+.cta:hover svg{transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){.cta svg{transition:none}}
+
+.more{margin-top:1.5rem;font-size:.95rem;color:var(--subtext)}
+
+/* what you get */
+.gets{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:2rem;margin-top:1.4rem}
+.get h3{font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--primary);margin-bottom:.3rem}
+.get p{font-size:.95rem;color:var(--subtext)}
+.get .rule{width:34px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:.75rem}
+
+/* dates table */
+.tw{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg)}
+.tw table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:24rem}
+.tw th,.tw td{text-align:left;padding:.6rem .9rem;border-bottom:1px solid var(--border)}
+.tw thead th{font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--subtext);
+  font-weight:700;font-family:var(--display)}
+.tw td{font-variant-numeric:tabular-nums;color:var(--text)}
+.tw td:first-child{font-weight:650;color:var(--primary)}
+.tw tr:last-child td{border-bottom:none}
+.col h3{font-family:var(--display);font-weight:700;font-size:1.06rem;color:var(--primary);
+  margin-top:1.5rem;margin-bottom:.1rem}
+.col i,.col em{font-style:italic}
+/* With an odd number of facts the last one would sit alone in a two-column row and the
+   grid background would show through as an empty grey cell. Let it span instead. */
+@media(max-width:520px){.facts .fact:nth-child(odd):last-child{grid-column:1/-1}}
+
+/* ---------------------------------------------------------------------------
+   Sewage Watch additions. Everything above is inherited from the walks site so
+   the two read as one hand; only what this page needs is added here.
+   --------------------------------------------------------------------------- */
+
+#map{height:520px}
+@media(max-width:700px){#map{height:420px}}
+@media(max-width:520px){#map{height:340px}}
+
+.fine-note{font-size:.8rem;color:var(--subtext);line-height:1.5}
+.fine-note code{font-size:.95em;background:var(--light);padding:.1em .35em;border-radius:4px}
+
+/* A live discharge is the one number that should look alarming. */
+.fact .n.hot{color:var(--danger)}
+
+/* Pulled quote for the Environment Agency's own definition. Deliberately not
+   .notice: this is a citation, not a warning. */
+.quote{margin:0;padding:1rem 1.2rem;background:var(--primary-soft);
+  border-left:4px solid var(--primary);border-radius:0 var(--radius) var(--radius) 0}
+.quote p{font-size:1.05rem;color:var(--primary)}
+.quote cite{display:block;margin-top:.5rem;font-size:.82rem;color:var(--subtext);font-style:normal}
+
+/* Map popups. Leaflet's defaults are too tight for a table, and without a
+   min-width the year table wraps into a tall thin column that shoves the whole
+   map sideways when the popup opens. */
+.leaflet-popup-content{margin:.8rem .9rem;width:auto!important}
+.pop{min-width:18rem}
+.pop h4{margin:0;font-size:1rem;color:var(--primary)}
+.pop-sub{font-size:.78rem;color:var(--subtext);margin:.15rem 0 .5rem}
+.pop-big{font-size:.88rem;margin:.35rem 0 .5rem}
+.pop-big b{color:var(--danger)}
+.pop-live{display:inline-block;font-size:.64rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;padding:.12rem .42rem;border-radius:99px;
+  background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.pop-live.on{background:var(--danger-soft);color:var(--danger)}
+.pop-tab{border-collapse:collapse;font-size:.78rem;width:100%;table-layout:fixed}
+.pop-tab th,.pop-tab td{padding:.2rem .1rem;text-align:center;white-space:nowrap}
+.pop-tab th{font-size:.66rem;color:var(--subtext);font-weight:600;
+  border-bottom:1px solid var(--border)}
+.pop-tab td{font-variant-numeric:tabular-nums;font-weight:650;color:var(--primary);
+  padding-top:.3rem}
+.pop-tab td i{font-style:normal;font-weight:400;color:var(--subtext);font-size:.85em}
+.pop-tab .nr{font-weight:400;color:var(--subtext);font-style:italic;font-size:.85em}
+.pop-live{margin-left:.15rem}
+.pop-fine{font-size:.7rem;color:var(--subtext);margin-top:.5rem}
+
+/* "not reported" is not the same as zero and must not look like it. */
+.tw .nr{color:var(--subtext);font-style:italic;cursor:help}
+.tw tbody tr:last-child td{border-top:2px solid var(--border);background:var(--light)}
+
+.bar span a{color:var(--primary);text-decoration:none;border-bottom:1px dotted var(--border)}
+.bar span a:hover{border-bottom-color:var(--primary)}
+
+/* Photograph slots, so the layout is right before the photographs exist. */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.shot{margin:0}
+.shot .ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:1rem;background:var(--light);color:var(--subtext);
+  border:1px dashed var(--border);border-radius:var(--radius);font-size:.8rem}
+.shot img{width:100%;border-radius:var(--radius);display:block}
+.shot figcaption{font-size:.78rem;color:var(--subtext);margin-top:.4rem}
+
+.note-fine{font-size:.78rem;color:var(--subtext);margin-top:.5rem}
+.note .btn{margin-top:.4rem}
+
+.srcs{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.5rem;font-size:.92rem}
+.srcs li{line-height:1.5}
+
+.imprint{margin-top:.8rem;padding-top:.8rem;border-top:1px solid #3b4a6b}
+
+/* .facts fakes its cell borders with a background showing through a 1px gap,
+   so any empty grid cell renders as a grey block. With five facts the auto-fit
+   grid lands on three or four columns at middling widths and leaves exactly
+   that hole. Below the width where all five fit on one row, drop to two
+   columns and let the odd one out span both - which is what the walks site
+   already does at 520px, just extended to cover the whole awkward range. */
+@media(max-width:760px){
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .facts .fact:nth-child(odd):last-child{grid-column:1/-1}
+}

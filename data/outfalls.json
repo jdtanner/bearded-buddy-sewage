@@ -1,0 +1,72 @@
+[
+ {
+  "name": "Milnhay works (overflow)",
+  "official": "HEANOR - MILNHAY STW (CSO)",
+  "svt": null,
+  "sve": "SVE1000",
+  "lat": 53.01278113,
+  "lon": -1.31999806,
+  "water": "River Erewash",
+  "kind": "Combined sewer overflow"
+ },
+ {
+  "name": "Milnhay works (storm tank)",
+  "official": "HEANOR - MILNHAY STW (SSTO)",
+  "svt": "SVT01571",
+  "sve": "SVE2399",
+  "lat": 53.01278113,
+  "lon": -1.31999806,
+  "water": "River Erewash",
+  "kind": "Storm tank overflow"
+ },
+ {
+  "name": "Cromford Road",
+  "official": "LANGLEY MILL - CROMFORD RD (CSO)",
+  "svt": "SVT01315",
+  "sve": "SVE0996",
+  "lat": 53.02917926,
+  "lon": -1.35087385,
+  "water": "River Erewash",
+  "kind": "Combined sewer overflow"
+ },
+ {
+  "name": "Cromford Road No 3",
+  "official": "LANGLEY MILL - CROMFORD ROAD XX (CSO)",
+  "svt": "SVT00684",
+  "sve": "SVE0994",
+  "lat": 53.02351468,
+  "lon": -1.3263743,
+  "water": "River Erewash",
+  "kind": "Combined sewer overflow"
+ },
+ {
+  "name": "Lee Lane",
+  "official": "LANGLEY MILL - LEA LA XXX(REAR OF) (CSO)",
+  "svt": "SVT01338",
+  "sve": "SVE0988",
+  "lat": 53.01199412,
+  "lon": -1.3286254,
+  "water": "Bailey Brook",
+  "kind": "Combined sewer overflow"
+ },
+ {
+  "name": "Milnhay Road",
+  "official": "LANGLEY MILL - MILNHAY ROAD (CSO)",
+  "svt": "SVT01316",
+  "sve": "SVE0991",
+  "lat": 53.01283626,
+  "lon": -1.32020587,
+  "water": "River Erewash",
+  "kind": "Combined sewer overflow"
+ },
+ {
+  "name": "Station Road",
+  "official": "LANGLEY MILL - STATION ROAD XXX (CSO)",
+  "svt": "SVT01317",
+  "sve": "SVE0995",
+  "lat": 53.01958143,
+  "lon": -1.32709147,
+  "water": "River Erewash",
+  "kind": "Combined sewer overflow"
+ }
+]

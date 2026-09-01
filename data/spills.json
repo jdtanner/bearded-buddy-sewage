@@ -1,0 +1,105 @@
+{
+ "threshold_mm": 0.25,
+ "years": {
+  "2024": {
+   "SVT01315": {
+    "events": 5,
+    "hours": 1.9,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT00684": {
+    "events": 5,
+    "hours": 10.02,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01317": {
+    "events": 60,
+    "hours": 51.14,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01316": {
+    "events": 1,
+    "hours": 7.35,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01338": {
+    "events": 82,
+    "hours": 54.44,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01570": {
+    "events": 124,
+    "hours": 208.15,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01571": {
+    "events": 104,
+    "hours": 785.77,
+    "dry": 1,
+    "dry_hours": 0.41
+   }
+  },
+  "2025": {
+   "SVT01315": {
+    "events": 0,
+    "hours": 0.0,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT00684": {
+    "events": 106,
+    "hours": 242.95,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01317": {
+    "events": 43,
+    "hours": 61.65,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01316": {
+    "events": 12,
+    "hours": 28.78,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01338": {
+    "events": 87,
+    "hours": 60.89,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01570": {
+    "events": 0,
+    "hours": 0.0,
+    "dry": 0,
+    "dry_hours": 0.0
+   },
+   "SVT01571": {
+    "events": 64,
+    "hours": 305.47,
+    "dry": 0,
+    "dry_hours": 0.0
+   }
+  }
+ },
+ "dry_spills": [
+  {
+   "id": "SVT01571",
+   "name": "Milnhay works (storm tank)",
+   "start": "2024-11-08T17:19:55+00:00",
+   "hours": 0.41,
+   "rain_day": 0.0,
+   "rain_prev": 0.0,
+   "year": 2024
+  }
+ ],
+ "rainfall_source": "Open-Meteo historical archive, daily total at 53.0246,-1.33"
+}

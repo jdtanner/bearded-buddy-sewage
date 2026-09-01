@@ -1,0 +1,277 @@
+{
+ "outfalls": [
+  {
+   "id": "SVT01315",
+   "name": "Cromford Road",
+   "permit": "T/61/21599/O",
+   "official": "LANGLEY MILL - CROMFORD RD (CSO)",
+   "water": null
+  },
+  {
+   "id": "SVT00684",
+   "name": "Cromford Road No 3",
+   "permit": "T/61/12266/O",
+   "official": "LANGLEY MILL - CROMFORD ROAD 96 (CSO)",
+   "water": null
+  },
+  {
+   "id": "SVT01317",
+   "name": "Station Road",
+   "permit": "T/61/12267/O",
+   "official": "LANGLEY MILL - STATION ROAD 208 (CSO)",
+   "water": null
+  },
+  {
+   "id": "SVT01316",
+   "name": "Milnhay Road",
+   "permit": "T/61/12268/O",
+   "official": "Milnhay Rd Langley Mill CSO",
+   "water": null
+  },
+  {
+   "id": "SVT01338",
+   "name": "Lee Lane",
+   "permit": "T/61/02160/O",
+   "official": "LANGLEY MILL - LEA LANE 78B (CSO)",
+   "water": null
+  },
+  {
+   "id": "SVT01570",
+   "name": "Milnhay works (overflow)",
+   "permit": "T/61/45098/R",
+   "official": "MILNHAY SEWAGE TREATMENT WORKS",
+   "water": "RIVER EREWASH"
+  },
+  {
+   "id": "SVT01571",
+   "name": "Milnhay works (storm tank)",
+   "permit": "T/61/45098/R",
+   "official": "MILNHAY SEWAGE TREATMENT WORKS",
+   "water": "RIVER EREWASH"
+  }
+ ],
+ "years": [
+  "2020",
+  "2021",
+  "2022",
+  "2023",
+  "2024",
+  "2025"
+ ],
+ "history": {
+  "SVT01315": {
+   "2020": {
+    "hours": 2.91,
+    "spills": 2,
+    "reporting": 0.912537878788
+   },
+   "2021": {
+    "hours": 165.89,
+    "spills": 11,
+    "reporting": 0.949601
+   },
+   "2022": {
+    "hours": 0.49,
+    "spills": 2,
+    "reporting": 0.999915
+   },
+   "2023": {
+    "hours": 28.72,
+    "spills": 4,
+    "reporting": 99.9
+   },
+   "2024": {
+    "hours": 1.9,
+    "spills": 4,
+    "reporting": 99.97
+   },
+   "2025": {
+    "hours": 0.0,
+    "spills": 0,
+    "reporting": 99.28
+   }
+  },
+  "SVT00684": {
+   "2020": {
+    "hours": 207.46,
+    "spills": 65,
+    "reporting": 0.999886156649
+   },
+   "2021": {
+    "hours": 123.8,
+    "spills": 56,
+    "reporting": 0.988699
+   },
+   "2022": {
+    "hours": 25.87,
+    "spills": 37,
+    "reporting": 0.90177
+   },
+   "2023": {
+    "hours": 42.93,
+    "spills": 29,
+    "reporting": 97.9
+   },
+   "2024": {
+    "hours": 10.02,
+    "spills": 4,
+    "reporting": 99.99
+   },
+   "2025": {
+    "hours": 242.95,
+    "spills": 63,
+    "reporting": 95.85
+   }
+  },
+  "SVT01317": {
+   "2020": {
+    "hours": 32.54,
+    "spills": 33,
+    "reporting": 0.931174242425
+   },
+   "2021": {
+    "hours": 82.43,
+    "spills": 48,
+    "reporting": 0.75036
+   },
+   "2022": {
+    "hours": 62.32,
+    "spills": 53,
+    "reporting": 1.0
+   },
+   "2023": {
+    "hours": 71.22,
+    "spills": 51,
+    "reporting": 98.1
+   },
+   "2024": {
+    "hours": 51.14,
+    "spills": 33,
+    "reporting": 100.0
+   },
+   "2025": {
+    "hours": 61.65,
+    "spills": 28,
+    "reporting": 99.97
+   }
+  },
+  "SVT01316": {
+   "2020": {
+    "hours": 1.99,
+    "spills": 1,
+    "reporting": 0.9999242424249999
+   },
+   "2021": {
+    "hours": 0.0,
+    "spills": 0,
+    "reporting": 0.995006
+   },
+   "2022": {
+    "hours": 0.0,
+    "spills": 0,
+    "reporting": 0.869093
+   },
+   "2023": {
+    "hours": 10.96,
+    "spills": 1,
+    "reporting": 88.4
+   },
+   "2024": {
+    "hours": 7.35,
+    "spills": 1,
+    "reporting": 100.0
+   },
+   "2025": {
+    "hours": 28.78,
+    "spills": 8,
+    "reporting": 99.2
+   }
+  },
+  "SVT01338": {
+   "2020": {
+    "hours": 138.6,
+    "spills": 77,
+    "reporting": 0.999886156649
+   },
+   "2021": {
+    "hours": 32.87,
+    "spills": 40,
+    "reporting": 0.995862
+   },
+   "2022": {
+    "hours": 35.27,
+    "spills": 49,
+    "reporting": 0.999915
+   },
+   "2023": {
+    "hours": 37.87,
+    "spills": 41,
+    "reporting": 95.5
+   },
+   "2024": {
+    "hours": 54.44,
+    "spills": 48,
+    "reporting": 94.32
+   },
+   "2025": {
+    "hours": 60.89,
+    "spills": 45,
+    "reporting": 98.68
+   }
+  },
+  "SVT01570": {
+   "2021": {
+    "hours": 283.79,
+    "spills": 79,
+    "reporting": 0.99512
+   },
+   "2022": {
+    "hours": 390.57,
+    "spills": 88,
+    "reporting": 0.999772
+   },
+   "2023": {
+    "hours": 874.33,
+    "spills": 124,
+    "reporting": 93.1
+   },
+   "2024": {
+    "hours": 208.15,
+    "spills": 39,
+    "reporting": 73.25
+   },
+   "2025": {
+    "hours": null,
+    "spills": null,
+    "reporting": null
+   }
+  },
+  "SVT01571": {
+   "2021": {
+    "hours": 1668.11,
+    "spills": 94,
+    "reporting": 0.99572
+   },
+   "2022": {
+    "hours": 205.26,
+    "spills": 28,
+    "reporting": 0.999829
+   },
+   "2023": {
+    "hours": 1119.02,
+    "spills": 73,
+    "reporting": 99.0
+   },
+   "2024": {
+    "hours": 785.77,
+    "spills": 80,
+    "reporting": 94.21
+   },
+   "2025": {
+    "hours": 305.47,
+    "spills": 38,
+    "reporting": 90.79
+   }
+  }
+ }
+}
