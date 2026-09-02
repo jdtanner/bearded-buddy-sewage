@@ -402,10 +402,11 @@
     }
 
     body.push(
-      "Almost none of it broke any rule, and that is my point. We applied the",
-      "Environment Agency's own dry-day test to every one of the " + (d.dry.tested || 693),
-      "individual discharges recorded in " + (d.dry.yearsTested || []).join(" and ") + ". Two of them",
-      "happened in dry weather. The rest were permitted. The permits are the problem.",
+      "Almost none of it broke any rule, and that is the point. Every one of the " +
+        (d.dry.tested || 693),
+      "individual discharges recorded in " + (d.dry.yearsTested || []).join(" and ") + " has been tested",
+      "against the Environment Agency's own dry-day test. Two happened in dry weather.",
+      "The rest were permitted. The permits are the problem.",
       "");
 
     if (w && w.latestStatus) {
@@ -447,12 +448,10 @@
       "4. Whether you will ask the Agency why the flow monitoring at Milnhay works",
       "   reported no usable data for 336 days of 2025.",
       "",
-      "Every figure above comes from published Government data. I have set out the",
-      "full working, with every source linked and the method described, at:",
+      "Every figure above comes from published Government data. The full working,",
+      "with every source linked and the method described, is set out at:",
       "",
       "    " + pageUrl(),
-      "",
-      "I am happy to provide anything else you need.",
       "",
       "Yours sincerely,",
       "",

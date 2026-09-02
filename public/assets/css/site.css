@@ -326,13 +326,14 @@ section:first-of-type{border-top:none}
 .bar span a:hover{border-bottom-color:var(--primary)}
 
 /* Photograph slots, so the layout is right before the photographs exist. */
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+/* One per row at full width. These are landscape photographs of a river; three
+   across in a 50rem column gave each of them about 240px and made them
+   pointless. */
+.shots{display:flex;flex-direction:column;gap:1.6rem}
 .shot{margin:0}
-.shot .ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:1rem;background:var(--light);color:var(--subtext);
-  border:1px dashed var(--border);border-radius:var(--radius);font-size:.8rem}
-.shot img{width:100%;border-radius:var(--radius);display:block}
-.shot figcaption{font-size:.78rem;color:var(--subtext);margin-top:.4rem}
+
+.shot img{width:100%;height:auto;border-radius:var(--radius);display:block}
+.shot figcaption{font-size:.85rem;color:var(--subtext);margin-top:.5rem;line-height:1.5}
 
 .note-fine{font-size:.78rem;color:var(--subtext);margin-top:.5rem}
 .note .btn{margin-top:.4rem}
@@ -416,4 +417,3 @@ section:first-of-type{border-top:none}
 /* Photograph credits. CC BY-SA requires the attribution to be visible, so it
    goes in the caption rather than buried in the footer. */
 .shot .credit{display:block;margin-top:.2rem;font-size:.92em;color:var(--subtext)}
-.shot img{aspect-ratio:3/2;object-fit:cover}

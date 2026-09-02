@@ -376,33 +376,20 @@ Also in that row, and worth keeping in the argument: Severn Trent give the cause
 of the storm tank's spill frequency as "hydraulic capacity", with UWWTR and Storm
 Overflow Discharge Reduction Plan investigations ongoing.
 
-## Before it goes public
+## Before publishing a change
 
-- The repo is public at github.com/jdtanner/bearded-buddy-sewage, and the page
-  links to it. **Nothing personal may be committed to it.** `build_consents.py`
-  redacts private permit holders as it reads them, because the EA register gives
-  a person's name and the grid reference of their home for every private septic
-  tank. An earlier version wrote those to `data/consents.json`; that file and the
-  git history were both scrubbed before the first push.
-- **If the candidacy ever goes back on**, the imprint has to go back with it.
-  UK digital campaign material for a candidate legally requires a promoter's name
-  and address (Elections Act 2022). Both the candidacy line and the imprint were
-  removed together, deliberately: as it stands this is a public-interest page
-  about published data, not election material, and it needs no imprint. Put back
-  one without the other and that stops being true.
-- The page used to claim "the code that produces these figures is open". It is
-  not: this repo has no remote. The claim is removed. Put it back if and when the
-  repo is public, and it is worth doing, because it is the strongest answer to
-  anyone who says the numbers are made up.
-- Replace the three `.ph` photograph slots in the "Where it ends up" section
-  with real `<img>` tags.
-- Add `public/assets/img/og-card.png` at 1200×630 — the meta tags already point
-  at it.
-- Check the complaint links still resolve, particularly the MP.
-- The page deliberately does **not** claim sewage reaches the canal. The pump
-  house at Langley Mill Basin back-pumps water from the Erewash *Canal* below
-  Langley Bridge Lock into the basin above it; the basin is fed from the
-  Nottingham Canal feeder off Moorgreen reservoir, not from the river. River and
-  canal run side by side here and are very easy to conflate. Do not add that
-  claim back without a source.
+- **Nothing personal may be committed to this repository.** `build_consents.py`
+  redacts private permit holders as it reads them, because the Environment
+  Agency's register gives a person's name and the grid reference of their home
+  for every private septic tank. An earlier version wrote those into
+  `data/consents.json`; that file and the git history were both scrubbed before
+  the first push. Do not undo it.
 - Bump `?v=` on the CSS and JS in `index.html` whenever you edit them.
+- Re-check the complaint links resolve, particularly the MP.
+- The page does **not** claim sewage reaches the canal. The pump house at Langley
+  Mill Basin back-pumps canal water round Langley Bridge Lock; the basin is fed
+  from the Nottingham Canal feeder off Moorgreen reservoir, not from the river.
+  River and canal run side by side here and are very easy to conflate. Do not add
+  that claim back without a source.
+- `public/assets/img/og-card.png` at 1200x630 is still missing. The meta tags
+  already point at it, so link previews are currently blank.

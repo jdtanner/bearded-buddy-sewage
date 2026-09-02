@@ -70,8 +70,7 @@ properly before publication:
 - Confirm the exact meaning of each determinand rather than inferring from the
   label. `/codelist/determinand` in the same API.
 - Establish why two instruments at one works disagree so far on hours.
-- Ask Severn Trent and the EA directly. This belongs with the Cornwood enquiry in
-  `~/Documents/cornwood-enquiry.md` — same letter, same recipients.
+- Ask Severn Trent and the Environment Agency directly, rather than inferring.
 
 ## 3. Other categories in the consents register, already downloaded
 
