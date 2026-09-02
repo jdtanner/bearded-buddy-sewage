@@ -389,7 +389,7 @@ section:first-of-type{border-top:none}
 .mapkey{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-wrap:wrap;
   gap:.5rem 1.4rem;font-size:.82rem;color:var(--subtext)}
 .mapkey li{display:flex;align-items:center;gap:.45rem}
-.k-dot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;
+.k-dot{flex:none;width:14px;height:14px;border-radius:50%;border:2px solid #fff;
   box-shadow:0 0 0 1px rgba(0,0,0,.35);flex:none}
 .k-ere{background:#c62828}
 .k-brook{background:#8E4A78}
@@ -417,3 +417,35 @@ section:first-of-type{border-top:none}
 /* Photograph credits. CC BY-SA requires the attribution to be visible, so it
    goes in the caption rather than buried in the footer. */
 .shot .credit{display:block;margin-top:.2rem;font-size:.92em;color:var(--subtext)}
+
+/* An outfall discharging right now. The ring sits behind the pin and pulses,
+   so live status reads off the map without clicking every marker. */
+.bb-pin{position:relative}
+.bb-ring{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;
+  border-radius:50%;background:var(--danger);opacity:.55;pointer-events:none;
+  animation:bb-pulse 1.8s ease-out infinite}
+@keyframes bb-pulse{
+  0%{transform:scale(1);opacity:.55}
+  70%{transform:scale(4.2);opacity:0}
+  100%{transform:scale(4.2);opacity:0}
+}
+.k-live{background:var(--danger);box-shadow:0 0 0 4px rgba(198,40,40,.28)}
+@media (prefers-reduced-motion:reduce){
+  .bb-ring{animation:none;transform:scale(2.6);opacity:.3}
+}
+
+/* With scripting off the figures, tables and map never fill in. Say so, and
+   hide the containers that would otherwise render as empty boxes. */
+.nojs{margin:0;border-radius:0;border:0;border-bottom:3px solid var(--danger);
+  background:var(--danger-soft);color:#7d1c1c;padding:.85rem 1.1rem;font-size:.9rem;
+  line-height:1.5;text-align:center}
+.nojs b{color:var(--danger)}
+
+/* The three stages of what happens to a combined sewer's flow. */
+.stages{margin:.2rem 0 0;padding:0;list-style:none;counter-reset:stage}
+.stages li{counter-increment:stage;position:relative;padding:0 0 .75rem 2.5rem;
+  line-height:1.6}
+.stages li::before{content:counter(stage);position:absolute;left:0;top:.05rem;
+  width:1.6rem;height:1.6rem;border-radius:50%;background:var(--primary);color:#fff;
+  font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.stages li:nth-child(3)::before{background:var(--danger)}

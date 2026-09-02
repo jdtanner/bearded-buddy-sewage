@@ -34,10 +34,11 @@
 
   /* A dot sized by how much this outfall spilled and coloured by what it
      spills into, with a white ring so it reads on any base layer. */
-  function dot(colour, size) {
+  function dot(colour, size, live) {
     return L.divIcon({
-      className: "bb-pin",
+      className: "bb-pin" + (live ? " is-live" : ""),
       html:
+        (live ? '<i class="bb-ring"></i>' : "") +
         '<span style="display:block;width:' + size + "px;height:" + size + "px;" +
         "border-radius:50%;background:" + colour + ";border:3px solid #fff;" +
         'box-shadow:0 0 0 1px rgba(0,0,0,.35)"></span>',
@@ -189,13 +190,19 @@
     });
 
     var index = {};
+    var anyLive = false;
     var outfalls = L.layerGroup().addTo(map);
     groups.forEach(function (g) {
       var total = g.items.reduce(function (a, o) { return a + o.totalHours; }, 0);
       var brook = g.items.every(function (o) { return /bailey/i.test(o.water || ""); });
+      var on = g.items.some(function (o) {
+        return live[o.id] && live[o.id].status === "discharging";
+      });
+      if (on) anyLive = true;
       var m = L.marker([g.lat, g.lon], {
-        icon: dot(brook ? "#8E4A78" : "#c62828", radius(total, max)),
-        title: g.items.map(function (o) { return o.name; }).join(" / "),
+        icon: dot(brook ? "#8E4A78" : "#c62828", radius(total, max), on),
+        title: g.items.map(function (o) { return o.name; }).join(" / ")
+          + (on ? " (discharging now)" : ""),
         riseOnHover: true,
       })
         .addTo(outfalls)
@@ -253,6 +260,9 @@
         }
       });
     });
+
+    var keyLive = document.getElementById("key-live");
+    if (keyLive && anyLive) keyLive.hidden = false;
 
     if (opts.onready) opts.onready(data, liveData);
   }

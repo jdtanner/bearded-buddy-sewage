@@ -17,9 +17,20 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/logo-256.png">
 <link rel="stylesheet" href="/assets/vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="/assets/css/site.css?v=46">
+<link rel="stylesheet" href="/assets/css/site.css?v=48">
 </head>
 <body>
+
+<noscript>
+  <p class="nojs"><b>This page needs JavaScript.</b> The discharge figures, the
+    tables and the map are all worked out in your browser from published data,
+    so with scripting turned off most of the numbers below will be missing.
+    The written explanation still reads, but do not rely on the figures.</p>
+  <style>
+    /* Hide what would otherwise render as empty boxes. */
+    #map, .mapwrap, .tw, .bars, #live-panel, .livebox, #trend { display: none !important; }
+  </style>
+</noscript>
 
 <header class="site-head">
   <div class="wrap">
@@ -105,6 +116,44 @@
         the Erewash for the equivalent of ten months out of six years.</p>
       <p>Permits are set by the Environment Agency. Investment is agreed with Ofwat.
         Both answer to government. Those are decisions, and decisions can be changed.</p>
+
+      <h3>Why is rainwater in the sewer at all?</h3>
+      <p>This is the part that surprises most people, and it is worth understanding
+        before anything else on this page. In most of this country, including here, the
+        sewers are <b>combined</b>: one pipe carries the foul water from your toilet,
+        sink and washing machine <i>and</i> the rain off your roof, your street and the
+        road gullies. It was built that way and it was never separated. Storm overflows
+        exist only because of that decision.</p>
+      <p>In dry weather that pipe carries a modest, steady flow of sewage, and all of it
+        reaches the works and is treated. In heavy rain the same pipe can be carrying
+        many times as much. The works cannot simply treat it all: treatment is largely
+        biological, and a sudden surge would wash the process out. So what arrives is
+        dealt with in three stages, and <b>only the first of them is treatment</b>.</p>
+      <ol class="stages">
+        <li><b>Treated.</b> The works takes everything up to a flow rate set in its
+          permit and treats it properly.</li>
+        <li><b>Stored.</b> Above that rate, the excess is diverted into storm tanks and
+          held. If the rain stops in time, the tanks are drained back into the works and
+          treated then. That is what the tanks are for: to buy time, not to get rid of
+          anything.</li>
+        <li><b>Discharged.</b> If the tanks fill as well, they overflow into the river.
+          That is a storm overflow. It has sat long enough for the heavier solids to
+          settle out, but it has <b>not been treated</b>. The Environment Agency&rsquo;s
+          own name for what it samples at Milnhay is
+          &ldquo;settled storm sewage&rdquo;.</li>
+      </ol>
+      <p>A CSO further up the network is cruder still. It spills before the flow ever
+        reaches a works, so nothing has settled and nothing has been treated. Five of
+        the seven outfalls on this page are that kind.</p>
+      <p>So the honest answer to &ldquo;is the storm water treated?&rdquo; is: the first
+        part of it is, the stored part usually is, and <b>the part that reaches the
+        river is not</b>. It is rain mixed with sewage, and the argument for allowing it
+        is that the more rain there is, the more diluted it gets.</p>
+      <p>It also explains why enlarging the Milnhay storm tanks from 2 megalitres to 7
+        did not fix this. <b>A bigger tank absorbs more rain before it overflows. It does
+        not add any treatment capacity.</b> Severn Trent&rsquo;s own return names the
+        cause here as &ldquo;hydraulic capacity&rdquo;: more is arriving than the works
+        can take.</p>
     </div>
     </div>
   </section>
@@ -119,6 +168,7 @@
       </div>
       <div class="mapwrap"><div id="map"></div></div>
       <ul class="mapkey">
+        <li id="key-live" hidden><span class="k-dot k-live"></span><b>Discharging right now</b></li>
         <li><span class="k-dot k-ere"></span>Discharges into the River Erewash</li>
         <li><span class="k-dot k-brook"></span>Discharges into Bailey Brook</li>
         <li><span class="k-dot k-size"></span>Bigger dot, more sewage since 2020</li>
@@ -678,7 +728,7 @@
 </footer>
 
 <script src="/assets/vendor/leaflet-1.9.4/leaflet.js"></script>
-<script src="/assets/js/sewage-map.js?v=46"></script>
-<script src="/assets/js/page.js?v=46"></script>
+<script src="/assets/js/sewage-map.js?v=48"></script>
+<script src="/assets/js/page.js?v=48"></script>
 </body>
 </html>
