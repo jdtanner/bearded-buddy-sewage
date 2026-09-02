@@ -14,6 +14,9 @@
   function el(id) { return document.getElementById(id); }
   function fmt(n) { return n.toLocaleString("en-GB"); }
 
+  // Injected SVG never inherits a stylesheet rule for this, so set it once.
+  var FONT = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';
+
   // A value and its unit are one token. With an ordinary space a narrow table
   // cell will happily leave the "h" stranded on its own line.
   var NB = "\u00a0";
@@ -257,7 +260,7 @@
       '" font-size="12" fill="#6b7385">hours of discharge</text>');
 
     host.innerHTML = '<svg viewBox="0 0 ' + W + " " + H +
-      '" role="img" aria-label="Hours of sewage discharge per year, ' +
+      '" role="img" font-family="' + FONT + '" aria-label="Hours of sewage discharge per year, ' +
       years[0] + " to " + years[years.length - 1] +
       '" style="width:100%;height:auto;display:block">' + parts.join("") + "</svg>";
 
@@ -516,8 +519,25 @@
     var am = bb.ammonia || {};
     var spikes = Object.keys(r.baileySpikes || {}).sort();
     var wordFor = ["no", "one", "two", "three", "four", "five", "six", "seven",
-                   "eight", "nine", "ten", "eleven", "twelve"];
-    var word = function (n) { return wordFor[n] || fmt(n); };
+                   "eight", "nine", "ten", "eleven", "twelve", "thirteen",
+                   "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+                   "nineteen"];
+    var tensFor = ["", "", "twenty", "thirty", "forty", "fifty", "sixty",
+                   "seventy", "eighty", "ninety"];
+    var word = function (n) {
+      if (!(n >= 0) || n % 1) return fmt(n);
+      if (n < 20) return wordFor[n];
+      if (n < 100) {
+        return tensFor[Math.floor(n / 10)] +
+          (n % 10 ? "-" + wordFor[n % 10] : "");
+      }
+      return fmt(n);
+    };
+    // For a figure that opens a sentence.
+    var Word = function (n) {
+      var w = word(n);
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    };
     var asOf = cur && cur.asOf ? new Date(cur.asOf)
       : (live && live.updated ? new Date(live.updated) : new Date());
     // Counting the month we are in: on 1 September there are four months of the
@@ -547,15 +567,15 @@
       "tank.total": fmt(Math.round(tank.totalHours || 0)),
       "inlet.total": fmt(Math.round(inlet.totalHours || 0)),
       "cat.total": fmt(cat.total || 0),
-      "cat.upstream": fmt(cat.upstream || 0),
+      "cat.upstream": Word(cat.upstream || 0),
       "cat.below": fmt(cat.below || 0),
       "cat.frontage": cat.parishFrontageKm,
-      "cat.ere": fmt((cat.upstreamByWater || {})["Erewash from Source to Nethergreen Brook"] || 0),
-      "cat.bailey": fmt((cat.upstreamByWater || {})["Bailey Brook Catchment (trib of Erewash)"] || 0),
-      "cat.nether": fmt((cat.upstreamByWater || {})["Nethergreen Brook Catchment (trib of Erewash)"] || 0),
+      "cat.ere": word((cat.upstreamByWater || {})["Erewash from Source to Nethergreen Brook"] || 0),
+      "cat.bailey": word((cat.upstreamByWater || {})["Bailey Brook Catchment (trib of Erewash)"] || 0),
+      "cat.nether": word((cat.upstreamByWater || {})["Nethergreen Brook Catchment (trib of Erewash)"] || 0),
       "wfd.status": w.latestStatus || "",
       "wfd.reasons": word((w.reasons || []).length),
-      "wfd.failing": word((w.failingElements || []).length),
+      "wfd.failing": Word((w.failingElements || []).length),
       "consents.points": word((d.consents || {}).points || 0),
       "consents.permits": word((d.consents || {}).permits || 0),
       "river.baseline": (r.baileyBaseline || 0).toFixed(2),

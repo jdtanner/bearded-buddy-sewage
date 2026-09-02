@@ -17,7 +17,8 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);
 .wrap{max-width:var(--wrap);margin:0 auto;padding-left:1.25rem;padding-right:1.25rem}
 @media(max-width:520px){.wrap{padding-left:1.1rem;padding-right:1.1rem}}
 .col{max-width:none}
-h1,h2,h3{margin:0;color:var(--primary);line-height:1.2;text-wrap:balance}
+h1,h2,h3{margin:0;color:var(--primary);line-height:1.2;text-wrap:balance;
+  font-family:var(--display)}
 h1{font-size:clamp(1.9rem,5vw,2.7rem);letter-spacing:-.02em}
 h2{font-size:1.4rem;letter-spacing:-.01em}
 h3{font-size:1.05rem}
@@ -448,3 +449,15 @@ section:first-of-type{border-top:none}
 .stages li::before{content:counter(stage);position:absolute;left:0;top:.05rem;
   width:1.6rem;height:1.6rem;border-radius:50%;background:var(--primary);color:#fff;
   font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* Everything from "The working" down is supporting evidence. Tinting the band
+   and quietening its headings makes that visible at a glance, so a reader who
+   only wants the finding and the ask knows they can stop. */
+.working{background:var(--light);border-top:3px solid var(--primary)}
+.working section{border-top:1px solid var(--border)}
+.working section:first-of-type{border-top:none}
+.working .tw table,.working .notice{background:var(--bg)}
+.working-head{padding-bottom:.4rem}
+.working-head h2{font-weight:800;font-size:1.6rem;
+  letter-spacing:-.02em;color:var(--primary)}
+.working-head .lede{max-width:42rem}
