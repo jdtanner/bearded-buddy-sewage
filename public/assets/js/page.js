@@ -421,9 +421,25 @@
     }
 
     body.push(
-      "Severn Trent's own return names the cause at Milnhay works as \"hydraulic",
-      "capacity\". The works cannot take what is being put into it, and housing",
-      "continues to be built on the same network.",
+      "Severn Trent will tell you, correctly, that they have spent money here. Between",
+      "2022 and 2024 they spent around 35.8 million pounds rebuilding Newthorpe works",
+      "and closing Milnhay as a treatment works, and they enlarged the storm tanks at",
+      "Milnhay from 2 megalitres to 7. That scheme was built to meet the Water Framework",
+      "Directive and the tighter phosphate limits that came into force in December 2024.",
+      "",
+      "Two things follow from that, and they are the reason I am writing.",
+      "",
+      "First, this river was classified Poor in 2016 and has been Poor at every",
+      "assessment since. The works discharged into it throughout. What changed was not",
+      "the state of the river, which was on the record the whole time. What changed was",
+      "the law.",
+      "",
+      "Second, it has not been enough. The enlarged storm tank at Milnhay discharged for",
+      "305 hours in 2025, the first full year after the work was completed, and by 1",
+      "September 2026 it had already discharged for 266 hours with the wettest months",
+      "still ahead. Severn Trent's own return gives the cause as \"hydraulic capacity\":",
+      "the site cannot take what is being put into it, and housing continues to be built",
+      "on the same network.",
       "");
 
     if (cat && cat.upstream) {
@@ -437,8 +453,9 @@
     body.push(
       "I would like to know:",
       "",
-      "1. What you are doing to secure investment in Milnhay sewage treatment works,",
-      "   which accounts for most of the discharge in this parish.",
+      "1. What you will do to secure further investment in this network, given that a",
+      "   35.8 million pound scheme completed in 2024 has not stopped the storm tank at",
+      "   Milnhay, which remains the largest single source of sewage in this parish.",
       "2. Whether you will press the Environment Agency to review the permit",
       "   conditions for these outfalls, given that the Agency itself records",
       "   intermittent sewage discharge as a confirmed cause of this river's",
