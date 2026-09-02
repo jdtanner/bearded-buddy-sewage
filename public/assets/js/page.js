@@ -138,13 +138,33 @@
   function setNear(d) {
     var t = el("near-table");
     if (!t || !d.dry.nearMisses || !d.dry.nearMisses.length) return;
+
+    // Three of these are the same outfall on the same day, which reads as a
+    // repeated row unless they are told apart. Sort oldest first and letter the
+    // ones that share a date and a site.
+    var rows = d.dry.nearMisses.slice().sort(function (a, b) {
+      return a.day === b.day ? b.hours - a.hours : a.day.localeCompare(b.day);
+    });
+    var seen = {};
+    rows.forEach(function (r) {
+      var k = r.day + "|" + r.name;
+      seen[k] = (seen[k] || 0) + 1;
+      r._n = seen[k];
+    });
+    var totals = seen;
+
     t.innerHTML =
       "<thead><tr><th>Date</th><th>Outfall</th><th>Length</th>" +
       "<th>Rain that day</th><th>Day before</th></tr></thead><tbody>" +
-      d.dry.nearMisses.map(function (r) {
+      rows.map(function (r) {
         var d2 = new Date(r.day).toLocaleDateString("en-GB",
           { day: "numeric", month: "short", year: "numeric" });
-        return "<tr><td>" + d2 + "</td><td>" + r.name + "</td><td>" +
+        var multi = totals[r.day + "|" + r.name] > 1;
+        var label = r.name + (multi
+          ? ' <span class="disch">discharge ' +
+            String.fromCharCode(64 + r._n) + "</span>"
+          : "");
+        return "<tr><td>" + d2 + "</td><td>" + label + "</td><td>" +
           (r.hours >= 1 ? r.hours.toFixed(1) + " h"
                         : Math.round(r.hours * 60) + " min") + "</td><td>" +
           r.maxOnDay.toFixed(1) + " mm</td><td>" +
@@ -272,8 +292,8 @@
       note.innerHTML =
         "Provisional, to " + asOf + ". These come from Severn Trent's live feed " +
         "rather than the audited annual return, so treat them as indicative. " +
-        "Checked against the official return for December 2025 \u2014 the first " +
-        "month both sources cover completely \u2014 the live feed gave 136.5 hours " +
+        "Checked against the official return for December 2025, the first " +
+        "month both sources cover completely, the live feed gave 136.5 hours " +
         "against an official 130.3, about 5% over. They are shown separately from " +
         "the six-year totals above, which use published returns only.";
     }
@@ -292,8 +312,10 @@
   function setWfd(d) {
     var w = d.wfd;
     if (!w) return;
+    // Capitalised, because the paragraph around it names the other grades the
+    // same way: Moderate, Poor.
     var st = el("wfd-status");
-    if (st) st.textContent = (w.latestStatus || "Poor").toLowerCase();
+    if (st) st.textContent = w.latestStatus || "Poor";
 
     var t = el("wfd-table");
     if (!t) return;

@@ -402,3 +402,6 @@ section:first-of-type{border-top:none}
 /* Years where the brook's ammonia ran several times its own baseline. */
 #river-table tr.hot td{background:var(--danger-soft)}
 #river-table tr:last-child td{background:var(--light);border-top:2px solid var(--border)}
+
+/* A, B, C where one outfall discharged more than once on the same day. */
+.disch{font-size:.78em;color:var(--subtext);white-space:nowrap}
