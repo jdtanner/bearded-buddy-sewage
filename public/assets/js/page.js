@@ -90,13 +90,17 @@
         : '<span class="pop-live">Quiet</span>';
       return "<tr><td>" + o.name + "</td><td>" + badge + "</td>" +
         "<td>" + ago(s.lastStart || s.start) + "</td>" +
-        "<td>" + (cur ? cur.events + " / " + Math.round(cur.hours) + " h" : "&ndash;") +
-        "</td></tr>";
+        "<td>" + (cur ? cur.events : "&ndash;") + "</td>" +
+        "<td>" + (cur ? Math.round(cur.hours) + " h" : "&ndash;") + "</td></tr>";
     }).join("");
 
+    // Two columns rather than "50 / 266 h", which nobody could be expected to
+    // read as fifty discharges totalling 266 hours.
+    var yr = (live.current && live.current.year) || new Date().getUTCFullYear();
     t.innerHTML =
       "<thead><tr><th>Outfall</th><th>Now</th><th>Last discharged</th>" +
-      "<th>This year</th></tr></thead><tbody>" + rows + "</tbody>";
+      "<th>Discharges in " + yr + "</th><th>Hours in " + yr + "</th>" +
+      "</tr></thead><tbody>" + rows + "</tbody>";
 
     if (dot) {
       dot.className = "livedot" + (on ? " on" : "");
@@ -307,6 +311,33 @@
       }).join("") + "</tbody>";
   }
 
+  /* Bailey Brook's own record, so the reader compares the brook with itself
+     rather than with a standard nobody can picture. */
+  function setRiver(d) {
+    var r = d.river, t = el("river-table");
+    if (!r || !t) return;
+    var bb = r.points["MD-45691150"];
+    if (!bb || !bb.series || !bb.series.ammonia) { t.closest(".tw").hidden = true; return; }
+    var am = bb.series.ammonia, ox = bb.series.oxygen || {};
+    var years = Object.keys(am).filter(function (y) { return y >= "2021"; }).sort();
+    var base = r.baileyBaseline;
+
+    t.innerHTML =
+      "<thead><tr><th>Year</th><th>Ammonia, average</th><th>Highest single sample</th>" +
+      "<th>Dissolved oxygen</th></tr></thead><tbody>" +
+      years.map(function (y) {
+        var a = am[y], hot = base && a.mean > base * 3;
+        return "<tr" + (hot ? ' class="hot"' : "") + "><td>" + y + "</td>" +
+          "<td>" + a.mean.toFixed(2) + " mg/l" +
+          (hot ? " <b>&times;" + Math.round(a.mean / base) + "</b>" : "") + "</td>" +
+          "<td>" + a.max.toFixed(2) + " mg/l</td>" +
+          "<td>" + (ox[y] ? ox[y].mean.toFixed(1) + " mg/l" : "&ndash;") + "</td></tr>";
+      }).join("") +
+      "<tr><td><b>2015&ndash;21</b></td><td><b>" + base.toFixed(2) +
+      " mg/l</b></td><td colspan=\"2\">the brook's own baseline</td></tr>" +
+      "</tbody>";
+  }
+
   function setMailto(d) {
     var a = el("mp-mail");
     if (!a) return;
@@ -397,6 +428,7 @@
     setTrend(d);
     setCurrent(d, live);
     setWfd(d);
+    setRiver(d);
     setMailto(d);
     setCornwood();
   }

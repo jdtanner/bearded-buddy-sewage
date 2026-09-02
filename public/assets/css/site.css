@@ -371,7 +371,7 @@ section:first-of-type{border-top:none}
 @keyframes livepulse{0%,100%{box-shadow:0 0 0 3px var(--danger-soft)}
   50%{box-shadow:0 0 0 7px var(--danger-soft)}}
 .livebox .tw{background:var(--bg)}
-.livebox table{min-width:30rem}
+.livebox table{min-width:34rem}
 .livebox .pop-live{font-size:.6rem}
 .pop-live.off{background:var(--primary-soft);color:var(--subtext)}
 .livebox .fine-note{margin-top:.6rem}
@@ -398,3 +398,7 @@ section:first-of-type{border-top:none}
 .k-ring{width:14px;height:14px;border-radius:50%;border:2px solid var(--primary);
   background:rgba(40,54,83,.15);box-shadow:none;flex:none}
 .k-ring.k-unmon{border-color:#B4802A;background:rgba(180,128,42,.55);border-style:dashed}
+
+/* Years where the brook's ammonia ran several times its own baseline. */
+#river-table tr.hot td{background:var(--danger-soft)}
+#river-table tr:last-child td{background:var(--light);border-top:2px solid var(--border)}

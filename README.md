@@ -230,6 +230,31 @@ status, which is what the Agency's own page leads with. Take the overall figure
 where it exists and fall back to ecological, or the site will claim the newest
 assessment is 2019.
 
+## What the water actually measures
+
+`tools/build_river.py` pulls the Environment Agency's own sample results for two
+points, from the Water Quality Archive:
+
+- **MD-45691150**, Bailey Brook at Milnhay Road, in the parish, a few hundred
+  metres below the Lee Lane outfall.
+- **MD-45217250**, the Erewash at Shipley Gate, the first point below the parish.
+
+Bailey Brook's ammonia averaged **0.098 mg/l** every year from 2015 to 2021. It
+was **0.65 in 2022** (peak 3.50) and **0.81 in 2025** (peak 2.60) - seven and
+eight times its own baseline. Dissolved oxygen at the same point hit its record
+low in 2025. Ammonia up while oxygen falls is what sewage does to a watercourse.
+
+Stated carefully on the page: these are monthly spot samples, a peak is one
+morning, and no particular discharge is blamed for any particular reading.
+
+**MD-45217950, the Erewash immediately upstream of Milnhay works, has recorded
+nothing since 2015.** That is the point that would let anyone compare the river
+above and below the works. Its absence is Part C of the enquiry letter.
+
+API notes in NOTES-water-quality.md. The one that costs time: `limit` caps at 250
+and truncates silently, so query one determinand at a time or you will get four
+years of pH and conclude there is no ammonia data.
+
 ## Things that will bite you
 
 **The annual return changes shape every year.** Only 2024 and 2025 have a
