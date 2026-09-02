@@ -368,81 +368,88 @@
   function setMailto(d) {
     var a = el("mp-mail");
     if (!a) return;
-    var t = d.totals;
+    var t = d.totals, c = d.current, w = d.wfd, cat = d.catchment;
+    var pct = c && d.perYear[t.to]
+      ? Math.round((c.hours / d.perYear[t.to].hours) * 100) : null;
+
     var body = [
       "Dear Ms Farnsworth,",
       "",
       "I am a constituent living in Aldercar and Langley Mill.",
       "",
-      "Between " + t.from + " and " + t.to + ", the seven Severn Trent storm overflows inside our",
-      "parish discharged sewage into the River Erewash and Bailey Brook for " +
-        fmt(Math.round(t.hours)) + " hours",
-      "across " + fmt(t.spills) + " separate spills. That is the equivalent of " +
-        Math.round(t.days) + " days.",
+      "Between " + t.from + " and " + t.to + ", the seven Severn Trent storm overflows",
+      "inside this parish discharged sewage into the River Erewash and Bailey Brook",
+      "for " + fmt(Math.round(t.hours)) + " hours, across " + fmt(t.spills) + " separate spills. That is the",
+      "equivalent of " + Math.round(t.days) + " days. These are Severn Trent's own figures, filed",
+      "with the Environment Agency.",
       "",
-      "These figures come from Severn Trent's own returns to the Environment Agency.",
-      "Almost all of this discharging was permitted. That is my concern: the permits",
-      "themselves allow it.",
-      "",
+    ];
+
+    if (c && pct) {
+      body.push(
+        "It is not improving. From Severn Trent's live feed, this parish has already",
+        "had " + fmt(Math.round(c.hours)) + " hours of discharge in " + c.year + ", " + pct + "% of the whole of " + t.to + ",",
+        "with a third of the year and the wettest months still to come.",
+        "");
+    }
+
+    body.push(
+      "Almost none of it broke any rule, and that is my point. We applied the",
+      "Environment Agency's own dry-day test to every one of the " + (d.dry.tested || 693),
+      "individual discharges recorded in " + (d.dry.yearsTested || []).join(" and ") + ". Two of them",
+      "happened in dry weather. The rest were permitted. The permits are the problem.",
+      "");
+
+    if (w && w.latestStatus) {
+      body.push(
+        "The Environment Agency has already reached the same conclusion. It classifies",
+        "this stretch of the Erewash (water body " + w.waterbody + ") as " + w.latestStatus + ", down",
+        "from Moderate in 2015. Of the twenty reasons it records for the river failing to",
+        "achieve good status, farming and urban run-off are marked Probable. Two are",
+        "marked Confirmed, and both are sewage discharge from the water industry, one",
+        "continuous and one intermittent. Intermittent means storm overflows.",
+        "");
+    }
+
+    body.push(
+      "Severn Trent's own return names the cause at Milnhay works as \"hydraulic",
+      "capacity\". The works cannot take what is being put into it, and housing",
+      "continues to be built on the same network.",
+      "");
+
+    if (cat && cat.upstream) {
+      body.push(
+        "This is not only a local problem. Of the " + cat.total + " monitored storm overflows in",
+        "this river's catchment, " + cat.upstream + " are upstream of us, so what they release comes",
+        "through this parish before it goes anywhere else.",
+        "");
+    }
+
+    body.push(
       "I would like to know:",
       "",
-      "1. What you are doing to secure investment in the Milnhay treatment works, which",
-      "   accounts for most of the discharge in this parish.",
-      "2. Whether you will press the Environment Agency to review the permit conditions",
-      "   for these outfalls.",
-      "3. What assessment is made of sewer capacity before new housing is approved here.",
+      "1. What you are doing to secure investment in Milnhay sewage treatment works,",
+      "   which accounts for most of the discharge in this parish.",
+      "2. Whether you will press the Environment Agency to review the permit",
+      "   conditions for these outfalls, given that the Agency itself records",
+      "   intermittent sewage discharge as a confirmed cause of this river's",
+      "   condition.",
+      "3. What assessment is made of sewer capacity before new housing is approved",
+      "   here, and who makes it.",
+      "4. Whether you will ask the Agency why the flow monitoring at Milnhay works",
+      "   reported no usable data for 336 days of 2025.",
       "",
-      "I would be grateful for a reply.",
+      "Every figure above comes from published Government data and I am happy to",
+      "provide the sources.",
       "",
       "Yours sincerely,",
       "",
-      "[your name and address]",
-    ].join("\n");
-    a.href = "mailto:?subject=" +
-      encodeURIComponent("Sewage discharges into the Erewash at Langley Mill") +
-      "&body=" + encodeURIComponent(body);
-  }
+      "[your name]",
+      "[your address, so she can see you are a constituent]");
 
-  function setCornwood() {
-    var a = el("cornwood-mail");
-    if (!a) return;
-    var body = [
-      "Dear Environment Agency,",
-      "",
-      "I am writing about a permitted discharge in the parish of Aldercar and Langley",
-      "Mill, Derbyshire.",
-      "",
-      "Permit T/61/09188/O, held by Severn Trent Water, was issued on 18 November 1983",
-      "and carries no revocation date on your public register of Consented Discharges to",
-      "Controlled Waters. It permits a discharge described as SEWAGE DISCHARGES -",
-      "PUMPING STATION - WATER COMPANY at CORNWOOD MEADOWS INDUSTRIALSITE PS, grid",
-      "reference SK4527047850, into the River Erewash.",
-      "",
-      "I can find no record of this asset in the Event Duration Monitoring Storm Overflow",
-      "Annual Return for any year from 2021 to 2025. Storm discharges at pumping stations",
-      "do appear in those returns in large numbers, so the category itself is clearly in",
-      "scope.",
-      "",
-      "Please could you tell me:",
-      "",
-      "1. Is this permit still in use, or does it relate to an asset that no longer",
-      "   exists? If the latter, why has it not been revoked?",
-      "2. If it is in use, is an Event Duration Monitor fitted to it? If so, under what",
-      "   reference is it reported, since I cannot locate it?",
-      "3. If no monitor is fitted, why not, and when will one be?",
-      "4. How many hours has this outfall discharged into the River Erewash in each of",
-      "   the last five years?",
-      "",
-      "I am asking as a resident. I am not alleging any breach; I am asking because the",
-      "published data does not let me answer these questions myself.",
-      "",
-      "Yours faithfully,",
-      "",
-      "[your name and address]",
-    ].join("\n");
-    a.href = "mailto:enquiries@environment-agency.gov.uk?subject=" +
-      encodeURIComponent("Permit T/61/09188/O - Cornwood Meadows PS, River Erewash") +
-      "&body=" + encodeURIComponent(body);
+    a.href = "mailto:?subject=" +
+      encodeURIComponent("Sewage discharges into the River Erewash at Langley Mill") +
+      "&body=" + encodeURIComponent(body.join("\n"));
   }
 
   function render(d, live) {
