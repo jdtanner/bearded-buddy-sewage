@@ -282,6 +282,31 @@
     }
   }
 
+  /* The Environment Agency's own reasons for the river's condition. Only the
+     Confirmed ones are tabled: Probable and Suspected are in the data and in the
+     source, but the argument rests on what the Agency has actually concluded. */
+  function setWfd(d) {
+    var w = d.wfd;
+    if (!w) return;
+    var st = el("wfd-status");
+    if (st) st.textContent = (w.latestStatus || "Poor").toLowerCase();
+
+    var t = el("wfd-table");
+    if (!t) return;
+    var confirmed = (w.reasons || []).filter(function (r) {
+      return (r.activityCertainty || "").toLowerCase() === "confirmed";
+    });
+    if (!confirmed.length) { t.closest(".tw").hidden = true; return; }
+    t.innerHTML =
+      "<thead><tr><th>What the Agency says is causing it</th><th>Sector</th>" +
+      "<th>Affecting</th><th>Certainty</th></tr></thead><tbody>" +
+      confirmed.map(function (r) {
+        return "<tr><td>" + r.activity + "</td><td>" + r.sector +
+          "</td><td>" + r.element + "</td><td><b>" + r.activityCertainty +
+          "</b></td></tr>";
+      }).join("") + "</tbody>";
+  }
+
   function setMailto(d) {
     var a = el("mp-mail");
     if (!a) return;
@@ -371,6 +396,7 @@
     setTable(d);
     setTrend(d);
     setCurrent(d, live);
+    setWfd(d);
     setMailto(d);
     setCornwood();
   }

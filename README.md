@@ -203,6 +203,33 @@ The National Grid converter is checked against Milnhay works, whose grid
 reference SK4572046380 must come back as 53.01278, -1.32000. An earlier version
 had the northing 800 km out and put the parish in Shetland.
 
+## The state of the river
+
+`tools/build_wfd.py` reads the Environment Agency's Catchment Data Explorer for
+water body **GB104028052511**, "Erewash from Nethergreen Brook to Gilt Brook" -
+the reach beside the village, which takes Milnhay works.
+
+Status: **Moderate** 2013-15, **Poor** from 2016 and every assessment since. In
+2022 four elements are below good: phosphate and macrophytes Poor, invertebrates
+and dissolved oxygen Moderate.
+
+The valuable half is RNAG - Reasons for Not Achieving Good. The Agency records
+each pressure with a certainty of Confirmed, Probable or Suspected. Of the twenty
+reasons listed, **two are Confirmed and both are sewage**: "Sewage discharge
+(intermittent)", which is their term for a storm overflow, and "Sewage discharge
+(continuous)". Farming and urban run-off appear only as Probable.
+
+The page tables the Confirmed ones only. Probable and Suspected are in the JSON
+and one click away on the Agency's own site, but the argument should rest on what
+the regulator has actually concluded.
+
+Two traps. The classification CSV has a BOM stuck to its first column name, so
+read it with a fallback. And the two status series do not cover the same years -
+"Overall Waterbody" stops at 2019, and from 2022 the headline is the ecological
+status, which is what the Agency's own page leads with. Take the overall figure
+where it exists and fall back to ecological, or the site will claim the newest
+assessment is 2019.
+
 ## Things that will bite you
 
 **The annual return changes shape every year.** Only 2024 and 2025 have a

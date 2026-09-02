@@ -1,0 +1,411 @@
+{
+ "waterbody": "GB104028052511",
+ "name": "Erewash from Nethergreen Brook to Gilt Brook",
+ "url": "https://environment.data.gov.uk/catchment-planning/WaterBody/GB104028052511",
+ "statusByYear": {
+  "2022": "Poor",
+  "2016": "Poor",
+  "2019": "Poor",
+  "2013": "Moderate",
+  "2014": "Moderate",
+  "2015": "Moderate"
+ },
+ "latestYear": "2022",
+ "latestStatus": "Poor",
+ "elements2022": {
+  "Macrophytes and Phytobenthos Combined": "Poor",
+  "Dissolved oxygen": "Moderate",
+  "Copper": "High",
+  "Biochemical Oxygen Demand (BOD)": "Good",
+  "Invertebrates": "Moderate",
+  "Ammonia (Phys-Chem)": "Good",
+  "Fish": "High",
+  "Acid Neutralising Capacity": "High",
+  "Temperature": "High",
+  "Hydrological Regime": "Supports Good",
+  "Iron": "High",
+  "Phosphate": "Poor",
+  "pH": "High",
+  "Zinc": "High",
+  "Manganese": "High",
+  "Triclosan": "High"
+ },
+ "failingElements": [
+  "Dissolved oxygen",
+  "Invertebrates",
+  "Macrophytes and Phytobenthos Combined",
+  "Phosphate"
+ ],
+ "reasons": [
+  {
+   "id": "577389",
+   "source": "measures delivered to address reason, awaiting recovery",
+   "sourceCertainty": "Confirmed",
+   "activity": "Not applicable",
+   "activityCertainty": "Not applicable",
+   "category": "No sector responsible",
+   "categoryCertainty": "Not applicable",
+   "sector": "Not applicable",
+   "element": "Mercury and Its Compounds"
+  },
+  {
+   "id": "583885",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583884",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Not applicable",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583886",
+   "source": "Point source",
+   "sourceCertainty": "Suspected",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Suspected",
+   "category": "Water Industry",
+   "categoryCertainty": "Suspected",
+   "sector": "Not applicable",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583911",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583912",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Urbanisation - urban development",
+   "activityCertainty": "Probable",
+   "category": "Urban and transport",
+   "categoryCertainty": "Probable",
+   "sector": "Urban",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583913",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Urbanisation - urban development",
+   "activityCertainty": "Probable",
+   "category": "Urban and transport",
+   "categoryCertainty": "Probable",
+   "sector": "Urban",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583909",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Poor Livestock Management",
+   "activityCertainty": "Probable",
+   "category": "Agriculture and rural land management",
+   "categoryCertainty": "Probable",
+   "sector": "Agriculture - Livestock",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583910",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583961",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Transport Drainage",
+   "activityCertainty": "Probable",
+   "category": "Urban and transport",
+   "categoryCertainty": "Probable",
+   "sector": "Urban",
+   "element": "Phosphate"
+  },
+  {
+   "id": "583960",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Poor Livestock Management",
+   "activityCertainty": "Probable",
+   "category": "Agriculture and rural land management",
+   "categoryCertainty": "Probable",
+   "sector": "Agriculture - Livestock",
+   "element": "Phosphate"
+  },
+  {
+   "id": "583962",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Phosphate"
+  },
+  {
+   "id": "577423",
+   "source": "measures delivered to address reason, awaiting recovery",
+   "sourceCertainty": "Confirmed",
+   "activity": "Not applicable",
+   "activityCertainty": "Not applicable",
+   "category": "No sector responsible",
+   "categoryCertainty": "Not applicable",
+   "sector": "Not applicable",
+   "element": "Polybrominated diphenyl ethers (PBDE)"
+  },
+  {
+   "id": "577434",
+   "source": "Unknown (pending investigation)",
+   "sourceCertainty": "Confirmed",
+   "activity": "Unknown (pending investigation)",
+   "activityCertainty": "Not applicable",
+   "category": "Sector under investigation",
+   "categoryCertainty": "Not applicable",
+   "sector": "Not applicable",
+   "element": "Perfluorooctane sulphonate (PFOS)"
+  },
+  {
+   "id": "583981",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Transport Drainage",
+   "activityCertainty": "Probable",
+   "category": "Urban and transport",
+   "categoryCertainty": "Probable",
+   "sector": "Other (not in list)",
+   "element": "Macrophytes and Phytobenthos Combined"
+  },
+  {
+   "id": "584001",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Transport Drainage",
+   "activityCertainty": "Probable",
+   "category": "Urban and transport",
+   "categoryCertainty": "Probable",
+   "sector": "Roads",
+   "element": "Macrophytes and Phytobenthos Combined"
+  },
+  {
+   "id": "584002",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Poor Livestock Management",
+   "activityCertainty": "Probable",
+   "category": "Agriculture and rural land management",
+   "categoryCertainty": "Probable",
+   "sector": "Agriculture - Livestock",
+   "element": "Macrophytes and Phytobenthos Combined"
+  },
+  {
+   "id": "583982",
+   "source": "Diffuse source",
+   "sourceCertainty": "Probable",
+   "activity": "Poor Livestock Management",
+   "activityCertainty": "Probable",
+   "category": "Agriculture and rural land management",
+   "categoryCertainty": "Probable",
+   "sector": "Agriculture - Livestock",
+   "element": "Macrophytes and Phytobenthos Combined"
+  },
+  {
+   "id": "583983",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Macrophytes and Phytobenthos Combined"
+  },
+  {
+   "id": "584000",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Water supply",
+   "element": "Macrophytes and Phytobenthos Combined"
+  }
+ ],
+ "sewageReasons": [
+  {
+   "id": "583885",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583884",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Not applicable",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583886",
+   "source": "Point source",
+   "sourceCertainty": "Suspected",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Suspected",
+   "category": "Water Industry",
+   "categoryCertainty": "Suspected",
+   "sector": "Not applicable",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583911",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583910",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583962",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Phosphate"
+  },
+  {
+   "id": "583983",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Macrophytes and Phytobenthos Combined"
+  },
+  {
+   "id": "584000",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Water supply",
+   "element": "Macrophytes and Phytobenthos Combined"
+  }
+ ],
+ "confirmedSewageReasons": [
+  {
+   "id": "583911",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  },
+  {
+   "id": "583910",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (continuous)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  }
+ ],
+ "intermittent": [
+  {
+   "id": "583885",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Waste water treatment",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583884",
+   "source": "Point source",
+   "sourceCertainty": "Probable",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Probable",
+   "category": "Water Industry",
+   "categoryCertainty": "Probable",
+   "sector": "Not applicable",
+   "element": "Invertebrates"
+  },
+  {
+   "id": "583911",
+   "source": "Point source",
+   "sourceCertainty": "Confirmed",
+   "activity": "Sewage discharge (intermittent)",
+   "activityCertainty": "Confirmed",
+   "category": "Water Industry",
+   "categoryCertainty": "Confirmed",
+   "sector": "Waste water treatment",
+   "element": "Ammonia (Phys-Chem)"
+  }
+ ],
+ "updated": "Catchment Data Explorer, latest data (updated 17 March 2025)"
+}

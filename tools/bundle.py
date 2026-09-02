@@ -45,6 +45,10 @@ def main():
         consents = load("consents.json")
     except FileNotFoundError:
         consents = None
+    try:
+        wfd = load("wfd.json")
+    except FileNotFoundError:
+        wfd = None
 
     by_svt = {o["id"]: o for o in hist["outfalls"]}
     years = hist["years"]
@@ -127,6 +131,7 @@ def main():
         # "totals" on purpose: those are the official returns only.
         "current": current,
         "catchment": catchment,
+        "wfd": wfd,
         # The EA public register: every permitted discharge here, not only the
         # ones with a monitor on them. Individual permit holders are not
         # published - one is a private septic tank and is nobody's business.
