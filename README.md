@@ -378,11 +378,12 @@ Overflow Discharge Reduction Plan investigations ongoing.
 
 ## Before it goes public
 
-- Fill in the imprint in the footer of `public/index.html`: `[NAME]` and
-  `[ADDRESS]`. Campaign material for a candidate needs a promoter's name and
-  address.
-- Fill in `[YOUR EMAIL]` in "Why I am doing this". The page asks three times to
-  be told when something is wrong, so it has to say where to.
+- **If the candidacy ever goes back on**, the imprint has to go back with it.
+  UK digital campaign material for a candidate legally requires a promoter's name
+  and address (Elections Act 2022). Both the candidacy line and the imprint were
+  removed together, deliberately: as it stands this is a public-interest page
+  about published data, not election material, and it needs no imprint. Put back
+  one without the other and that stops being true.
 - The page used to claim "the code that produces these figures is open". It is
   not: this repo has no remote. The claim is removed. Put it back if and when the
   repo is public, and it is worth doing, because it is the strongest answer to

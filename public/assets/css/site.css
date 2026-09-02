@@ -340,6 +340,9 @@ section:first-of-type{border-top:none}
 .srcs{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:.5rem;font-size:.92rem}
 .srcs li{line-height:1.5}
 
+/* Unused while the page carries no candidacy. Kept so that restoring the
+   imprint, which must happen if the candidacy line ever returns, is one line of
+   HTML rather than a hunt through the stylesheet. */
 .imprint{margin-top:.8rem;padding-top:.8rem;border-top:1px solid #3b4a6b}
 
 /* .facts fakes its cell borders with a background showing through a 1px gap,
