@@ -412,3 +412,8 @@ section:first-of-type{border-top:none}
 /* Contact line. The page asks to be corrected, so it has to say where to. */
 .contactline{padding:.7rem .9rem;background:var(--primary-soft);
   border-radius:var(--radius);font-size:.95rem}
+
+/* Photograph credits. CC BY-SA requires the attribution to be visible, so it
+   goes in the caption rather than buried in the footer. */
+.shot .credit{display:block;margin-top:.2rem;font-size:.92em;color:var(--subtext)}
+.shot img{aspect-ratio:3/2;object-fit:cover}
