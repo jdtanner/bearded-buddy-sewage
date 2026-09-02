@@ -378,6 +378,12 @@ Overflow Discharge Reduction Plan investigations ongoing.
 
 ## Before it goes public
 
+- The repo is public at github.com/jdtanner/bearded-buddy-sewage, and the page
+  links to it. **Nothing personal may be committed to it.** `build_consents.py`
+  redacts private permit holders as it reads them, because the EA register gives
+  a person's name and the grid reference of their home for every private septic
+  tank. An earlier version wrote those to `data/consents.json`; that file and the
+  git history were both scrubbed before the first push.
 - **If the candidacy ever goes back on**, the imprint has to go back with it.
   UK digital campaign material for a candidate legally requires a promoter's name
   and address (Elections Act 2022). Both the candidacy line and the imprint were
