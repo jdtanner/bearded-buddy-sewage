@@ -405,3 +405,7 @@ section:first-of-type{border-top:none}
 
 /* A, B, C where one outfall discharged more than once on the same day. */
 .disch{font-size:.78em;color:var(--subtext);white-space:nowrap}
+
+/* Contact line. The page asks to be corrected, so it has to say where to. */
+.contactline{padding:.7rem .9rem;background:var(--primary-soft);
+  border-radius:var(--radius);font-size:.95rem}

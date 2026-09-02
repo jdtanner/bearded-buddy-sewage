@@ -378,9 +378,15 @@ Overflow Discharge Reduction Plan investigations ongoing.
 
 ## Before it goes public
 
-- Fill in the imprint in the footer of `public/index.html` — `[NAME]` and
+- Fill in the imprint in the footer of `public/index.html`: `[NAME]` and
   `[ADDRESS]`. Campaign material for a candidate needs a promoter's name and
   address.
+- Fill in `[YOUR EMAIL]` in "Why I am doing this". The page asks three times to
+  be told when something is wrong, so it has to say where to.
+- The page used to claim "the code that produces these figures is open". It is
+  not: this repo has no remote. The claim is removed. Put it back if and when the
+  repo is public, and it is worth doing, because it is the strongest answer to
+  anyone who says the numbers are made up.
 - Replace the three `.ph` photograph slots in the "Where it ends up" section
   with real `<img>` tags.
 - Add `public/assets/img/og-card.png` at 1200×630 — the meta tags already point

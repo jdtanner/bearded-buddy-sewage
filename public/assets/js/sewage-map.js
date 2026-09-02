@@ -60,9 +60,10 @@
   }
 
   function hours(h) {
+    // Non-breaking, so a narrow popup cannot strand the unit on its own line.
     if (h == null) return "not reported";
-    if (h >= 48) return (h / 24).toFixed(1) + " days";
-    return h.toFixed(1) + " hours";
+    if (h >= 48) return (h / 24).toFixed(1) + "\u00a0days";
+    return h.toFixed(1) + "\u00a0hours";
   }
 
   function popup(o, years, live) {
@@ -73,7 +74,7 @@
     var cells = years.map(function (y) {
       var d = o.years[y];
       return "<td>" + (d && d.hours != null
-        ? Math.round(d.hours) + "<i>h</i>"
+        ? Math.round(d.hours) + "\u00a0<i>h</i>"
         : '<span class="nr">n/r</span>') + "</td>";
     }).join("");
 

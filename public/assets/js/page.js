@@ -14,13 +14,18 @@
   function el(id) { return document.getElementById(id); }
   function fmt(n) { return n.toLocaleString("en-GB"); }
 
+  // A value and its unit are one token. With an ordinary space a narrow table
+  // cell will happily leave the "h" stranded on its own line.
+  var NB = "\u00a0";
+  function unit(value, u) { return value + NB + u; }
+
   function setFacts(d, live) {
     var f = el("facts");
     if (!f) return;
     var t = d.totals;
     var cells = [
-      [fmt(Math.round(t.hours)), " h", "of discharge, " + t.from + "&ndash;" + t.to],
-      [fmt(Math.round(t.days)), " days", "the same figure, in days"],
+      [fmt(Math.round(t.hours)), NB + "h", "of discharge, " + t.from + "&ndash;" + t.to],
+      [fmt(Math.round(t.days)), NB + "days", "the same figure, in days"],
       [fmt(t.spills), "", "separate spills"],
       [String(d.outfalls.length), "", "outfalls in the parish"],
     ];
@@ -72,10 +77,10 @@
     function ago(ms) {
       if (!ms) return "not since we started watching";
       var m = Math.round((now - ms) / 60000);
-      if (m < 60) return m + " minutes ago";
+      if (m < 60) return m + NB + "minutes ago";
       var h = Math.round(m / 60);
-      if (h < 48) return h + " hours ago";
-      return Math.round(h / 24) + " days ago";
+      if (h < 48) return h + NB + "hours ago";
+      return Math.round(h / 24) + NB + "days ago";
     }
 
     var on = 0;
@@ -91,7 +96,7 @@
       return "<tr><td>" + o.name + "</td><td>" + badge + "</td>" +
         "<td>" + ago(s.lastStart || s.start) + "</td>" +
         "<td>" + (cur ? cur.events : "&ndash;") + "</td>" +
-        "<td>" + (cur ? Math.round(cur.hours) + " h" : "&ndash;") + "</td></tr>";
+        "<td>" + (cur ? unit(Math.round(cur.hours), "h") : "&ndash;") + "</td></tr>";
     }).join("");
 
     // Two columns rather than "50 / 266 h", which nobody could be expected to
@@ -129,9 +134,9 @@
       "<tbody>" + d.dry.sweep.map(function (r) {
         var here = r.threshold === d.dry.threshold_mm;
         return "<tr" + (here ? ' class="here"' : "") + "><td>" +
-          r.threshold.toFixed(2) + " mm" +
+          unit(r.threshold.toFixed(2), "mm") +
           (here ? " <b>&larr; the Environment Agency&rsquo;s test</b>" : "") +
-          "</td><td>" + r.spills + "</td><td>" + r.hours.toFixed(1) + " h</td></tr>";
+          "</td><td>" + r.spills + "</td><td>" + unit(r.hours.toFixed(1), "h") + "</td></tr>";
       }).join("") + "</tbody>";
   }
 
@@ -165,10 +170,10 @@
             String.fromCharCode(64 + r._n) + "</span>"
           : "");
         return "<tr><td>" + d2 + "</td><td>" + label + "</td><td>" +
-          (r.hours >= 1 ? r.hours.toFixed(1) + " h"
-                        : Math.round(r.hours * 60) + " min") + "</td><td>" +
-          r.maxOnDay.toFixed(1) + " mm</td><td>" +
-          r.maxDayBefore.toFixed(1) + " mm</td></tr>";
+          (r.hours >= 1 ? unit(r.hours.toFixed(1), "h")
+                        : unit(Math.round(r.hours * 60), "min")) + "</td><td>" +
+          unit(r.maxOnDay.toFixed(1), "mm") + "</td><td>" +
+          unit(r.maxDayBefore.toFixed(1), "mm") + "</td></tr>";
       }).join("") + "</tbody>";
   }
 
@@ -181,7 +186,7 @@
       return '<div class="bar road">' +
         '<span><a href="#" data-outfall="' + o.id + '">' + o.name + "</a></span>" +
         '<span class="track"><i style="width:' + pct.toFixed(1) + '%"></i></span>' +
-        '<span class="v">' + fmt(Math.round(o.totalHours)) + " h</span>" +
+        '<span class="v">' + unit(fmt(Math.round(o.totalHours)), "h") + "</span>" +
         "</div>";
     }).join("");
   }
@@ -196,17 +201,17 @@
       var cells = d.years.map(function (y) {
         var r = o.years[y];
         return "<td>" + (r && r.hours != null
-          ? r.hours.toFixed(0) + " h"
+          ? unit(r.hours.toFixed(0), "h")
           : '<span class="nr" title="No figure filed for this year">n/r</span>') + "</td>";
       }).join("");
       return "<tr><td>" + o.name + "</td><td>" + o.water + "</td>" + cells +
-        "<td><b>" + fmt(Math.round(o.totalHours)) + " h</b></td></tr>";
+        "<td><b>" + unit(fmt(Math.round(o.totalHours)), "h") + "</b></td></tr>";
     }).join("");
     var foot = "<tr><td><b>All seven</b></td><td></td>" +
       d.years.map(function (y) {
-        return "<td><b>" + fmt(Math.round(d.perYear[y].hours)) + " h</b></td>";
+        return "<td><b>" + unit(fmt(Math.round(d.perYear[y].hours)), "h") + "</b></td>";
       }).join("") +
-      "<td><b>" + fmt(Math.round(d.totals.hours)) + " h</b></td></tr>";
+      "<td><b>" + unit(fmt(Math.round(d.totals.hours)), "h") + "</b></td></tr>";
     t.innerHTML = head + "<tbody>" + body + foot + "</tbody>";
   }
 
@@ -279,7 +284,7 @@
     if (!c.asOf) c.asOf = (live && live.updated) ? live.updated.slice(0, 10) : null;
     var full = d.perYear[d.totals.to];
     var set = function (id, text) { var e = el(id); if (e) e.textContent = text; };
-    set("cur-hours", fmt(Math.round(c.hours)) + " hours");
+    set("cur-hours", fmt(Math.round(c.hours)) + NB + "hours");
     set("cur-events", fmt(c.events));
     set("cur-pct", Math.round((c.hours / full.hours) * 100) + "%");
 
@@ -350,13 +355,13 @@
       years.map(function (y) {
         var a = am[y], hot = base && a.mean > base * 3;
         return "<tr" + (hot ? ' class="hot"' : "") + "><td>" + y + "</td>" +
-          "<td>" + a.mean.toFixed(2) + " mg/l" +
+          "<td>" + unit(a.mean.toFixed(2), "mg/l") +
           (hot ? " <b>&times;" + Math.round(a.mean / base) + "</b>" : "") + "</td>" +
-          "<td>" + a.max.toFixed(2) + " mg/l</td>" +
-          "<td>" + (ox[y] ? ox[y].mean.toFixed(1) + " mg/l" : "&ndash;") + "</td></tr>";
+          "<td>" + unit(a.max.toFixed(2), "mg/l") + "</td>" +
+          "<td>" + (ox[y] ? unit(ox[y].mean.toFixed(1), "mg/l") : "&ndash;") + "</td></tr>";
       }).join("") +
       "<tr><td><b>2015&ndash;21</b></td><td><b>" + base.toFixed(2) +
-      " mg/l</b></td><td colspan=\"2\">the brook's own baseline</td></tr>" +
+      NB + "mg/l</b></td><td colspan=\"2\">the brook's own baseline</td></tr>" +
       "</tbody>";
   }
 
