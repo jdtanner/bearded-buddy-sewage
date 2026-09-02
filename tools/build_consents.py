@@ -117,23 +117,33 @@ def main():
         lo, la = to_ll.transform(en[0], en[1])
         if not in_ring(la, lo, ring):
             continue
+        # Most permits here are Severn Trent's. A handful are private: a
+        # household or a small business with its own treatment plant. Their
+        # holder name is a person's name and the grid reference is their home,
+        # so neither is written to disk. They are counted, not identified.
+        holder = col("COMPANY_NAME", i) or ""
+        company = holder.upper().endswith(("LIMITED", "LTD", "PLC"))
         found.append({
-            "permit": col("PERMIT_NUMBER", i),
-            "holder": col("COMPANY_NAME", i),
-            "site": col("DISCHARGE_SITE_NAME", i),
+            "permit": col("PERMIT_NUMBER", i) if company else "private",
+            "holder": holder if company else "a private permit holder",
+            "site": col("DISCHARGE_SITE_NAME", i) if company else "private discharge",
             "siteType": col("DSI_TYPE_DESCRIPTION", i),
             "effluent": col("EFF_TYPE_DESCRIPTION", i),
             "outlet": col("OUTLET_TYPE_DESCRIPTION", i),
             "receiving": col("RECEIVING_WATER", i),
             "environment": col("REC_ENV_CODE_DESCRIPTION", i),
-            "lat": round(la, 6), "lon": round(lo, 6),
+            # Coordinates only for water-company assets: a private one would
+            # locate somebody's house.
+            "lat": round(la, 6) if company else None,
+            "lon": round(lo, 6) if company else None,
         })
 
     # One permit can carry several outlets and effluent streams, so the same
     # discharge point appears more than once. Count points, not rows.
     points = {}
-    for f in found:
-        points.setdefault((f["permit"], f["lat"], f["lon"]), f)
+    for n, f in enumerate(found):
+        points.setdefault((f["permit"], f["lat"], f["lon"], f["permit"] == "private" and n),
+                          f)
     out = {
         "permits": len({f["permit"] for f in found}),
         "points": len(points),

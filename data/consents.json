@@ -4,18 +4,6 @@
  "rows": 10,
  "discharges": [
   {
-   "permit": "private",
-   "holder": "a private permit holder",
-   "site": "private discharge",
-   "siteType": "Domestic property (multiple) (incl farm houses)",
-   "effluent": "SEWAGE & TRADE COMBINED - UNSPECIFIED",
-   "outlet": "Sewage - not water company",
-   "receiving": "GROUND WATERS VIA SOAKAWAY",
-   "environment": "Into land / infiltration system",
-   "lat": null,
-   "lon": null
-  },
-  {
    "permit": "T/61/09188/O",
    "holder": "SEVERN TRENT WATER LIMITED",
    "site": "CORNWOOD MEADOWS INDUSTRIALSITE PS",
@@ -110,6 +98,18 @@
    "environment": "Freshwater river",
    "lat": 53.019611,
    "lon": -1.327508
+  },
+  {
+   "permit": "private",
+   "holder": "a private permit holder",
+   "site": "private discharge",
+   "siteType": "Domestic property (multiple) (incl farm houses)",
+   "effluent": "SEWAGE & TRADE COMBINED - UNSPECIFIED",
+   "outlet": "Sewage - not water company",
+   "receiving": "GROUND WATERS VIA SOAKAWAY",
+   "environment": "Into land / infiltration system",
+   "lat": null,
+   "lon": null
   }
  ],
  "source": "Environment Agency public register, Consented Discharges to Controlled Waters with Conditions"

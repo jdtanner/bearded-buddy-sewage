@@ -365,6 +365,14 @@
       "</tbody>";
   }
 
+  /* The public address of this page, for putting in letters. Taken from the
+     canonical link rather than location.href, so that a letter written from a
+     preview on localhost still points at the real site. */
+  function pageUrl() {
+    var c = document.querySelector('link[rel="canonical"]');
+    return (c && c.href) || location.origin + "/";
+  }
+
   function setMailto(d) {
     var a = el("mp-mail");
     if (!a) return;
@@ -439,8 +447,12 @@
       "4. Whether you will ask the Agency why the flow monitoring at Milnhay works",
       "   reported no usable data for 336 days of 2025.",
       "",
-      "Every figure above comes from published Government data and I am happy to",
-      "provide the sources.",
+      "Every figure above comes from published Government data. I have set out the",
+      "full working, with every source linked and the method described, at:",
+      "",
+      "    " + pageUrl(),
+      "",
+      "I am happy to provide anything else you need.",
       "",
       "Yours sincerely,",
       "",
