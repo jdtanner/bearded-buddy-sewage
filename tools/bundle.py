@@ -119,6 +119,7 @@ def main():
             "threshold_mm": spills["threshold_mm"],
             "agreement": spills["agreement"],
             "gauges": spills["gauges"],
+            "readings": spills.get("readings"),
             "yearsTested": tested,
             "count": dry_total,
             "spills": spills["dry_spills"],

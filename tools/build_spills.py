@@ -203,6 +203,9 @@ def main():
         "dry_spills": [],
         "rainfall_source": "Environment Agency rain gauges, daily totals",
         "annual_rain": annual_rain(rain),
+        # Every daily reading behind the dry-day test, across all gauges. The
+        # page quotes it, so it has to come from the data rather than a comment.
+        "readings": sum(len(v) for v in rain.values()),
     }
     untested = 0
     all_events = []

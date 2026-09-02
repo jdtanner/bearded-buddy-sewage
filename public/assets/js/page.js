@@ -314,6 +314,21 @@
   /* The Environment Agency's own reasons for the river's condition. Only the
      Confirmed ones are tabled: Probable and Suspected are in the data and in the
      source, but the argument rests on what the Agency has actually concluded. */
+  /* The "it was just a wet year" table. It was typed out by hand and would have
+     been wrong the moment another year's rainfall arrived. */
+  function setRainTable(d) {
+    var t = el("rain-table");
+    if (!t || !d.rain) return;
+    t.innerHTML =
+      "<thead><tr><th>Year</th><th>Rainfall</th><th>Discharge</th></tr></thead><tbody>" +
+      d.years.map(function (y) {
+        var mm = d.rain[y], h = d.perYear[y];
+        if (mm == null || !h) return "";
+        return "<tr><td>" + y + "</td><td>" + fmt(mm) + NB + "mm</td><td>" +
+          unit(fmt(Math.round(h.hours)), "h") + "</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
   function setWfd(d) {
     var w = d.wfd;
     if (!w) return;
@@ -480,7 +495,91 @@
       "&body=" + encodeURIComponent(body.join("\n"));
   }
 
+  /* Every figure in the prose, keyed. The HTML carries a hard-coded value as
+     well, which is what a reader without JavaScript sees and what the value was
+     when the page was written; this overwrites it with whatever the data says
+     now. Without it the prose slowly goes out of step with the tables above it,
+     which is the failure nobody notices until somebody checks. */
+  function figures(d, live) {
+    var t = d.totals, cat = d.catchment || {}, w = d.wfd || {}, r = d.river || {};
+    var cur = (live && live.current && live.current.events) ? live.current : d.current;
+    var last = t.to;                                   // newest published year
+    var mil = function (id) {
+      return d.outfalls.filter(function (o) { return o.id === id; })[0] || { years: {} };
+    };
+    var tank = mil("SVT01571"), inlet = mil("SVT01570");
+    var tankLast = (tank.years[last] || {}).hours;
+    var tankNow = cur && cur.outfalls && cur.outfalls.SVT01571
+      ? cur.outfalls.SVT01571.hours : null;
+    var bb = (r.points && r.points["MD-45691150"] && r.points["MD-45691150"].series) || {};
+    var am = bb.ammonia || {};
+    var spikes = Object.keys(r.baileySpikes || {}).sort();
+    var wordFor = ["no", "one", "two", "three", "four", "five", "six", "seven",
+                   "eight", "nine", "ten", "eleven", "twelve"];
+    var word = function (n) { return wordFor[n] || fmt(n); };
+    var asOf = cur && cur.asOf ? new Date(cur.asOf)
+      : (live && live.updated ? new Date(live.updated) : new Date());
+    // Counting the month we are in: on 1 September there are four months of the
+    // year left, not three.
+    var monthsLeft = 12 - asOf.getMonth();
+
+    var f = {
+      "totals.hours": fmt(Math.round(t.hours)),
+      "totals.days": fmt(Math.round(t.days)),
+      "totals.spills": fmt(t.spills),
+      "totals.from": t.from,
+      "totals.to": t.to,
+      "outfalls.count": word(d.outfalls.length),
+      "dry.tested": fmt(d.dry.tested || 0),
+      "dry.count": word(d.dry.count),
+      "dry.years": (d.dry.yearsTested || []).join(" and "),
+      "cur.year": cur ? cur.year : "",
+      "cur.hours": cur ? fmt(Math.round(cur.hours)) : "",
+      "cur.events": cur ? fmt(cur.events) : "",
+      "cur.asOf": asOf.toLocaleDateString("en-GB",
+        { day: "numeric", month: "long", year: "numeric" }),
+      "cur.monthsLeft": word(monthsLeft),
+      "year.last": last,
+      "year.lastHours": fmt(Math.round(d.perYear[last].hours)),
+      "tank.lastHours": tankLast == null ? "" : fmt(Math.round(tankLast)),
+      "tank.nowHours": tankNow == null ? "" : fmt(Math.round(tankNow)),
+      "tank.total": fmt(Math.round(tank.totalHours || 0)),
+      "inlet.total": fmt(Math.round(inlet.totalHours || 0)),
+      "cat.total": fmt(cat.total || 0),
+      "cat.upstream": fmt(cat.upstream || 0),
+      "cat.below": fmt(cat.below || 0),
+      "cat.frontage": cat.parishFrontageKm,
+      "cat.ere": fmt((cat.upstreamByWater || {})["Erewash from Source to Nethergreen Brook"] || 0),
+      "cat.bailey": fmt((cat.upstreamByWater || {})["Bailey Brook Catchment (trib of Erewash)"] || 0),
+      "cat.nether": fmt((cat.upstreamByWater || {})["Nethergreen Brook Catchment (trib of Erewash)"] || 0),
+      "wfd.status": w.latestStatus || "",
+      "wfd.reasons": word((w.reasons || []).length),
+      "wfd.failing": word((w.failingElements || []).length),
+      "consents.points": word((d.consents || {}).points || 0),
+      "consents.permits": word((d.consents || {}).permits || 0),
+      "river.baseline": (r.baileyBaseline || 0).toFixed(2),
+      "gauges.count": word((d.dry.gauges || []).length),
+      "gauges.readings": d.dry.readings ? fmt(d.dry.readings) : null,
+    };
+    spikes.forEach(function (y, i) {
+      var v = am[y] || {};
+      f["river.spike" + (i + 1) + "Year"] = y;
+      f["river.spike" + (i + 1) + "Mult"] = word(Math.round(v.mean / r.baileyBaseline));
+      f["river.spike" + (i + 1) + "Peak"] = (v.max || 0).toFixed(2);
+    });
+    return f;
+  }
+
+  function setFigures(d, live) {
+    var f = figures(d, live);
+    document.querySelectorAll("[data-fig]").forEach(function (el) {
+      var v = f[el.getAttribute("data-fig")];
+      if (v !== undefined && v !== null && v !== "") el.textContent = v;
+    });
+  }
+
   function render(d, live) {
+    setFigures(d, live);
     setFacts(d, live);
     setLive(d, live);
     setSweep(d);
@@ -489,6 +588,7 @@
     setTable(d);
     setTrend(d);
     setCurrent(d, live);
+    setRainTable(d);
     setWfd(d);
     setRiver(d);
     setMailto(d);

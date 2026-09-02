@@ -255,6 +255,25 @@ API notes in NOTES-water-quality.md. The one that costs time: `limit` caps at 25
 and truncates silently, so query one determinand at a time or you will get four
 years of pH and conclude there is no ammonia data.
 
+## Figures in the prose
+
+Every number in the running text carries `data-fig="key"`, and `page.js` fills it
+from `parish.json` on load. The hard-coded value in the HTML is the fallback: it
+is what a reader without JavaScript sees, and what the figure was when the
+sentence was written.
+
+**Write new prose the same way.** A number typed into a paragraph is a number that
+will be wrong in a year, and wrong in a way nobody notices, because the tables
+above it will have quietly moved on. The keys are defined in `figures()` in
+`page.js`; add one there rather than typing a value into the text.
+
+The rainfall-against-discharge table and the live panel are generated the same
+way, from `d.rain` and `d.perYear`.
+
+Two things stay hard-coded on purpose, because they are not ours to compute: the
+35.8 million pound scheme and the storm tank going from 2 Ml to 7 Ml, which come
+from Severn Trent via Wikipedia, and the statutory dates.
+
 ## Things that will bite you
 
 **The annual return changes shape every year.** Only 2024 and 2025 have a
