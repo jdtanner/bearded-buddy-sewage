@@ -162,9 +162,8 @@
         .addTo(consents);
     });
 
-    var overlays = { "Parish boundary": ring };
-    if (sites.length) overlays["Every permitted discharge"] = consents;
-    L.control.layers(b, overlays, { position: "topright" }).addTo(map);
+    // Built after the outfall markers below, so the control can list both.
+    var overlays = null;
 
     var live = liveData && liveData.live ? liveData.live : {};
     var max = Math.max.apply(null, data.outfalls.map(function (o) { return o.totalHours; }));
@@ -189,6 +188,7 @@
     });
 
     var index = {};
+    var outfalls = L.layerGroup().addTo(map);
     groups.forEach(function (g) {
       var total = g.items.reduce(function (a, o) { return a + o.totalHours; }, 0);
       var brook = g.items.every(function (o) { return /bailey/i.test(o.water || ""); });
@@ -197,7 +197,7 @@
         title: g.items.map(function (o) { return o.name; }).join(" / "),
         riseOnHover: true,
       })
-        .addTo(map)
+        .addTo(outfalls)
         .bindPopup(
           g.items.map(function (o) { return popup(o, data.years, live); }).join(
             '<hr style="border:0;border-top:1px solid #e2e5ec;margin:.7rem 0">'
@@ -212,6 +212,14 @@
       markers.push(m);
       g.items.forEach(function (o) { index[o.id] = m; });
     });
+
+    // The two layers sit on top of each other at several sites, so both are
+    // switchable: turn the outfalls off to see which permitted points have no
+    // monitor behind them.
+    overlays = { "Sewage outfalls (monitored)": outfalls };
+    if (sites.length) overlays["Every permitted discharge"] = consents;
+    overlays["Parish boundary"] = ring;
+    L.control.layers(b, overlays, { position: "topright" }).addTo(map);
 
     if (markers.length) {
       map.fitBounds(L.featureGroup(markers).getBounds().pad(0.35));
