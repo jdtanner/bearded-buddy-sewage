@@ -75,7 +75,7 @@
 
     var now = Date.now();
     function ago(ms) {
-      if (!ms) return "not since we started watching";
+      if (!ms) return "not since this site started watching";
       var m = Math.round((now - ms) / 60000);
       if (m < 60) return m + NB + "minutes ago";
       var h = Math.round(m / 60);
