@@ -119,7 +119,8 @@
           : "None of them is discharging at this moment. ") +
         "This site checks Severn Trent's feed every five minutes and keeps its own " +
         "record, because the feed only ever reports the most recent discharge and " +
-        "forgets the rest." +
+        "forgets the rest. Six outfalls are listed, not seven: the seventh was " +
+        "decommissioned in January 2025 and no longer appears on the feed at all." +
         (when ? " Last checked " + when.toLocaleTimeString("en-GB",
           { hour: "2-digit", minute: "2-digit" }) + " on " +
           when.toLocaleDateString("en-GB", { day: "numeric", month: "long" }) + "." : "");
@@ -160,7 +161,7 @@
 
     t.innerHTML =
       "<thead><tr><th>Date</th><th>Outfall</th><th>Length</th>" +
-      "<th>Rain that day</th><th>Day before</th></tr></thead><tbody>" +
+      "<th>Wettest gauge,<br>that day</th><th>Wettest gauge,<br>day before</th></tr></thead><tbody>" +
       rows.map(function (r) {
         var d2 = new Date(r.day).toLocaleDateString("en-GB",
           { day: "numeric", month: "short", year: "numeric" });
