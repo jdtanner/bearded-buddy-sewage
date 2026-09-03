@@ -1,0 +1,5 @@
+access_parser==0.0.6
+certifi==2026.7.22
+construct==2.10.70
+pyproj==3.7.2
+tabulate==0.10.0
