@@ -209,7 +209,11 @@ Severn Trent's EIR team answered Parts A and B, with reference **EIR1416**, and
 attached the Cornwood Meadows consent (filed here as
 `docs/cornwood-meadows-consent-1983.pdf`). They said they were answering only the
 parts that concern them. **The Environment Agency has not replied yet.** The letter went on
-2 September, so its 20 working days ran out on **30 September**.
+2 September. The Agency's contact centre acknowledged it with reference
+**260903/MCH16**, passed it to the East Midlands Area customer team, and said
+itself that it must respond within 20 working days. Counted from 2 September
+that ran out on 30 September; counted from the reference date, 3 September, on
+**1 October**. Either way it has passed.
 
 The follow-up drafted earlier (questions D1 to D4) is replaced by what follows.
 Their answer, and the two permits it led to, settled D1 and D2 and changed what is
@@ -440,12 +444,12 @@ Yours faithfully,
 
 ## Letter 2 — internal review request to the Environment Agency
 
-**Send:** now, as a reply to the original request, so it keeps the Agency's
-reference if one was given. Keep it to the failure to respond and nothing else,
+**Send:** now, as a reply to the contact centre's acknowledgement, so the
+reference travels with it. Keep it to the failure to respond and nothing else,
 so there is nothing in it to argue about.
 
-**Subject:** Request for internal review — EIR request of 2 September 2026,
-permit T/61/09188/O, Milnhay (Heanor), River Erewash — no response received
+**Subject:** 260903/MCH16 — request for internal review — EIR request of
+2 September 2026, no response received
 
 ---
 
@@ -454,13 +458,15 @@ Dear Environment Agency,
 **I am requesting an internal review under regulation 11 of the Environmental
 Information Regulations 2004.**
 
-On 2 September 2026 I made a request for information to the Agency [reference,
-if one was given] in three parts: permit T/61/09188/O at Cornwood Meadows (Part
+On 2 September 2026 I made a request for information to the Agency, your
+reference **260903/MCH16**, in three parts: permit T/61/09188/O at Cornwood Meadows (Part
 A), flow monitoring at Milnhay (Heanor) works under permit T/61/45098/R (Part B),
 and river sampling on the Erewash (Part C).
 
 Regulation 5(2) requires a response as soon as possible and no later than 20
-working days after receipt. That period ended on **30 September 2026**. I have
+working days after receipt. Your acknowledgement confirmed that, and passed the
+request to the East Midlands Area customer team. Even counted from your
+reference date of 3 September, the period ended on **1 October 2026**. I have
 received no response, no notice that the period was being extended under
 regulation 7, and no refusal under regulation 14.
 
@@ -501,7 +507,7 @@ Yours faithfully,
 answered by pointing at these questions, nor these delayed by the review.
 
 **Subject:** EIR request — Milnhay (Heanor) permits, Cornwood Meadows PS, and
-river monitoring on the Erewash
+river monitoring on the Erewash (further to 260903/MCH16)
 
 ---
 
@@ -510,7 +516,7 @@ Dear Environment Agency,
 **This is a request for information under the Environmental Information
 Regulations 2004.**
 
-It follows my request of 2 September 2026, which is the subject of a separate
+It follows my request of 2 September 2026 (your reference 260903/MCH16), which is the subject of a separate
 request for internal review. Since I made it, Severn Trent have answered their
 part. Their answer, and the new permit for Milnhay, raise the questions below.
 
@@ -582,7 +588,7 @@ internal review. **The 40 working days for that run from receipt of the first
 response.** Note the date it arrived, so the window is not missed while waiting.
 
 **The Agency has had its chance.** Letter 2 asks for a review on the ground that
-the deadline passed on 30 September. The review must be decided within 40
+the deadline passed on 1 October at the latest. The review must be decided within 40
 working days of the Agency receiving it. If it is ignored too, or the answer is
 inadequate, complain to the Information Commissioner at ico.org.uk/make-a-complaint.
 That is free, and a missed EIR deadline is the simplest kind of complaint they
