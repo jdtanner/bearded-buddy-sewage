@@ -209,7 +209,7 @@ Severn Trent's EIR team answered Parts A and B, with reference **EIR1416**, and
 attached the Cornwood Meadows consent (filed here as
 `docs/cornwood-meadows-consent-1983.pdf`). They said they were answering only the
 parts that concern them. **The Environment Agency has not replied yet.** The letter went on
-2 September. The Agency's contact centre acknowledged it with reference
+2 September. The Agency's contact centre acknowledged it on 3 September with reference
 **260903/MCH16**, passed it to the East Midlands Area customer team, and said
 itself that it must respond within 20 working days. Counted from 2 September
 that ran out on 30 September; counted from the reference date, 3 September, on
@@ -464,7 +464,7 @@ A), flow monitoring at Milnhay (Heanor) works under permit T/61/45098/R (Part B)
 and river sampling on the Erewash (Part C).
 
 Regulation 5(2) requires a response as soon as possible and no later than 20
-working days after receipt. Your acknowledgement confirmed that, and passed the
+working days after receipt. Your acknowledgement of 3 September confirmed that, and passed the
 request to the East Midlands Area customer team. Even counted from your
 reference date of 3 September, the period ended on **1 October 2026**. I have
 received no response, no notice that the period was being extended under
