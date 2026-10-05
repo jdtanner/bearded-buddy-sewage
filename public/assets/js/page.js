@@ -613,7 +613,6 @@
     setWfd(d);
     setRiver(d);
     setMailto(d);
-    setCornwood();
   }
 
   fetch(DATA)

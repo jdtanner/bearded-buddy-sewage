@@ -203,74 +203,345 @@ accusing anyone. That is what makes it hard to fob off.
 
 ---
 
-# Follow-up, written after the first letter was sent
+# What came back, and the follow-up
 
-Two things came to light after that letter went. Neither makes it wrong, but one
-of them probably supplies the Agency's answer to Part B, and it opens a better
-question than the one asked.
+Severn Trent's EIR team answered Parts A and B, with reference **EIR1416**, and
+attached the Cornwood Meadows consent (filed here as
+`docs/cornwood-meadows-consent-1983.pdf`). They said they were answering only the
+parts that concern them. **The Environment Agency has not replied yet.** If the
+letter went on 3 September, its 20 working days ran out on 1 October.
 
-## What Severn Trent did at Milnhay, which the first letter did not know
+The follow-up drafted earlier (questions D1 to D4) is replaced by what follows.
+Their answer, and the two permits it led to, settled D1 and D2 and changed what is
+worth asking.
 
-Between 2022 and 2024 Severn Trent spent around **£35.8 million** rebuilding
-Newthorpe works and **closed Milnhay as a treatment works altogether**. Milnhay is
-now a pumping station: what it collects is pumped 2.5 km to Newthorpe and treated
-there. Only the storm tanks were kept at Milnhay, their capacity raised from 2
-megalitres to 7.
+## What their answer says
 
-**Expect that to be the answer to B2 and B4.** If there is no longer any flow
-passed forward *to treatment* at Milnhay, because the treatment moved to
-Newthorpe, then a flow-to-treatment monitor reporting nothing for 336 days of 2025
-has an innocent explanation, and the 43.1 hours on that record against 305.5 in
-the EDM return is the same story: the instrument covered part of a year in which
-the site changed use.
+**Part A, Cornwood Meadows.** Severn Trent say the asset is "not classified as a
+storm overflow", so it is outside Event Duration Monitoring. They are "currently
+undertaking further investigations to confirm the current status and presence of
+the pumping station asset". In other words, they do not know whether it is still
+there. They hold no variations to the permit. A4 (hours discharged) was not
+answered, and the first half of A1 was answered only by implication.
 
-That is a perfectly good answer and it should be accepted if it comes. It does
-not touch **B5**, which becomes the important question: if the flow-to-treatment
-condition can no longer be measured at Milnhay, what governs when those storm
-tanks may lawfully discharge, and how is that assessed?
+The consent they sent explains the classification. It was issued by the
+Severn-Trent Water Authority on 18 November 1983 under the Rivers (Prevention of
+Pollution) Acts, as consent WQ/7/2188. It permits foul sewage from the pumping
+station, or surface water from the development's sewers, and limits the discharge
+from the pumping station to "an overflow from the sump when the pumping station
+ceases to operate due to circumstances outside the control of the Authority and it
+is not reasonably practicable to dispose of the sewage otherwise". **It is an
+emergency overflow, not a storm overflow.** The register agrees: the permit's
+effluent type there is "Sewage in an Emergency". The PDF never shows the number
+T/61/09188/O. The date and site match, though, so it is almost certainly the same
+consent.
 
-## The thing worth asking next
+**Part B, Milnhay.**
 
-The permit for Milnhay, **T/61/45098/R**, is at **version 8, varied on 16 December
-2022 and effective from 22 December 2022**. That is before the works closed. On
-the Agency's public register today it still describes the site as:
+- **B1.** Confirmed: the 92% measure is one of the Agency's tests of compliance
+  with the flow to full treatment requirement.
+- **B2.** Milnhay was demolished as a treatment works and has run as a pumping
+  station since **December 2024**, pumping untreated flows to Newthorpe. "Good"
+  data was lost "while the capital scheme was still being undertaken during 2025".
+  Monitoring resumed after a new monitor was installed and certified "later in the
+  reporting year". **No date was given**, although one was asked for.
+- **B3.** The 75% means 75% of qualifying overflow events happened while flow
+  passed forward was at least 92% of the permitted figure. **The rest is one event
+  in December 2025**, caused by "an issue associated with pump commissioning",
+  when the site overflowed without passing forward the required flow.
+- **B4.** The two figures measure different things. The 43.1 hours on the Water
+  Quality Archive are spills *into* the storm tank, and the monitor ran for only
+  part of the year. The 305.5 hours in the EDM return are spills *out of* the tank
+  into the river. They also count events differently. Severn Trent stand by the
+  EDM return as accurate for spills to the environment. **This is a sound
+  explanation and should be accepted.**
+- **B5.** Other site metering "may be used" when the certified meter is down. They
+  did not say whether it was used at Milnhay, or what it showed.
+- **B6.** They pointed to the new permit.
 
-| | |
-|---|---|
-| Site type | WwTW/Sewage Treatment Works (water company) |
-| One permitted discharge | SEWAGE DISCHARGES — FINAL/TREATED EFFLUENT — WATER COMPANY |
+## What the two permits add
 
-So the register still authorises a continuous discharge of treated final effluent
-from a works that no longer treats anything, under a permit last varied two years
-before the site changed what it does.
+I read both permits from the public register. The new one is
+[EPR/MB3043KT](https://environment.data.gov.uk/public-register/water-discharges/registration/EPR-MB3043KT-001),
+and the old one is
+[T/61/45098/R version 8](https://environment.data.gov.uk/public-register/water-discharges/registration/MI-T-61-45098-R-008).
 
-Suggested follow-up questions:
+**Sixteen months without a permit matching the site.** Severn Trent's application
+for the new permit was duly made on **12 December 2024**, the month the site
+stopped treating. The permit was issued on **20 April 2026**. In between, the only
+permit was the 2022 treatment-works permit. It authorised final effluent and set
+an overflow setting of 258 l/s and 2,277 m³ of storage. The new permit sets
+325 l/s and 7,000 m³. **The register gives the old permit a revocation date of
+23 October 2026**, almost two years after the works closed.
 
-**D1.** Has permit T/61/45098/R been varied since Milnhay ceased to operate as a
-sewage treatment works? If so, please provide the current version. If not, why
-not, and when will it be?
+**Tests the 2025 record fails, in a permit that did not yet apply.** The new permit's flow
+monitoring conditions are tests the 2025 record fails badly:
 
-**D2.** The permit as published authorises a continuous discharge of final treated
-effluent at Milnhay. Is any such discharge still made? If not, why does the
-authorisation remain on the register?
+- at least 95% of flow readings taken while the overflow operates must be at or
+  above 92% of the limit (condition 3.1.2). 2025 scored 75%;
+- no more than 14 consecutive days without good flow data, or without good
+  overflow data (condition 3.2.7). 2025 had 336 and 350.
 
-**D3.** With treatment moved to Newthorpe, what condition now governs when the
-storm tanks at Milnhay may discharge, and how is compliance with it measured and
-recorded?
+The old permit contains neither test for the storm overflow. Its 14-day and 37-day
+data rules (condition 3.3.10) apply to the final effluent's daily volumes, which
+no longer existed. So it is possible that **nothing in the permit in force was
+breached by 2025's missing data**, simply because the permit no longer described
+the site. That is worth confirming rather than assuming.
 
-**D4.** The storm tanks at Milnhay were enlarged from 2 Ml to 7 Ml as part of that
-scheme. They discharged for 305 hours in 2025, the first full year after
-completion, and by 1 September 2026 had discharged for 266 hours. What is the
-Agency's assessment of whether the scheme has delivered the improvement it was
-permitted on the basis of?
+**Monitoring due since 2021–22.** The new permit's introductory note says the
+storm-storage overflow monitor and MCERTS flow-passed-forward monitor were agreed
+for delivery by 31 March 2022 and 30 September 2021. The 2023 and 2024 data
+suggests they were. Severn Trent have now said they were replaced in 2025.
 
-## Why this is a stronger position, not a weaker one
+**A new emergency overflow.** The new permit adds activity A2, an emergency
+overflow for power failure, pump breakdown, rising main failure or a downstream
+blockage. It discharges at **the same grid reference as the settled storm
+outfall** (SK 45722 46365). The permit requires event duration monitoring on the
+storm discharge (A1) only. Nothing in it says how a spill from the emergency
+overflow would be told apart from a storm spill, or recorded at all.
 
-The first letter asked whether the monitoring was working. This asks whether the
-permit still describes the thing it permits. The first has an innocent answer
-available. The second does not obviously have one: either the permit has been
-varied and the public register is out of date, or it has not been varied and a
-site has changed its function without its authorisation changing to match.
+**The Event Duration Monitor is due to be replaced.** Table S3.1 sets 15-minute
+monitoring "until monitor is replaced", then 2-minute.
 
-Send this as a follow-up to the same reference, so it joins the existing request
-rather than starting a new clock.
+**River monitoring is promised.** The introductory note says Severn Trent have
+confirmed sonde water quality monitoring as part of an AMP8 river quality driver,
+shared with the Agency, and that "if the monitoring does show negative impacts,
+steps must be taken to mitigate them". That bears directly on Part C, the
+upstream sampling point that has recorded nothing since 2015.
+
+**The screen was misdescribed.** The note also admits that an earlier variation
+wrongly said all flows were screened, because the screen has a bypass.
+
+---
+
+## Letter 1 — follow-up to Severn Trent
+
+**Send to:** reply to the EIR team's email, keeping reference EIR1416 in the
+subject, so it joins the existing request.
+
+**Subject:** EIR1416 — follow-up: Cornwood Meadows PS and Heanor-Milnhay TPS
+
+---
+
+Dear Severn Trent EIR Team,
+
+**This is a request for information under the Environmental Information
+Regulations 2004**, following your response to EIR1416.
+
+Thank you for that response, and for the copy of the Cornwood Meadows consent.
+Your explanation of the difference between the Storm Discharge Monitoring and
+Event Duration Monitoring figures for Milnhay answers my question B4, and I accept
+it. Several points need following up. Where a question repeats one I asked
+before, that is because the response did not give the information requested.
+
+### Part E — Cornwood Meadows pumping station (T/61/09188/O)
+
+The consent you supplied (WQ/7/2188, 18 November 1983) limits the discharge to "an
+overflow from the sump when the pumping station ceases to operate due to
+circumstances outside the control of the Authority".
+
+**E1.** Please confirm that consent WQ/7/2188 is the permit now registered as
+T/61/09188/O.
+
+**E2.** You say you are investigating whether the pumping station still exists.
+When did that investigation begin, when do you expect it to finish, and what has
+it found so far?
+
+**E3.** If the pumping station exists:
+
+(a) Is it fitted with telemetry that records pump failure, power failure or a
+high sump level?
+
+(b) In each of the last five calendar years, on how many occasions was it
+inoperative, and on how many of those did sewage leave the sump by the emergency
+outlet? Please give the date and duration of each, and whether it was reported to
+the Environment Agency.
+
+(c) Is any monitoring fitted that would detect a discharge from the emergency
+outlet? If not, how would you know that one had happened?
+
+**E4.** If it does not exist, will you apply for the permit to be revoked, and
+when? What now happens to the sewage from the Cornwood Meadows development, and
+under which permit is any overflow from that system made?
+
+**E5.** The consent refers to Drawings WQ/7/2188/1 and WQ/7/2188/2, and its
+first condition appears to describe the outlet as marked "SURFACE WATER OUTFALL".
+Please provide both drawings, or any other record of where the outlet is.
+
+### Part F — Heanor-Milnhay terminal pumping station
+
+**F1.** (Repeating B2.) On what date was the replacement flow passed forward
+monitor certified under MCERTS? On what date did "good" data resume, for flow
+passed forward and for overflow operation into storm storage?
+
+**F2.** (Repeating B5.) You say other metering "may be used" when the certified
+meter is unavailable. During 2025, was any other metering used at Milnhay to
+assess whether the required flow was being passed forward? If so, what meter was
+it, and what did it show for the periods when the storm overflow was operating?
+
+**F3.** The overflow event in December 2025 that you attribute to pump
+commissioning:
+
+(a) On what date did it happen, and for how long?
+
+(b) Did it result in a discharge from the storm tanks to the River Erewash, or
+only in flow entering the storm tanks?
+
+(c) Was it reported to the Environment Agency, and if so when?
+
+(d) You state that Milnhay has operated as a pumping station since December 2024.
+Why were pumps still being commissioned a year later?
+
+**F4.** Between December 2024 and 20 April 2026 the only permit for the site was
+T/61/45098/R, with an overflow setting of 258 l/s and 2,277 m³ of storage. Over
+that period:
+
+(a) To what overflow setting were the storm tanks operated? On what date was the
+325 l/s now required by EPR/MB3043KT first passed forward?
+
+(b) On what date did the 7,000 m³ of storage come into use?
+
+**F5.** EPR/MB3043KT authorises a new emergency overflow (activity A2) at the same
+grid reference as the settled storm outfall:
+
+(a) When was it commissioned, and has it discharged? If so, when and for how
+long?
+
+(b) Is it monitored? If it discharges, would the Event Duration Monitor for
+SVT01571 record that as a storm spill, or would it be recorded separately?
+
+**F6.** Table S3.1 of EPR/MB3043KT requires the settled storm Event Duration
+Monitor to move from 15-minute to 2-minute monitoring once it is replaced. When
+will it be replaced?
+
+**F7.** The permit's introductory note says you have confirmed sonde water quality
+monitoring as part of an AMP8 river quality driver. Where will the sondes be on the
+River Erewash, when will they be installed, and will their data be published?
+
+**F8.** The storm tanks were enlarged from 2,277 m³ to 7,000 m³. In 2025, the
+first full year after the work, they discharged for 305.5 hours. By 1 September
+2026 they had discharged for 266 hours. What spill frequency was the enlargement
+designed to achieve? Do you consider that it has achieved it, and if not, what
+further work is planned and when?
+
+---
+
+I am grateful for the clear answer on B4. As before, I am not alleging a breach.
+I am trying to understand what is permitted to reach the Erewash in this parish,
+and how anyone would know.
+
+Yours faithfully,
+
+**[your name]**
+[your address]
+[your email]
+
+---
+
+## Letter 2 — to the Environment Agency
+
+**Send:** now, as a reply to the original request so it keeps its reference. If
+the Agency's answer arrives first, cut the opening paragraph and send the rest.
+
+**Subject:** EIR request — permit T/61/09188/O, Milnhay (Heanor), River Erewash —
+response outstanding, and further questions
+
+---
+
+Dear Environment Agency,
+
+**This is a request for information under the Environmental Information
+Regulations 2004**, further to my request of [date sent] about permit
+T/61/09188/O, flow monitoring at Milnhay (Heanor), and river sampling on the
+Erewash.
+
+I have not yet had your response. Severn Trent have answered Parts A and B, and
+said they were dealing only with the matters relating to them, so the
+following still need **your** answer: A1, B1 to B7, and C1 and C2. Please treat
+this letter as a reminder of those, and as a further request for the following.
+
+### Part G — permits at Milnhay
+
+The site's new permit, EPR/MB3043KT, was applied for on 12 December 2024 and
+issued on 20 April 2026. The treatment works permit, T/61/45098/R, is shown on
+your register with a revocation date of 23 October 2026.
+
+**G1.** Between December 2024, when Milnhay stopped treating sewage, and 20 April
+2026, which permit did the Agency regard as governing the storm tanks at Milnhay?
+Against which overflow setting and storage volume was compliance assessed?
+
+**G2.** Why did the determination of EPR/MB3043KT take sixteen months? Why does
+T/61/45098/R remain in force until 23 October 2026?
+
+**G3.** EPR/MB3043KT requires at least 95% of flow readings during overflow to be
+at or above 92% of the limit, and no more than 14 consecutive days without good
+data. In 2025 the published figures were 75%, and 336 and 350 days. The permit in
+force in 2025 seems to contain no equivalent condition for the storm overflow.
+Did any condition apply to flow monitoring at Milnhay in 2025? If so, which, and
+how did the Agency assess compliance with it?
+
+**G4.** Severn Trent attribute an overflow in December 2025, made without the
+required flow being passed forward, to pump commissioning. Was this reported to
+the Agency? Was it assessed, and with what outcome?
+
+### Part H — Cornwood Meadows
+
+Severn Trent have told me that they are investigating whether the Cornwood
+Meadows pumping station still exists.
+
+**H1.** Was the Agency aware of that before this request? What will it do about a
+permit whose asset the holder cannot confirm exists?
+
+**H2.** How many other permits in the Erewash catchment have effluent type
+"Sewage in an Emergency", are held by Severn Trent, and were issued before 1990?
+Has the existence of their assets been checked?
+
+### Part J — river monitoring (adds to Part C)
+
+The introductory note to EPR/MB3043KT records that Severn Trent will carry out
+sonde water quality monitoring under an AMP8 river quality driver, with the data
+shared with the Agency's Analysis and Reporting Team.
+
+**J1.** Will that data be published, for example in the Water Quality Archive?
+Where will the sondes be, and from when?
+
+**J2.** Is it intended to take the place of the Agency's own sampling upstream of
+Milnhay (MD-45217950)? If not, will that sampling be resumed?
+
+---
+
+Yours faithfully,
+
+**[your name]**
+[your address]
+[your email]
+
+---
+
+## What to expect, and what to do with it
+
+**Do not ask for an internal review of EIR1416 yet.** Letter 1 asks again for
+the three things the response left out (B2's date, B5's substance, A4). That
+fixes them on the record. If the second answer still leaves them out, ask for an
+internal review. **The 40 working days for that run from receipt of the first
+response.** Note the date it arrived, so the window is not missed while waiting.
+
+**The Agency is the one to chase.** If no answer arrives within a week of Letter
+2, ask for an internal review on the ground that the deadline has passed. If that
+fails too, complain to the Information Commissioner.
+
+**Questions to watch:**
+
+- **E3(b) and E3(c).** If the pumping station exists and has no telemetry, nobody
+  can say whether the emergency outlet has ever been used.
+- **G1 and G3.** They ask whether 2025 was regulated at all. If the answer is that
+  no condition applied, the site page should say so plainly. It is a fact about
+  how the permit lagged the works, not an accusation.
+- **F5(b).** If an emergency spill would be counted as a storm spill, or not
+  counted at all, it affects how every future figure for this outfall is read.
+- **F7 and J1.** Sondes give a continuous record of what the river is doing. If
+  the data is published, it is the strongest source this site could have.
+
+**Do not run ahead of the answers.** B4 was answered well and was conceded in
+Letter 1. Being seen to accept a good answer is what makes the other questions
+hard to dismiss.
