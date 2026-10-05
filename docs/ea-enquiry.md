@@ -438,27 +438,81 @@ Yours faithfully,
 
 ---
 
-## Letter 2 — to the Environment Agency
+## Letter 2 — internal review request to the Environment Agency
 
-**Send:** now, as a reply to the original request so it keeps its reference. If
-the Agency's answer arrives first, cut the opening paragraph and send the rest.
+**Send:** now, as a reply to the original request, so it keeps the Agency's
+reference if one was given. Keep it to the failure to respond and nothing else,
+so there is nothing in it to argue about.
 
-**Subject:** EIR request — permit T/61/09188/O, Milnhay (Heanor), River Erewash —
-response outstanding, and further questions
+**Subject:** Request for internal review — EIR request of 2 September 2026,
+permit T/61/09188/O, Milnhay (Heanor), River Erewash — no response received
+
+---
+
+Dear Environment Agency,
+
+**I am requesting an internal review under regulation 11 of the Environmental
+Information Regulations 2004.**
+
+On 2 September 2026 I made a request for information to the Agency [reference,
+if one was given] in three parts: permit T/61/09188/O at Cornwood Meadows (Part
+A), flow monitoring at Milnhay (Heanor) works under permit T/61/45098/R (Part B),
+and river sampling on the Erewash (Part C).
+
+Regulation 5(2) requires a response as soon as possible and no later than 20
+working days after receipt. That period ended on **30 September 2026**. I have
+received no response, no notice that the period was being extended under
+regulation 7, and no refusal under regulation 14.
+
+The same questions were sent to Severn Trent Water, who have answered Parts A
+and B. They said they were addressing only the matters that relate to them.
+Their answer does not discharge the Agency's own duty to respond. Questions A1
+(why the permit remains on your register with no revocation date), B1 to B7, and
+C1 and C2 concern the Agency's register, the Agency's published data, the
+Agency's assessment of compliance and the Agency's own sampling. Only the Agency
+can answer them.
+
+Please:
+
+1. treat the failure to respond within the time limit as a breach of regulation
+   5(2);
+2. provide a full response to every question in my request of 2 September, or,
+   for any information withheld, a refusal notice stating the exception relied
+   on and the public interest test applied; and
+3. confirm when I can expect that response.
+
+I understand that regulation 11(4) requires the Agency to notify me of the
+outcome of this review within 40 working days. If the information has not been
+provided by then, I will refer the matter to the Information Commissioner under
+section 50 of the Freedom of Information Act 2000, as applied by regulation 18.
+
+Yours faithfully,
+
+**[your name]**
+[your address]
+[your email]
+
+---
+
+## Letter 3 — new request to the Environment Agency
+
+**Send:** as a separate email, after Letter 2. It is a new request with its own
+20 working days. Keeping it apart from the review means the review cannot be
+answered by pointing at these questions, nor these delayed by the review.
+
+**Subject:** EIR request — Milnhay (Heanor) permits, Cornwood Meadows PS, and
+river monitoring on the Erewash
 
 ---
 
 Dear Environment Agency,
 
 **This is a request for information under the Environmental Information
-Regulations 2004**, further to my request of 2 September 2026 about permit
-T/61/09188/O, flow monitoring at Milnhay (Heanor), and river sampling on the
-Erewash.
+Regulations 2004.**
 
-I have not yet had your response, which was due by 30 September. Severn Trent have answered Parts A and B, and
-said they were dealing only with the matters relating to them, so the
-following still need **your** answer: A1, B1 to B7, and C1 and C2. Please treat
-this letter as a reminder of those, and as a further request for the following.
+It follows my request of 2 September 2026, which is the subject of a separate
+request for internal review. Since I made it, Severn Trent have answered their
+part. Their answer, and the new permit for Milnhay, raise the questions below.
 
 ### Part G — permits at Milnhay
 
@@ -508,6 +562,7 @@ Where will the sondes be, and from when?
 **J2.** Is it intended to take the place of the Agency's own sampling upstream of
 Milnhay (MD-45217950)? If not, will that sampling be resumed?
 
+
 ---
 
 Yours faithfully,
@@ -526,15 +581,19 @@ fixes them on the record. If the second answer still leaves them out, ask for an
 internal review. **The 40 working days for that run from receipt of the first
 response.** Note the date it arrived, so the window is not missed while waiting.
 
-**The Agency is the one to chase.** If no answer arrives within a week of Letter
-2, ask for an internal review on the ground that the deadline has passed. If that
-fails too, complain to the Information Commissioner.
+**The Agency has had its chance.** Letter 2 asks for a review on the ground that
+the deadline passed on 30 September. The review must be decided within 40
+working days of the Agency receiving it. If it is ignored too, or the answer is
+inadequate, complain to the Information Commissioner at ico.org.uk/make-a-complaint.
+That is free, and a missed EIR deadline is the simplest kind of complaint they
+handle.
+
 
 **Questions to watch:**
 
 - **E3(b) and E3(c).** If the pumping station exists and has no telemetry, nobody
   can say whether the emergency outlet has ever been used.
-- **G1 and G3.** They ask whether 2025 was regulated at all. If the answer is that
+- **G1 and G3** (Letter 3). They ask whether 2025 was regulated at all. If the answer is that
   no condition applied, the site page should say so plainly. It is a fact about
   how the permit lagged the works, not an accusation.
 - **F5(b).** If an emergency spill would be counted as a storm spill, or not
