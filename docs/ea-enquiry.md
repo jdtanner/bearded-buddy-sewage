@@ -208,8 +208,8 @@ accusing anyone. That is what makes it hard to fob off.
 Severn Trent's EIR team answered Parts A and B, with reference **EIR1416**, and
 attached the Cornwood Meadows consent (filed here as
 `docs/cornwood-meadows-consent-1983.pdf`). They said they were answering only the
-parts that concern them. **The Environment Agency has not replied yet.** If the
-letter went on 3 September, its 20 working days ran out on 1 October.
+parts that concern them. **The Environment Agency has not replied yet.** The letter went on
+2 September, so its 20 working days ran out on **30 September**.
 
 The follow-up drafted earlier (questions D1 to D4) is replaced by what follows.
 Their answer, and the two permits it led to, settled D1 and D2 and changed what is
@@ -451,11 +451,11 @@ response outstanding, and further questions
 Dear Environment Agency,
 
 **This is a request for information under the Environmental Information
-Regulations 2004**, further to my request of [date sent] about permit
+Regulations 2004**, further to my request of 2 September 2026 about permit
 T/61/09188/O, flow monitoring at Milnhay (Heanor), and river sampling on the
 Erewash.
 
-I have not yet had your response. Severn Trent have answered Parts A and B, and
+I have not yet had your response, which was due by 30 September. Severn Trent have answered Parts A and B, and
 said they were dealing only with the matters relating to them, so the
 following still need **your** answer: A1, B1 to B7, and C1 and C2. Please treat
 this letter as a reminder of those, and as a further request for the following.
